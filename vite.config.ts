@@ -6,9 +6,8 @@ import {defineConfig, loadEnv} from 'vite';
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
   return {
-    // Jeśli wdrażasz na GitHub Pages pod adresem https://użytkownik.github.io/nazwa-repozytorium/,
-    // odkomentuj poniższą linię i wpisz nazwę swojego repozytorium:
-    // base: '/nazwa-repozytorium/',
+    // Ustawiamy base na nazwę Twojego repozytorium na GitHubie
+    base: '/piwnicapodzaba/',
     plugins: [react(), tailwindcss()],
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
