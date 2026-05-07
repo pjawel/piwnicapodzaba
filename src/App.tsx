@@ -3,16 +3,17 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Phone, Mail, MapPin, Facebook, Star, ChevronRight, Menu, X, ArrowRight } from 'lucide-react';
 
 const IMAGES = [
-  "https://scontent-waw2-2.xx.fbcdn.net/v/t39.30808-6/468665410_563372516479420_1889644510940369483_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_ohc=oqpy5CMoRQIQ7kNvwHb6_I5&_nc_oc=AdqnZlNa1nsWYU4Jn07RpGI5UMBaHmO0Sb6HMXqs3svPT0DJJkSVC96OEUDsG0RQftQ&_nc_zt=23&_nc_ht=scontent-waw2-2.xx&_nc_gid=iUnNoBj_njTTp7KcPiRBaw&_nc_ss=7a3a8&oh=00_Af3vf984lD0JarfqmZQaoRXzSR3k1MdZVu_P4ixqBXB1Iw&oe=69ED10D5",
-  "https://scontent-waw2-2.xx.fbcdn.net/v/t39.30808-6/589733421_825856316888655_8070473523243240539_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_ohc=nUM_5JOm6NkQ7kNvwGIe8na&_nc_oc=Ado4U1ux2HPmUcmQ5b-xbG66u73Najo2W35yNeVIRgQ22zu8c5ag7LGr1JfjqgmRpHs&_nc_zt=23&_nc_ht=scontent-waw2-2.xx&_nc_gid=IZQ1TOjB8X1HVNad6uttGA&_nc_ss=7a3a8&oh=00_Af0r9TNvb3p_3iW2DIsrR_MkhtXx_mBY5v0lzJhzb6aIuw&oe=69ED1452",
-  "https://scontent-waw2-1.xx.fbcdn.net/v/t39.30808-6/514269336_753317810809173_4295044411178589863_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_ohc=e-N6WHyFfd4Q7kNvwEuCmP3&_nc_oc=AdqYXy14tu1T11cX_jWl5crplNZw8gZYTM3yvILF1C0E9RL6Z03x-YpAsJQsCbrnC4Q&_nc_zt=23&_nc_ht=scontent-waw2-1.xx&_nc_gid=Sn6qc9rZa4uJWm2URY7b0Q&_nc_ss=7a3a8&oh=00_Af2q-Tsni9OetzSTZgpNv0k7CLCW_YoPAsAX4AJ_q6M5rg&oe=69ED2111",
-  "https://scontent-waw2-2.xx.fbcdn.net/v/t39.30808-6/514246592_753317854142502_849144483938408826_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=107&ccb=1-7&_nc_sid=7b2446&_nc_ohc=ANmSqcqyiKUQ7kNvwHG08jq&_nc_oc=AdpqmmnAMTntSKsNIRAynM5DblBUhvWgrID1umpCdfKBLIHp6_g5pwzw9U1farZyI-Y&_nc_zt=23&_nc_ht=scontent-waw2-2.xx&_nc_gid=dBJqxzIzvn2XRmzkD90o4w&_nc_ss=7a3a8&oh=00_Af1lGuwf0FMG3SEA5ySWjALhH1_G3zOgJUoEGNOZnR3P9Q&oe=69ED2C06",
-  "https://scontent-waw2-1.xx.fbcdn.net/v/t39.30808-6/484630408_626884500119172_2672933399851574068_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=109&ccb=1-7&_nc_sid=7b2446&_nc_ohc=zuBfr6PkPeAQ7kNvwHJDOSU&_nc_oc=Adp5B6MDKXug_lqLFhPyxPlcbcPvcAPmp4zRfdONS0NwPRsk6cHD-nti0fudWmtarv0&_nc_zt=23&_nc_ht=scontent-waw2-1.xx&_nc_gid=OIN_Mmy9a5M7HHsteZXDGQ&_nc_ss=7a3a8&oh=00_Af20HnnfQYcSAqv0kyr-0f5enyAGCa--XSk-MFfJrXpj9A&oe=69ED23C9",
-  "https://scontent-waw2-2.xx.fbcdn.net/v/t39.30808-6/484915059_626884763452479_4397594384738631584_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_ohc=7pkTM3PpGZQQ7kNvwEki2An&_nc_oc=Adr_kGLFCt4k8Lt-nNG7hfmo2YVA5sK-tgV5SrKFiVjFLREL6p1xkd7045dF5Dvpfg0&_nc_zt=23&_nc_ht=scontent-waw2-2.xx&_nc_gid=TZnHP3uL08UL6zLaHoNzfQ&_nc_ss=7a3a8&oh=00_Af05yc5SPBlmqtLWmUiOOzCBENac0p1vGGyRlBj0Lx0jBg&oe=69ED3387",
-  "https://scontent-waw2-1.xx.fbcdn.net/v/t39.30808-6/481984524_620613237412965_3757224654548367314_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=108&ccb=1-7&_nc_sid=7b2446&_nc_ohc=n6OaTwT9TPgQ7kNvwGsq827&_nc_oc=AdoJdlTmB0Nr3u4Ww9NTHRpttIMyFAPO77kmVzPwnbG6VRnrEWCrL1hkNygBTbJ9Gy4&_nc_zt=23&_nc_ht=scontent-waw2-1.xx&_nc_gid=bfIixTvTfZ1Hsmrso01cPA&_nc_ss=7a3a8&oh=00_Af1plE0HKP04cusZ-IS_yus1Ea4ENoESgH75zf2EZ8uQIg&oe=69ED1287",
+  "https://iili.io/BZtnTLx.md.jpg",
+  "https://iili.io/BZtnIXj.md.jpg",
+  "https://iili.io/BZtnzzb.md.jpg",
+  "https://iili.io/BZtnomu.md.jpg",
+  "https://iili.io/BZtnR1V.md.jpg",
+  "https://iili.io/BZtn5rB.md.jpg",
+  "https://iili.io/BZtnYdP.md.jpg",
+  "https://iili.io/BZtna71.md.jpg",
 ];
 
-const FAVICON_URL = "https://scontent-waw2-1.xx.fbcdn.net/v/t39.30808-6/305810058_123174803823480_1352926764801165696_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=oOXj9LZsOo4Q7kNvwHtwmyQ&_nc_oc=Adqi76Cb_Ws7uZVVx3pdaEEdCLro5fHw52LaBGJKJrPZMScgt7oToFye8XuEwBCgZj8&_nc_zt=23&_nc_ht=scontent-waw2-1.xx&_nc_gid=NlsmvDO9UDpY9X9AdXP99w&_nc_ss=7a3a8&oh=00_Af3wDsE7ZVF169ccHitYQXnOc66MBfbw1tPwtpYF6p62tQ&oe=69ED0B22";
+const FAVICON_URL = "https://iili.io/BZtxBDu.md.jpg";
 
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
