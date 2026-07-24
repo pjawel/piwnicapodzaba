@@ -1,0 +1,180 @@
+export const HERO_BG_IMAGE = "https://iili.io/BZtnTLx.md.jpg";
+export const FAVICON_URL = "https://iili.io/BZtxBDu.md.jpg";
+
+export const HIT_FIT_IMAGES = [
+  "https://i.ibb.co/3ydBbN6q/748053351-1351355719848331-3582808953670244386-n.jpg",
+  "https://i.ibb.co/mrcb3Djs/747604315-1328629419356913-6300706937470005266-n.jpg",
+  "https://i.ibb.co/0jrff1Qf/749566689-4778654262280331-3027406745886967985-n.jpg",
+  "https://i.ibb.co/Q3Tx3Wry/748882958-2098504604125706-1922363846901215558-n.jpg",
+  "https://i.ibb.co/VYd94j2F/749584516-1104095168955292-3791718564565212206-n.jpg",
+  "https://i.ibb.co/MykTgmJL/748873653-4477822422486951-7446793831884671688-n.jpg",
+  "https://i.ibb.co/0vrrKNV/748704621-1136932239513259-3228668441275445609-n.jpg",
+  "https://i.ibb.co/35zXrFZP/749084704-1559163965764287-6374877401561148210-n.jpg",
+];
+
+export const PIWNICA_IMAGES = [
+  "https://i.ibb.co/bjsW9bBy/747948488-1835884537775430-8972213394683085297-n.jpg",
+  "https://i.ibb.co/Z6sJQFRH/749419433-2218840642231347-4723894828034409893-n.jpg",
+  "https://i.ibb.co/0jYdX8BK/743817240-1767785077562059-2499098399191949383-n.jpg",
+  "https://i.ibb.co/Pz1vyyxZ/743951400-1971658320188428-3632248498370238845-n.jpg",
+  "https://i.ibb.co/1tnhPGcL/741678563-1992566538041743-9619820755050233-n.jpg",
+  "https://i.ibb.co/5Dj1X9c/744778805-1222355719997325-2507741409225776566-n.jpg",
+  "https://i.ibb.co/VYJ8CvXK/740787836-1952244932103108-341218635257434894-n.jpg",
+  "https://i.ibb.co/ZpnwhGTQ/741209560-1354610769386039-2583242829534478505-n.jpg",
+  "https://i.ibb.co/N2Dqm2D5/741324045-1547443580126256-8437019022665532899-n.jpg",
+  "https://i.ibb.co/8n6PWnQ8/743925014-1066189275836550-4446444446148029998-n.jpg",
+  "https://i.ibb.co/x8H0Nz84/741977745-1368745021873736-733236911908434544-n.jpg",
+  "https://i.ibb.co/ZRDnDG0Q/741901278-2193840601411245-8780785653740853428-n.jpg",
+  "https://i.ibb.co/2YtSBBd2/741099018-1983060082351204-8235530426664162084-n.jpg",
+  "https://i.ibb.co/1tzJybHj/740753666-3537977483032392-1353748280354197495-n.jpg",
+  "https://i.ibb.co/SDt5m9wD/740812295-1428028779380352-1399065978556110376-n.jpg",
+  "https://i.ibb.co/JjCF4nqw/744108840-2267388630778433-10237802994980974-n.jpg",
+  "https://i.ibb.co/SD1qqPd3/743452938-2459231701209831-651234288172839379-n.jpg",
+  "https://i.ibb.co/jZv3Y5Ly/741670182-1349157383852007-8978524283360350199-n.jpg",
+  "https://i.ibb.co/XfzzydG7/747217097-1081001117944088-1416936413712948214-n.jpg",
+  "https://i.ibb.co/d0mBRGfV/743145909-1969211677058308-4594081084281758588-n.jpg",
+  "https://i.ibb.co/CpbxcwD4/743730126-1658273458602893-199836934315398962-n.jpg",
+  "https://i.ibb.co/FbH0CykD/747062108-1767706510887215-2634625370697744264-n.jpg",
+  "https://i.ibb.co/ccwrvVtN/742977206-4435218630035197-2952306765451599839-n.jpg",
+  "https://i.ibb.co/xyqXZQp/740389506-1874253076867831-9070134218644320464-n.jpg",
+  "https://i.ibb.co/cSLHc99v/740917282-1194067366226652-3105671616909962310-n.jpg",
+  "https://i.ibb.co/qLBS2KZp/743951400-1683827416183583-4113060492890427618-n.jpg",
+  "https://i.ibb.co/fYvwQwHc/742770721-2057250718213854-3099565702627781276-n.jpg",
+  "https://i.ibb.co/7tSpWLd5/742770716-2049792012412234-4985846333222237003-n.jpg",
+  "https://i.ibb.co/j9rJBH75/741820474-862810539918740-1664396627444929900-n.jpg",
+  "https://i.ibb.co/LDww5ScX/743673408-27552144744438762-3077105369716177686-n.jpg",
+  "https://i.ibb.co/RGXS00vj/743762986-1575910967432292-3002468877023230436-n.jpg",
+  "https://i.ibb.co/sJwNFbbJ/745810313-1590667679434371-5133960926125509804-n.jpg",
+  "https://i.ibb.co/SDF80wSs/743841039-27998903259705138-7035830239858693453-n.jpg",
+  "https://i.ibb.co/SXVX2b4P/742129397-1613175303562033-1203355516151290222-n.jpg",
+  "https://i.ibb.co/3m2g2zTd/743673398-958551990575176-7049602818071088865-n.jpg",
+  "https://i.ibb.co/R4hDsFzF/742283973-2347583375774289-6843846632729905495-n.jpg",
+  "https://i.ibb.co/M5g5Wk8B/741099018-2323248351775672-2463882551029636438-n.jpg",
+  "https://i.ibb.co/RTSxV5ns/744055464-2555463121568356-1597911103778100258-n.jpg",
+  "https://i.ibb.co/8gRRQ3Jp/741940424-1632851388841271-3928674984401658826-n.jpg",
+  "https://i.ibb.co/h1TSmZ4V/740787826-2011332776416179-3767600829402191283-n.jpg",
+  "https://i.ibb.co/1Y0GPZQK/742737101-1366230238917425-9041496624320445239-n.jpg",
+  "https://i.ibb.co/d4P3FRNP/743131921-1034466872312246-3287566174959268340-n.jpg",
+  "https://i.ibb.co/YFZq6ZH3/741678563-1552703609849424-3590508029285565311-n.jpg",
+  "https://i.ibb.co/1YP51G1s/741509895-1020496650957481-9022733610277647475-n.jpg",
+  "https://i.ibb.co/3YSVzsKW/741606412-27597602563183759-8779855109009182003-n.jpg",
+  "https://i.ibb.co/LDjTr7qn/741719520-1174542055751164-3092011520399606038-n.jpg",
+  "https://i.ibb.co/6c560DYr/744055464-856199394007308-1470820507439025736-n.jpg",
+  "https://i.ibb.co/FLzc8Mbn/744390676-1563449588689631-8429045062025952933-n.jpg",
+  "https://i.ibb.co/4RQ48JVN/740769625-27542567582101632-3982803315589403126-n.jpg",
+  "https://i.ibb.co/Kpkc3PLd/741977745-1681348193994866-7492481538792825482-n.jpg",
+  "https://i.ibb.co/qTfSjJy/747468350-1348536886749716-4859683152250565274-n.jpg",
+  "https://i.ibb.co/jPpcwvWJ/742594793-1349490613356612-3869694489798488427-n.jpg",
+  "https://i.ibb.co/gLpc6c2J/741214701-2299175627558123-7145746678759384796-n.jpg",
+  "https://i.ibb.co/twqwjw8X/741820457-1415881170391720-261346226938221104-n.jpg",
+  "https://i.ibb.co/V0m17wFL/745714365-4789024064711697-1944800336683025547-n.jpg",
+  "https://i.ibb.co/WpRx3dR9/745660174-1033552702483337-8512461771752779758-n.jpg",
+  "https://i.ibb.co/chRwysRq/746067310-1347867790779130-2184694012524134400-n.jpg",
+  "https://i.ibb.co/vvRMknnD/740712054-2105969473596657-8787418171065711544-n.jpg",
+  "https://i.ibb.co/mVWz66ct/742059330-1560398515454680-5845116863839878958-n.jpg",
+  "https://i.ibb.co/rKJzpDzL/743361494-3272516406246251-1455449905783052986-n.jpg",
+  "https://i.ibb.co/whrDVjNS/746908684-924004237371646-2925351978786091472-n.jpg",
+  "https://i.ibb.co/h1YY5ZHD/744953193-27448580994827081-261014646798930228-n.jpg",
+  "https://i.ibb.co/5XTpZ2yN/743467228-1754526889065723-463240069367618074-n.jpg",
+  "https://i.ibb.co/BK53sWQX/742895374-2090822308469391-6235784474555647590-n.jpg",
+];
+
+export const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=100028486736867";
+export const FACEBOOK_REVIEWS_URL = "https://www.facebook.com/profile.php?id=100028486736867&sk=reviews";
+
+export const DRONE_VIDEO_URL = "https://github.com/przemekszcz7/filmy/releases/download/j/dron.mp4";
+export const PREPARATION_VIDEO_URL = "https://github.com/przemekszcz7/filmy/releases/download/j/AQPKV8LoCGcdtSHzfWNjIVKlMrGAUOQ42G06ZfFKYpAZD5n_9GeWznPBM9sp1awx80p0MOD-UnqwfhfW_Ki9FE4XYX_3olOVlQs.mp4";
+export const PIWNICA_VIDEO_URL = "https://github.com/przemekszcz7/filmy/releases/download/j/AQMAnaTBgYyJC1Bp5RhVjenySjeGfCs-xvNf5IwZPaGzyajHtz0xYD7teWP2XerdItBZZZ7C2QGnymBQ8gKN3JnuFcN4qX5Nc9c.mp4";
+
+export interface FacebookReview {
+  id: number;
+  author: string;
+  rating: number;
+  text: string;
+  date?: string;
+}
+
+export const FACEBOOK_REVIEWS: FacebookReview[] = [
+  {
+    id: 1,
+    author: "Klientka Facebook",
+    rating: 5,
+    text: "Polecam Piwnicę pod Żaba, wynajmowałam tam lokal na imprezę, bardzo dobra współpraca z właścicielami."
+  },
+  {
+    id: 2,
+    author: "Zadowolony Gość",
+    rating: 5,
+    text: "Jesteśmy bardzo zadowoleni z organizacji przyjęcia okolicznościowego. Jedzonko pyszne. Polecam 😊"
+  },
+  {
+    id: 3,
+    author: "Organizator Przyjęcia",
+    rating: 5,
+    text: "Pyszne jedzenie, znakomita organizacja i świetny kontakt z właścicielem. Polecam!"
+  }
+];
+
+export interface Venue {
+  id: string;
+  name: string;
+  tagline: string;
+  capacity: string;
+  description: string;
+  features: string[];
+  events: string[];
+  images: string[];
+  coverImage: string;
+  color: string;
+}
+
+export const VENUES: Venue[] = [
+  {
+    id: 'hit-fit',
+    name: 'Hit Fit',
+    tagline: 'Nowoczesna sala bankietowa do 90 osób',
+    capacity: 'Do 90 osób',
+    description: 'Zapraszamy do naszej sali bankietowej dla 90 osób! Oferujemy wyśmienitą kuchnię, eleganckie wnętrza oraz przestronny taras, duży grill i bezpłatny parking. Zadbamy o pyszne menu i wyjątkową atmosferę.',
+    features: [
+      'Pojemność do 90 osób',
+      'Wyśmienita autorska kuchnia',
+      'Eleganckie, nowoczesne wnętrza',
+      'Przestronny taras & duży grill',
+      'Bezpłatny parking dla gości'
+    ],
+    events: [
+      'Urodziny i jubileusze',
+      'Wesela i rocznice',
+      'Chrzciny i komunie',
+      'Imprezy firmowe',
+      'Przyjęcia okolicznościowe'
+    ],
+    images: HIT_FIT_IMAGES,
+    coverImage: HIT_FIT_IMAGES[0],
+    color: 'emerald'
+  },
+  {
+    id: 'piwnica-pod-zaba',
+    name: 'Piwnica pod Żabą',
+    tagline: 'Klimatyczna i elegancka sala bankietowa w Lubinie',
+    capacity: 'Idealna na kameralne i huczne przyjęcia',
+    description: 'Piwnica pod Żabą to wyjątkowe miejsce o niepowtarzalnym klimacie. Łączymy tradycję z elegancją, zapewniając domową oprawę kulinarną, estetyczne aranżacje stołów oraz kompleksową obsługę każdego przyjęcia.',
+    features: [
+      'Unikalny, ciepły klimat wnętrz',
+      'Indywidualne podejście do menu',
+      'Kompleksowa obsługa kelnerska',
+      'Dogodna lokalizacja w Lubinie',
+      'Klimatyzowana sala'
+    ],
+    events: [
+      'Wesela i przyjęcia weselne',
+      'Komunie i chrzciny',
+      'Jubileusze i urodziny',
+      'Spotkania integracyjne & firmowe',
+      'Inne wydarzenia rodzinne'
+    ],
+    images: PIWNICA_IMAGES,
+    coverImage: PIWNICA_IMAGES[0],
+    color: 'amber'
+  }
+];
