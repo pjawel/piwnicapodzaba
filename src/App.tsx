@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Phone, Mail, MapPin, Facebook, Star, ChevronRight, Menu, X, ArrowRight,
@@ -12,6 +12,70 @@ import {
   MENU_WELCOME_TITLE, MENU_WELCOME_TEXT, MENU_WELCOME_SUBTEXT, MENU_CATEGORIES
 } from './data';
 
+function LazyVideo({ 
+  src, 
+  poster, 
+  title, 
+  className = "w-full h-auto max-h-[500px] object-cover" 
+}: { 
+  src: string; 
+  poster?: string; 
+  title?: string; 
+  className?: string; 
+}) {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  if (isPlaying) {
+    return (
+      <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black border border-white/15">
+        <video 
+          src={src} 
+          controls 
+          autoPlay 
+          playsInline
+          className={className}
+        >
+          Twoja przeglądarka nie obsługuje wideo.
+        </video>
+      </div>
+    );
+  }
+
+  return (
+    <div 
+      onClick={() => setIsPlaying(true)}
+      className="relative rounded-2xl overflow-hidden shadow-xl bg-black border border-white/15 cursor-pointer group flex items-center justify-center transition-all duration-300 hover:border-gold/60"
+    >
+      {poster ? (
+        <img 
+          src={poster} 
+          alt={title || "Odtwórz wideo"} 
+          className="w-full h-auto max-h-[500px] object-cover opacity-80 group-hover:opacity-95 group-hover:scale-105 transition-all duration-500"
+          loading="lazy"
+          decoding="async"
+        />
+      ) : (
+        <div className="w-full h-64 sm:h-80 bg-gradient-to-br from-gray-900 via-gray-800 to-black flex items-center justify-center" />
+      )}
+      
+      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gold/90 group-hover:bg-gold text-white flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform border-2 border-white/40 backdrop-blur-sm">
+          <Play size={32} className="ml-1 fill-white text-white" />
+        </div>
+      </div>
+
+      <div className="absolute bottom-4 left-4 right-4 bg-black/75 backdrop-blur-md px-4 py-2.5 rounded-xl text-xs sm:text-sm text-white/90 font-medium border border-white/10 flex items-center justify-between">
+        <span className="flex items-center gap-2 truncate">
+          <Film size={16} className="text-gold shrink-0" /> <span className="truncate">{title || "Kliknij, aby odtworzyć wideo"}</span>
+        </span>
+        <span className="text-[11px] bg-gold/30 text-gold-light px-2.5 py-1 rounded-full uppercase font-bold tracking-wider shrink-0 ml-2">
+          Odtwórz
+        </span>
+      </div>
+    </div>
+  );
+}
+
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,29 +87,37 @@ export default function App() {
   const [menuSearchQuery, setMenuSearchQuery] = useState<string>('');
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Filtered gallery items
-  const galleryItems = (() => {
+  // Filtered gallery items memoized for performance
+  const galleryItems = useMemo(() => {
     if (activeGalleryTab === 'hit-fit') {
       return HIT_FIT_IMAGES.map((src) => ({ src, venue: 'Hit Fit' }));
     }
     if (activeGalleryTab === 'piwnica') {
       return PIWNICA_IMAGES.map((src) => ({ src, venue: 'Piwnica pod Żabą' }));
     }
-    // All photos
     return [
       ...HIT_FIT_IMAGES.map((src) => ({ src, venue: 'Hit Fit' })),
       ...PIWNICA_IMAGES.map((src) => ({ src, venue: 'Piwnica pod Żabą' }))
     ];
-  })();
+  }, [activeGalleryTab]);
 
-  const currentVisiblePhotos = galleryItems.slice(0, visiblePhotosCount);
+  const currentVisiblePhotos = useMemo(() => {
+    return galleryItems.slice(0, visiblePhotosCount);
+  }, [galleryItems, visiblePhotosCount]);
 
   // Keyboard controls for Lightbox
   useEffect(() => {
@@ -177,6 +249,8 @@ export default function App() {
             src={HERO_BG_IMAGE} 
             alt="Hero Background" 
             className="w-full h-full object-cover scale-105"
+            loading="eager"
+            decoding="async"
             referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/40" />
@@ -423,6 +497,8 @@ export default function App() {
                       src={img} 
                       alt={`Hit Fit ${idx + 1}`}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
+                      decoding="async"
                       referrerPolicy="no-referrer"
                     />
                     <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
@@ -452,6 +528,8 @@ export default function App() {
                       src={img} 
                       alt={`Piwnica pod Żabą ${idx + 1}`}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
+                      decoding="async"
                       referrerPolicy="no-referrer"
                     />
                     <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
@@ -509,18 +587,12 @@ export default function App() {
                   <div className="flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-widest mb-3">
                     <Video size={16} /> Zobacz wideo z lokalu Piwnica pod Żabą
                   </div>
-                  <div className="relative rounded-2xl overflow-hidden shadow-md bg-black border border-amber-200/50">
-                    <video 
-                      src={PIWNICA_VIDEO_URL} 
-                      controls 
-                      playsInline
-                      preload="metadata"
-                      className="w-full h-auto max-h-[400px] object-cover"
-                      poster={PIWNICA_IMAGES[0]}
-                    >
-                      Twoja przeglądarka nie obsługuje odtwarzacza wideo.
-                    </video>
-                  </div>
+                  <LazyVideo 
+                    src={PIWNICA_VIDEO_URL}
+                    poster={PIWNICA_IMAGES[0]}
+                    title="Prezentacja wideo lokalu Piwnica pod Żabą"
+                    className="w-full h-auto max-h-[400px] object-cover"
+                  />
                 </div>
               </div>
             </div>
@@ -845,17 +917,12 @@ export default function App() {
             </div>
 
             <div className="lg:col-span-7">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/15 bg-black">
-                <video 
-                  src={DRONE_VIDEO_URL} 
-                  controls 
-                  playsInline
-                  preload="metadata"
-                  className="w-full h-auto max-h-[500px] object-cover"
-                >
-                  Twoja przeglądarka nie obsługuje wideo.
-                </video>
-              </div>
+              <LazyVideo 
+                src={DRONE_VIDEO_URL}
+                poster={HIT_FIT_IMAGES[0]}
+                title="Nasze Lokale z Lotu Ptaka - Nagranie z Drona"
+                className="w-full h-auto max-h-[500px] object-cover"
+              />
             </div>
           </motion.div>
 
@@ -869,17 +936,12 @@ export default function App() {
             className="grid lg:grid-cols-12 gap-8 items-center"
           >
             <div className="lg:col-span-7 order-2 lg:order-1">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/15 bg-black">
-                <video 
-                  src={PREPARATION_VIDEO_URL} 
-                  controls 
-                  playsInline
-                  preload="metadata"
-                  className="w-full h-auto max-h-[500px] object-cover"
-                >
-                  Twoja przeglądarka nie obsługuje wideo.
-                </video>
-              </div>
+              <LazyVideo 
+                src={PREPARATION_VIDEO_URL}
+                poster={PIWNICA_IMAGES[1] || HIT_FIT_IMAGES[1]}
+                title="Proces Przygotowania do Przyjęcia"
+                className="w-full h-auto max-h-[500px] object-cover"
+              />
             </div>
 
             <div className="lg:col-span-5 order-1 lg:order-2 space-y-5">
@@ -977,6 +1039,7 @@ export default function App() {
                   alt={`Zdjęcie ${idx + 1}`}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
+                  decoding="async"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-between p-4 text-white">
