@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Phone, Mail, MapPin, Facebook, Star, ChevronRight, Menu, X, ArrowRight,
-  Users, Utensils, Car, TreePine, Flame, Sparkles, ChevronLeft, Maximize2, Filter, Quote, Video, Play, Film
+  Users, Utensils, Car, TreePine, Flame, Sparkles, ChevronLeft, Maximize2, Filter, Quote, Video, Play, Film,
+  ChefHat, Wine, Coffee, GlassWater, CheckCircle2, Search, HeartHandshake, Info
 } from 'lucide-react';
 import { 
   HERO_BG_IMAGE, FAVICON_URL, VENUES, HIT_FIT_IMAGES, PIWNICA_IMAGES, 
   FACEBOOK_URL, FACEBOOK_REVIEWS_URL, FACEBOOK_REVIEWS,
-  DRONE_VIDEO_URL, PREPARATION_VIDEO_URL, PIWNICA_VIDEO_URL
+  DRONE_VIDEO_URL, PREPARATION_VIDEO_URL, PIWNICA_VIDEO_URL,
+  MENU_WELCOME_TITLE, MENU_WELCOME_TEXT, MENU_WELCOME_SUBTEXT, MENU_CATEGORIES
 } from './data';
 
 export default function App() {
@@ -16,6 +18,9 @@ export default function App() {
   const [activeGalleryTab, setActiveGalleryTab] = useState<'all' | 'hit-fit' | 'piwnica'>('all');
   const [visiblePhotosCount, setVisiblePhotosCount] = useState(16);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+
+  const [activeMenuCategory, setActiveMenuCategory] = useState<string>('obiad');
+  const [menuSearchQuery, setMenuSearchQuery] = useState<string>('');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,6 +66,7 @@ export default function App() {
   const navLinks = [
     { name: 'O nas', href: '#o-nas' },
     { name: 'Nasze Lokale', href: '#lokale' },
+    { name: 'Oferta i Menu', href: '#oferta' },
     { name: 'Prezentacje Wideo', href: '#wideo' },
     { name: 'Galeria', href: '#galeria' },
     { name: 'Kontakt', href: '#kontakt' },
@@ -518,6 +524,295 @@ export default function App() {
                 </div>
               </div>
             </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Menu & Offer Section */}
+      <section id="oferta" className="py-20 md:py-28 bg-gradient-to-b from-amber-50/50 via-white to-amber-50/30 scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-12">
+          
+          {/* Header */}
+          <div className="text-center max-w-3xl mx-auto space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold/15 text-gold-dark border border-gold/30 text-xs font-bold uppercase tracking-widest">
+              <ChefHat size={16} /> Bogata Oferta Bankietowa
+            </div>
+            <h2 className="text-3xl md:text-5xl font-serif font-bold text-gray-900 leading-tight">
+              Oferta i Menu okolicznościowe
+            </h2>
+            <p className="text-gray-600 text-base md:text-lg font-light leading-relaxed">
+              Poznaj nasze propozycje dań obiadowych, przekąsek, wykwintnych słodkości oraz gorących kolacji dostępnych w sali <strong className="font-semibold text-gray-900">Hit Fit</strong> i <strong className="font-semibold text-gray-900">Piwnica pod Żabą</strong>.
+            </p>
+          </div>
+
+          {/* Welcome Card requested by User */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-amber-700 via-gold-dark to-amber-600 rounded-3xl p-8 md:p-10 text-white shadow-2xl relative overflow-hidden"
+          >
+            <div className="absolute top-0 right-0 translate-x-12 -translate-y-12 opacity-10 pointer-events-none">
+              <ChefHat size={320} />
+            </div>
+
+            <div className="relative z-10 max-w-4xl space-y-4">
+              <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-amber-100 border border-white/20">
+                <HeartHandshake size={14} /> Wiadomość od Właścicieli
+              </div>
+
+              <h3 className="text-2xl md:text-4xl font-serif font-bold tracking-tight">
+                {MENU_WELCOME_TITLE}
+              </h3>
+
+              <p className="text-lg md:text-xl font-serif leading-relaxed text-amber-50 italic">
+                "{MENU_WELCOME_TEXT}"
+              </p>
+
+              <p className="text-sm md:text-base text-amber-100 font-light">
+                {MENU_WELCOME_SUBTEXT}
+              </p>
+
+              <div className="pt-3 flex flex-wrap items-center justify-between gap-4 border-t border-white/20 text-xs sm:text-sm text-amber-100">
+                <span className="font-semibold tracking-wide">
+                  Dla Gości sali <strong className="text-white">Hit Fit</strong> oraz <strong className="text-white">Piwnica pod Żabą</strong>
+                </span>
+                <span className="bg-white/20 px-3 py-1 rounded-full font-medium text-white">
+                  Możliwość pełnej personalizacji menu
+                </span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Key Organizational Perks */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-white rounded-2xl p-6 shadow-md border border-amber-100/80 flex gap-4 items-start">
+              <div className="w-12 h-12 rounded-2xl bg-amber-50 text-gold flex items-center justify-center shrink-0 border border-amber-200/50">
+                <Coffee size={24} />
+              </div>
+              <div className="space-y-1">
+                <h4 className="font-bold text-gray-900 text-base">Napoje bez ograniczeń</h4>
+                <p className="text-gray-600 text-xs leading-relaxed">
+                  Kawa, herbata, woda i soki serwowane bez limitu czasowego przez cały czas trwania przyjęcia.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 shadow-md border border-amber-100/80 flex gap-4 items-start">
+              <div className="w-12 h-12 rounded-2xl bg-amber-50 text-gold flex items-center justify-center shrink-0 border border-amber-200/50">
+                <Wine size={24} />
+              </div>
+              <div className="space-y-1">
+                <h4 className="font-bold text-gray-900 text-base">Własny alkohol (brak korkowego)</h4>
+                <p className="text-gray-600 text-xs leading-relaxed">
+                  Możliwość przyniesienia własnego alkoholu &gt;18% bez opłat korkowego przy zakupie 10x 1L Coca-Coli w lokalu.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 shadow-md border border-amber-100/80 flex gap-4 items-start sm:col-span-2 lg:col-span-1">
+              <div className="w-12 h-12 rounded-2xl bg-amber-50 text-gold flex items-center justify-center shrink-0 border border-amber-200/50">
+                <Sparkles size={24} />
+              </div>
+              <div className="space-y-1">
+                <h4 className="font-bold text-gray-900 text-base">Słodkości & Desery</h4>
+                <p className="text-gray-600 text-xs leading-relaxed">
+                  Możliwość zamówienia domowych wypieków (sernik, szarlotka, zielony mech, Raffaello) podawanych na ciepło z lodami.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Category Selector Tabs & Search Filter */}
+          <div className="space-y-6 pt-4">
+            <div className="flex flex-col md:flex-row gap-4 items-center justify-between border-b border-gray-200 pb-4">
+              
+              {/* Tabs */}
+              <div className="flex flex-wrap gap-2 w-full md:w-auto">
+                {MENU_CATEGORIES.map((cat) => (
+                  <button
+                    key={cat.id}
+                    onClick={() => {
+                      setActiveMenuCategory(cat.id);
+                      setMenuSearchQuery('');
+                    }}
+                    className={`px-5 py-2.5 rounded-xl font-medium text-sm transition-all flex items-center gap-2 ${
+                      activeMenuCategory === cat.id && !menuSearchQuery
+                        ? 'bg-gold text-white shadow-md font-bold'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    <span>{cat.title}</span>
+                    {cat.badge && (
+                      <span className={`text-[10px] px-2 py-0.5 rounded-full font-semibold ${
+                        activeMenuCategory === cat.id && !menuSearchQuery
+                          ? 'bg-white/20 text-white'
+                          : 'bg-amber-100 text-amber-800'
+                      }`}>
+                        {cat.badge}
+                      </span>
+                    )}
+                  </button>
+                ))}
+              </div>
+
+              {/* Search Bar */}
+              <div className="relative w-full md:w-72">
+                <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
+                <input
+                  type="text"
+                  placeholder="Szukaj dania (np. schab, barszcz)..."
+                  value={menuSearchQuery}
+                  onChange={(e) => setMenuSearchQuery(e.target.value)}
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-gold bg-white"
+                />
+                {menuSearchQuery && (
+                  <button 
+                    onClick={() => setMenuSearchQuery('')}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-gray-400 hover:text-gray-600 bg-gray-100 px-1.5 py-0.5 rounded"
+                  >
+                    Wyczyść
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Menu Content Display */}
+            {menuSearchQuery ? (
+              /* Search Mode */
+              <div className="space-y-6">
+                <div className="text-sm text-gray-600">
+                  Wyniki wyszukiwania dla: <strong className="text-gray-900">"{menuSearchQuery}"</strong>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  {MENU_CATEGORIES.map((cat) => {
+                    const matchingDirectItems = (cat.items || []).filter(item => 
+                      item.toLowerCase().includes(menuSearchQuery.toLowerCase())
+                    );
+
+                    const matchingSubsections = (cat.subsections || []).map(sub => ({
+                      ...sub,
+                      items: sub.items.filter(item => item.toLowerCase().includes(menuSearchQuery.toLowerCase()))
+                    })).filter(sub => sub.items.length > 0);
+
+                    if (matchingDirectItems.length === 0 && matchingSubsections.length === 0) return null;
+
+                    return (
+                      <div key={cat.id} className="bg-white rounded-2xl p-6 shadow-md border border-gray-200 space-y-4">
+                        <div className="flex items-center justify-between border-b pb-3 border-gray-100">
+                          <h4 className="font-serif font-bold text-gray-900 text-lg">{cat.title}</h4>
+                          <span className="text-xs bg-amber-100 text-amber-800 font-semibold px-2.5 py-1 rounded-full">
+                            {cat.badge}
+                          </span>
+                        </div>
+
+                        {matchingDirectItems.length > 0 && (
+                          <ul className="space-y-2">
+                            {matchingDirectItems.map((item, i) => (
+                              <li key={i} className="flex items-start gap-2 text-sm text-gray-800">
+                                <CheckCircle2 size={16} className="text-gold shrink-0 mt-0.5" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+
+                        {matchingSubsections.map((sub, idx) => (
+                          <div key={idx} className="space-y-2 pt-2">
+                            <div className="text-xs font-bold uppercase tracking-wider text-amber-800">
+                              {sub.subtitle}
+                            </div>
+                            <ul className="space-y-2">
+                              {sub.items.map((item, i) => (
+                                <li key={i} className="flex items-start gap-2 text-sm text-gray-800">
+                                  <CheckCircle2 size={16} className="text-gold shrink-0 mt-0.5" />
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ) : (
+              /* Tab Category Display */
+              <div>
+                {MENU_CATEGORIES.filter(cat => cat.id === activeMenuCategory).map((category) => (
+                  <motion.div 
+                    key={category.id}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="space-y-8"
+                  >
+                    {category.note && (
+                      <div className="bg-amber-50/80 border border-amber-200/70 rounded-2xl p-4 flex items-center gap-3 text-amber-900 text-sm">
+                        <Info size={18} className="text-gold shrink-0" />
+                        <span>{category.note}</span>
+                      </div>
+                    )}
+
+                    {/* Subsections (e.g. Obiad, Zimne Przekąski, Premium, Napoje) */}
+                    {category.subsections && (
+                      <div className="grid md:grid-cols-2 gap-6">
+                        {category.subsections.map((sub, idx) => (
+                          <div 
+                            key={idx} 
+                            className="bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-gray-100 hover:border-amber-200/80 transition-all flex flex-col justify-between"
+                          >
+                            <div className="space-y-4">
+                              <div className="border-b border-gray-100 pb-3 flex items-center justify-between">
+                                <h4 className="font-serif font-bold text-xl text-gray-900">
+                                  {sub.subtitle}
+                                </h4>
+                                {sub.note && (
+                                  <span className="text-xs bg-amber-100 text-amber-800 font-semibold px-2.5 py-1 rounded-full">
+                                    {sub.note}
+                                  </span>
+                                )}
+                              </div>
+
+                              <ul className="space-y-2.5">
+                                {sub.items.map((item, i) => (
+                                  <li key={i} className="flex items-start gap-3 text-sm text-gray-700 leading-relaxed">
+                                    <CheckCircle2 size={16} className="text-gold shrink-0 mt-1" />
+                                    <span>{item}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Direct Items Grid (e.g. Gorące Kolacje 14 propozycji) */}
+                    {category.items && (
+                      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {category.items.map((item, idx) => (
+                          <div 
+                            key={idx}
+                            className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:shadow-md hover:border-gold/50 transition-all flex items-start gap-3"
+                          >
+                            <div className="w-8 h-8 rounded-xl bg-amber-100 text-amber-900 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                              {idx + 1}
+                            </div>
+                            <p className="text-sm font-medium text-gray-800 leading-snug">
+                              {item.replace(/^\d+\.\s*/, '')}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+            )}
           </div>
 
         </div>
