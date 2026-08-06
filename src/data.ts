@@ -86,6 +86,275 @@ export const DRONE_VIDEO_URL = "https://github.com/przemekszcz7/filmy/releases/d
 export const PREPARATION_VIDEO_URL = "https://github.com/przemekszcz7/filmy/releases/download/j/AQPKV8LoCGcdtSHzfWNjIVKlMrGAUOQ42G06ZfFKYpAZD5n_9GeWznPBM9sp1awx80p0MOD-UnqwfhfW_Ki9FE4XYX_3olOVlQs.mp4";
 export const PIWNICA_VIDEO_URL = "https://github.com/przemekszcz7/filmy/releases/download/j/AQMAnaTBgYyJC1Bp5RhVjenySjeGfCs-xvNf5IwZPaGzyajHtz0xYD7teWP2XerdItBZZZ7C2QGnymBQ8gKN3JnuFcN4qX5Nc9c.mp4";
 
+export const MENU_WELCOME_TITLE = "Drodzy Goście,";
+export const MENU_WELCOME_TEXT = "Dołożymy wszelkich starań pod względem jakości, staranności, dobrych produktów, oprawy stołu i miłej fachowej obsługi, aby Wasze przyjęcie było niezapomnianą, smaczną uroczystością.";
+export const MENU_WELCOME_SUBTEXT = "Zapraszamy do zapoznania się z bogatą ofertą dla HiT FiT oraz Piwnicy pod Żabą, którą możecie Państwo elastycznie dopasować do swoich oczekiwań.";
+
+export interface MenuItemCategory {
+  id: string;
+  title: string;
+  badge?: string;
+  note?: string;
+  items?: string[];
+  subsections?: {
+    subtitle: string;
+    note?: string;
+    items: string[];
+  }[];
+}
+
+export const MENU_CATEGORIES: MenuItemCategory[] = [
+  {
+    id: "obiad",
+    title: "Obiad Bankietowy",
+    badge: "Dania Główne",
+    note: "Skomponuj własny obiad wybierając zupy, mięsa, dodatki oraz surówki",
+    subsections: [
+      {
+        subtitle: "Zupy (do wyboru)",
+        items: [
+          "Rosół z makaronem",
+          "Krem z pomidorów",
+          "Krem chrzanowy z chipsem boczkowym",
+          "Żurek z jajkiem",
+          "Cappuccino pieczarkowe",
+          "Krem z pieczonego buraka",
+          "Krem z białych warzyw z migdałami prażonymi",
+          "Krem dwusmakowy"
+        ]
+      },
+      {
+        subtitle: "Dania Mięsne",
+        note: "3-4 rodzaje mięs do wyboru",
+        items: [
+          "Kotlet schabowy tradycyjny",
+          "Schab na zielono",
+          "Schabowy królewski",
+          "Schabowy z camembertem i żurawiną szwajcar",
+          "Schab po cygańsku",
+          "Karczek zapiekany z warzywami i serem",
+          "Stek z cebulką",
+          "Rolada wieprzowa w aksamitnym sosie",
+          "Sztuka mięsa w sosie (karczek)",
+          "Rolada schabowa z grzybami pieczona",
+          "Kotlet drobiowy De Volaille",
+          "Filet po hawajsku z ananasem",
+          "Filet po parysku",
+          "Filet drobiowy w serowej panierce",
+          "Roladka drobiowa ze szpinakiem",
+          "Udko pieczone na złocisto",
+          "Udko faszerowane pieczarkami",
+          "Rolada drobiowa z serem i papryką"
+        ]
+      },
+      {
+        subtitle: "Dodatki Skrobiowe",
+        note: "2 rodzaje do wyboru",
+        items: [
+          "Ziemniaki puree z koperkiem",
+          "Ziemniaki pieczone z ziołami",
+          "Kluski śląskie",
+          "Kopytka tradycyjne",
+          "Chrupiące frytki",
+          "Krokiety ziemniaczane"
+        ]
+      },
+      {
+        subtitle: "Zestaw Surówek",
+        note: "3 surówki do wyboru",
+        items: [
+          "Buraczki tradycyjne",
+          "Buraczki zasmażane na ciepło",
+          "Marchewka z jabłkiem",
+          "Marchewka z sezamem i pomarańczami",
+          "Kapusta biała",
+          "Chrupiący Coleslaw",
+          "Kapusta kiszona",
+          "Kapusta czerwona",
+          "Kapusta czerwona na gorąco",
+          "Kapusta pekińska z pomidorami",
+          "Sałatka z ogórków na ostro",
+          "Seler z orzechami i rodzynkami",
+          "Marchewka z groszkiem",
+          "Por z jabłkiem",
+          "Por z ananasem",
+          "Mizeria ze śmietaną",
+          "Mix sałat z autorskim sosem vinaigrette"
+        ]
+      }
+    ]
+  },
+  {
+    id: "przekaski",
+    title: "Zimne Przekąski i Przystawki",
+    badge: "Zimny Stół",
+    subsections: [
+      {
+        subtitle: "Mięsa Pieczone i Wędliny",
+        items: [
+          "Schab ze śliwką pieczony",
+          "Karczek faszerowany ziołami",
+          "Sztufada z szynki nabijana słoniną",
+          "Boczek faszerowany",
+          "Rolada drobiowa z krewetkami",
+          "Rolada schabowa z grzybami",
+          "Pasztet domowy podany z żurawiną",
+          "Półmiski wyselekcjonowanych wędlin i serów"
+        ]
+      },
+      {
+        subtitle: "Bogaty Wybór Sałatek",
+        items: [
+          "Sałatka jarzynowa tradycyjna",
+          "Sałatka żydowska",
+          "Sałatka brokułowa (2 rodzaje)",
+          "Sałatka tuńczykowa warstwowa",
+          "Sałatka Gyros z kurczakiem",
+          "Sałatka grecka z fetą i oliwkami",
+          "Sałatka nicejska",
+          "Sałatka z kurczakiem i prażonym słonecznikiem",
+          "Klasyczna sałatka Cezar",
+          "Sałatka makaronowa z szynką smażoną",
+          "Sałatka z wędzonym kurczakiem",
+          "Sałatka Tabule z powiewem świeżej mięty",
+          "Sałatka z pieczarkami marynowanymi i jajkiem",
+          "Sałatka z surimi",
+          "Szuba / Sałatka śledziowa warstwowa",
+          "Kompozycje sałat na zielono z kiełkami, pestkami, serami i świeżymi owocami"
+        ]
+      },
+      {
+        subtitle: "Przystawki i Finger Food",
+        items: [
+          "Carpaccio z pieczonego buraka z serem feta i orzechami",
+          "Tymbaliki drobiowe w aromatycznej galarecie",
+          "Tradycyjna galaretka wieprzowa",
+          "Szynki faszerowane pastą pieczarkowo-jajeczną",
+          "Pieczarki faszerowane mięsem na gorąco z ostrą salsą meksykańską",
+          "Pieczarki faszerowane panierowane",
+          "Jajka faszerowane lub w domowym sosie tatarskim",
+          "Tortille faszerowane / rożki z tortilli",
+          "Placuszki ogrodowe z musem serowym, łososiem lub warzywami",
+          "Rolady wykwintne: serowa, marchewkowa, szpinakowa",
+          "Przekładaniec serowy z pikantnym musem i kurczakiem",
+          "Pikle, pomidory z sosem czosnkowym i serem",
+          "Sałatka wiosenna serwowana w świeżych ogórkach"
+        ]
+      },
+      {
+        subtitle: "Specjały z Ryb i Śledzie",
+        items: [
+          "Śledź w aromatycznym sosie Curry",
+          "Śledź po japońsku",
+          "Śledź na ostro z papryczką",
+          "Śledź tradycyjny w oleju",
+          "Śledź korzenny z nutą przypraw",
+          "Śledź po kaszubsku z cebulką",
+          "Tradycyjna ryba po grecku"
+        ]
+      }
+    ]
+  },
+  {
+    id: "gorace-kolacje",
+    title: "Gorące Kolacje",
+    badge: "14 Propozycji",
+    note: "Wybierz ulubione gorące dania serwowane w trakcie przyjęcia",
+    items: [
+      "1. Krokiet z barszczem czerwonym (farsz: ser-pieczarki lub kapusta-grzyby)",
+      "2. Paszteciki mięsne (drożdżowe) podawane z barszczem",
+      "3. Aromatyczna zupa gulaszowa lub cygańska",
+      "4. Tradycyjne flaczki",
+      "5. Szaszłyki drobiowo-wieprzowe pieczone",
+      "6. Bigos staropolski długo gotowany",
+      "7. Biała kiełbasa duszona w ciemnym piwie",
+      "8. Soczyste żeberka w whisky",
+      "9. Domowe gołąbki w sosie pomidorowym",
+      "10. Chrupiące nuggets z zestawem dipów",
+      "11. Udka drobiowe pieczone z warzywami (z ziemniakami lub batatami, brukselką lub fasolką szparagową, pomidorkami cherry i papryką)",
+      "12. Gorąca włoska pizza bankietowa",
+      "13. Mini hamburgery wołowe",
+      "14. Pieróg drożdżowy faszerowany serwowany z sosem tzatziki lub barszczem"
+    ]
+  },
+  {
+    id: "premium",
+    title: "Propozycje Premium",
+    badge: "Wykwintne Menu",
+    note: "Ekskluzywne opcje dla najbardziej wymagających smakoszy",
+    subsections: [
+      {
+        subtitle: "Wykwintny Obiad Premium",
+        items: [
+          "Roladki wołowe w bogatym sosie własnym",
+          "Łódeczki drobiowe faszerowane serami i suszonymi pomidorami",
+          "Schab zapiekany z puszystą mozzarellą",
+          "Polędwiczki wieprzowe w sosie z zielonego pieprzu",
+          "Polędwiczki wieprzowe w aksamitnym sosie kurkowym",
+          "Roladka drobiowa w szynce parmeńskiej faszerowana szparagiem",
+          "Łosoś z pieca oprószony złocistymi migdałami",
+          "Sezonowe warzywa na gorąco w sosie holenderskim (szparagi, fasolka, kalafior, brokuł)"
+        ]
+      },
+      {
+        subtitle: "Przekąski i Przystawki Premium",
+        items: [
+          "Chrupiące babeczki Vol-au-vent z delikatnym nadzieniem",
+          "Łosoś zapiekany w grillowanej cukinii",
+          "Carpaccio wołowe serwowane na świeżej rukoli z parmezanem",
+          "Carpaccio z łososia na pomidorach z chrupiącymi grzankami",
+          "Dorsz w sosie słodko-ostrym",
+          "Sałatka ze świeżym szpinakiem, gorgonzolą, gruszką i sosem malinowym",
+          "Polędwica faszerowana orzechami podana z sosem z mango"
+        ]
+      },
+      {
+        subtitle: "Gorące Kolacje & Stół Wiejski Premium",
+        items: [
+          "Płonący udziec wieprzowy serwowany z kapustą zasmażaną i pieczonymi ziemniakami",
+          "Uczta z grilla: karczek, pierś z kurczaka, kiełbaski, szaszłyki oraz 2 rodzaje sałatek",
+          "Strogonow z polędwicy wieprzowej serwowany z chrupiącymi bagietkami",
+          "Tagliatelle z polędwiczkami i sosem z zielonego pieprzu",
+          "Klasyczny strogonow wołowy",
+          "Tagliatelle z kurczakiem i świeżymi warzywami",
+          "Biesiadny Stół Wiejski (od 40 osób): swojskie wędliny, mięsa pieczone, ogórki kiszone, domowy smalec, wiejski chleb"
+        ]
+      }
+    ]
+  },
+  {
+    id: "napoje-i-zasady",
+    title: "Napoje, Ciasta & Zasady",
+    badge: "Pakiet Organizacyjny",
+    subsections: [
+      {
+        subtitle: "Napoje Bez Ograniczeń",
+        items: [
+          "Napoje gorące: Kawa i Herbata bez ograniczeń czasowych",
+          "Napoje zimne: Woda mineralna oraz Soki bez ograniczeń przez całą imprezę",
+          "Wszystkie napoje bezalkoholowe w cenie każdego zamówienia!"
+        ]
+      },
+      {
+        subtitle: "Własny Alkohol Bez Korkowego",
+        items: [
+          "Alkohol powyżej 18% można przynieść własny bez opłaty 'korkowego'",
+          "Warunek: zakup 10 sztuk Coca-Coli 1L w lokalu na całe przyjęcie",
+          "Wino oraz piwo również dostępne do zakupu bezpośrednio w lokalu"
+        ]
+      },
+      {
+        subtitle: "Słodkości i Desery",
+        items: [
+          "Możliwość zamówienia domowych wypieków: sernik, szarlotka, orzechowiec, zielony mech, Raffaello i inne",
+          "Opcja serwowania ciast na ciepło z lodami waniliowymi",
+          "Eleganckie monodeserki w pucharkach"
+        ]
+      }
+    ]
+  }
+];
+
 export interface FacebookReview {
   id: number;
   author: string;
