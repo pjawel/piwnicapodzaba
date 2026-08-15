@@ -1,6 +1,9 @@
 {
   "name": "Sala bankietowa Piwnica pod Żabą",
-  "description": "Elegancka sala bankietowa w Lubinie, idealna na wesela, komunie i imprezy okolicznościowe.",
+  "description": "Elegancka strona sal bankietowych Piwnica pod Żabą i Hit Fit w Lubinie - wesela, komunie, urodziny, menu i rezerwacje.",
   "requestFramePermissions": [],
-  "majorCapabilities": []
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }
+

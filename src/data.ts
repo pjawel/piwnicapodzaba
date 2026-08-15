@@ -2,17 +2,6 @@ export const HERO_BG_IMAGE = "https://iili.io/BZtnTLx.md.jpg";
 export const FAVICON_URL = "https://iili.io/BZtxBDu.md.jpg";
 
 export const HIT_FIT_IMAGES = [
-  "https://i.ibb.co/3ydBbN6q/748053351-1351355719848331-3582808953670244386-n.jpg",
-  "https://i.ibb.co/mrcb3Djs/747604315-1328629419356913-6300706937470005266-n.jpg",
-  "https://i.ibb.co/0jrff1Qf/749566689-4778654262280331-3027406745886967985-n.jpg",
-  "https://i.ibb.co/Q3Tx3Wry/748882958-2098504604125706-1922363846901215558-n.jpg",
-  "https://i.ibb.co/VYd94j2F/749584516-1104095168955292-3791718564565212206-n.jpg",
-  "https://i.ibb.co/MykTgmJL/748873653-4477822422486951-7446793831884671688-n.jpg",
-  "https://i.ibb.co/0vrrKNV/748704621-1136932239513259-3228668441275445609-n.jpg",
-  "https://i.ibb.co/35zXrFZP/749084704-1559163965764287-6374877401561148210-n.jpg",
-];
-
-export const PIWNICA_IMAGES = [
   "https://i.ibb.co/bjsW9bBy/747948488-1835884537775430-8972213394683085297-n.jpg",
   "https://i.ibb.co/Z6sJQFRH/749419433-2218840642231347-4723894828034409893-n.jpg",
   "https://i.ibb.co/0jYdX8BK/743817240-1767785077562059-2499098399191949383-n.jpg",
@@ -78,6 +67,25 @@ export const PIWNICA_IMAGES = [
   "https://i.ibb.co/5XTpZ2yN/743467228-1754526889065723-463240069367618074-n.jpg",
   "https://i.ibb.co/BK53sWQX/742895374-2090822308469391-6235784474555647590-n.jpg",
 ];
+
+export const PIWNICA_IMAGES = [
+  "https://i.ibb.co/3ydBbN6q/748053351-1351355719848331-3582808953670244386-n.jpg",
+  "https://i.ibb.co/mrcb3Djs/747604315-1328629419356913-6300706937470005266-n.jpg",
+  "https://i.ibb.co/0jrff1Qf/749566689-4778654262280331-3027406745886967985-n.jpg",
+  "https://i.ibb.co/Q3Tx3Wry/748882958-2098504604125706-1922363846901215558-n.jpg",
+  "https://i.ibb.co/VYd94j2F/749584516-1104095168955292-3791718564565212206-n.jpg",
+  "https://i.ibb.co/MykTgmJL/748873653-4477822422486951-7446793831884671688-n.jpg",
+  "https://i.ibb.co/0vrrKNV/748704621-1136932239513259-3228668441275445609-n.jpg",
+  "https://i.ibb.co/35zXrFZP/749084704-1559163965764287-6374877401561148210-n.jpg",
+];
+
+export const HIT_FIT_ADDRESS = "Konstytucji 3 Maja 3, 59-300 Lubin";
+export const HIT_FIT_MAPS_EMBED = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2488.956252486073!2d16.198149162639087!3d51.4038585181438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470f6f4320d84e83%3A0xbf234b19761d0159!2sHit%20Fit%20i%20Piwnica%20pod%20%C5%BBab%C4%85!5e0!3m2!1spl!2spl!4v1786798027391!5m2!1spl!2spl";
+export const HIT_FIT_MAPS_LINK = "https://maps.google.com/?q=Konstytucji+3+Maja+3,+59-300+Lubin";
+
+export const PIWNICA_ADDRESS = "Orla 39a, 59-300 Lubin";
+export const PIWNICA_MAPS_EMBED = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2489.968877438826!2d16.2102424980144!3d51.38525004522297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470f6f7380e3d6ab%3A0xb3b06d2a4a3161fe!2sOrla%2039A%2C%2059-300%20Lubin!5e0!3m2!1spl!2spl!4v1776764939210!5m2!1spl!2spl";
+export const PIWNICA_MAPS_LINK = "https://maps.google.com/?q=Orla+39a,+59-300+Lubin";
 
 export const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=100028486736867";
 export const FACEBOOK_REVIEWS_URL = "https://www.facebook.com/profile.php?id=100028486736867&sk=reviews";
@@ -384,11 +392,180 @@ export const FACEBOOK_REVIEWS: FacebookReview[] = [
   }
 ];
 
+export const MENU_DOCUMENT_PAGES = [
+  {
+    pageNumber: 1,
+    title: "Drodzy Goście, Obiad & Dania Główne",
+    content: {
+      greeting: "Drodzy Goście,",
+      intro: "Dołożymy wszelkich starań pod względem jakości, staranności, dobrych produktów, oprawy stołu i miłej fachowej obsługi, aby Wasze przyjęcie było niezapomnianą, smaczną uroczystością.",
+      brand: "w HiT FiT i Piwnicy pod Żabą",
+      tagline: "Zapraszamy do zapoznania się z bogatą ofertą, którą możecie Państwo dopasować do swoich oczekiwań.",
+      sections: [
+        {
+          heading: "Obiad – Zupy:",
+          text: "Rosół z makaronem, krem z pomidorów, krem chrzanowy z chipsem boczkowym, żurek z jajkiem, cappuccino pieczarkowe, krem z pieczonego buraka, krem z białych warzyw z migdałami prażonymi, krem dwu smakowy."
+        },
+        {
+          heading: "Dania mięsne – wieprzowe:",
+          text: "Kotlet schabowy, schab na zielono, schabowy -królewski, schabowy z camembertem i żurawiną szwajcar, schab po cygańsku, karczek zapiekany z warzywami i serem, stek z cebulką, rolada wieprzowa w sosie, sztuka mięsa w sosie (karczek), rolada schabowa z grzybami pieczona."
+        },
+        {
+          heading: "Dania mięsne – drobiowe:",
+          text: "Kotlet drobiowy de volay, filet po hawajsku, filet po parysku, drobiowy w serowej panierce, roladka drobiowa ze szpinakiem, udko pieczone, udko faszerowane pieczarkami, rolada z serem i papryką.",
+          note: "3-4 rodzaje mięs do wyboru"
+        },
+        {
+          heading: "Dodatki skrobiowe:",
+          text: "Ziemniaki puree, ziemniaki pieczone, kluski śląskie, kopytka, frytki, krokiety ziemniaczane.",
+          note: "Do wyboru 2 rodzaje"
+        },
+        {
+          heading: "Surówki:",
+          text: "Buraczki, buraczki zasmażane, marchewka z jabłkiem, marchewka z sezamem z pomarańczami, kapusta biała, coleslaw, kapusta kiszona, kapusta czerwona, kapusta czerwona na gorąco, kapusta pekińska z pomidorami, sałatka z ogórków na ostro, seler z orzechami i rodzynkami, marchewka z groszkiem, por z jabłkiem, por z ananasem, mizeria, mix sałat z sosem winegret.",
+          note: "Do wyboru 3 surówki"
+        }
+      ]
+    }
+  },
+  {
+    pageNumber: 2,
+    title: "Zimne Przekąski, Sałatki & Ryby",
+    content: {
+      sections: [
+        {
+          heading: "Przekąski – Mięsa pieczone:",
+          text: "Schab ze śliwką, karczek faszerowany, sztufada z szynki / nabijana słoniną, boczek faszerowany, rolada drobiowa z krewetkami, rolada schabowa z grzybami, pasztet podany z żurawiną."
+        },
+        {
+          heading: "Półmiski wędlin i serów:",
+          text: "Wędliny i sery podane razem na dużych półmiskach."
+        },
+        {
+          heading: "Bogaty wybór sałatek:",
+          text: "Sałatka jarzynowa, żydowska, brokułowa (2 rodzaje), tuńczykowa warstwowa, gyros, grecka, nicejska, sałatka z kurczakiem z prażonym słonecznikiem, cezar, makaronowa z szynką smażoną, sałatka z wędzonym kurczakiem, sałatka tabule z miętą, sałatka z pieczarkami marynowanymi i jajkami, sałatka z surimi, szuba / sałatka śledziowa, sałatki na zielono z kiełkami i pestkami, serami, owocami."
+        },
+        {
+          heading: "Przekąski & Przystawki bankietowe:",
+          items: [
+            "Carpaccio z pieczonego buraka z serem feta i orzechami",
+            "Tymbaliki drobiowe, galaretka wieprzowa",
+            "Szynki faszerowane pastą pieczarkowo-jajeczną, pieczarki faszerowane mięsem podane na gorąco z ostrą salsą meksykańską, pieczarki faszerowane panierowane",
+            "Jajka faszerowane lub jajka w sosie tatarskim, tortille faszerowane, rożki z tortilli",
+            "Placuszki ogrodowe z musem serowym z łososiem lub warzywami",
+            "Rolady: serowa, marchewkowa, szpinakowa",
+            "Przekładaniec serowy z pikantnym musem i kurczakiem",
+            "Pikle, pomidory podane z sosem czosnkowym i serem, sałatka wiosenna w świeżych ogórkach"
+          ]
+        },
+        {
+          heading: "Specjały z ryb & Śledzie:",
+          text: "Śledź w sosie Curry, śledź po japońsku, śledź na ostro, tradycyjny, korzenny, śledź po kaszubsku, ryba po grecku."
+        }
+      ]
+    }
+  },
+  {
+    pageNumber: 3,
+    title: "Gorące Kolacje & Opcje Premium",
+    content: {
+      sections: [
+        {
+          heading: "Gorące kolacje (14 propozycji do wyboru):",
+          items: [
+            "1) Krokiet z barszczem (krokiet ser-pieczarki, kapusta-grzyby)",
+            "2) Paszteciki mięsne (drożdżowe) z barszczem",
+            "3) Zupa gulaszowa, cygańska",
+            "4) Flaczki",
+            "5) Szaszłyki pieczone",
+            "6) Bigos staropolski",
+            "7) Biała kiełbasa w ciemnym piwie",
+            "8) Żeberka w whisky",
+            "9) Gołąbki",
+            "10) Nuggets z dipami",
+            "11) Udka drobiowe pieczone z warzywami (z ziemniakami lub batatami, brukselka lub fasola szparagowa, pomidory cherry, papryka)",
+            "12) Pizza",
+            "13) Hamburgery",
+            "14) Pieróg drożdżowy faszerowany podany z sosem tzatziki lub barszczem"
+          ]
+        },
+        {
+          heading: "Droższe propozycje (Menu Wykwintne) – Do obiadu:",
+          items: [
+            "Roladki wołowe w sosie",
+            "Łódeczki drobiowe faszerowane serami i suszonymi pomidorami",
+            "Schab zapiekany z mozzarellą",
+            "Polędwiczki w sosie pieprzowym",
+            "Polędwiczki w sosie kurkowym",
+            "Roladka drobiowa w szynce parmeńskiej faszerowana szparagami",
+            "Łosoś z pieca oprószony migdałami",
+            "Sezonowo warzywa na gorąco w sosie holenderskim, szparagi, fasolka szparagowa, kalafior, brokuł"
+          ]
+        },
+        {
+          heading: "Droższe przekąski:",
+          items: [
+            "Vol a venty faszerowane"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    pageNumber: 4,
+    title: "Specjały, Stół Wiejski, Desery & Warunki",
+    content: {
+      sections: [
+        {
+          heading: "Droższe przekąski (c.d.):",
+          items: [
+            "Łosoś w grillowanej cukinii",
+            "Carpaccio wołowe na rukoli, carpaccio z łososia podane na pomidorach z grzankami",
+            "Dorsz z sosem słodko ostrym",
+            "Sałatka ze świeżym szpinakiem, gorgonzolą, gruszką z sosem malinowym",
+            "Polędwica faszerowana orzechami podana z sosem z mango"
+          ]
+        },
+        {
+          heading: "Gorące kolacje & Dania specjalne:",
+          items: [
+            "Udziec płonący podany z kapustą zasmażaną i pieczonymi ziemniakami",
+            "Grill: karczek, pierś, kiełbaski, szaszłyki, sałatki 2 rodzaje",
+            "Delikatny strogonow z polędwicy wieprzowej podany z bagietkami",
+            "Tagliatelle z polędwiczkami i sosem z zielonego pieprzu",
+            "Strogonow wołowy",
+            "Tagliatelle z kurczakiem i warzywami"
+          ]
+        },
+        {
+          heading: "Wiejski stół:",
+          text: "Wiejski stół przy minimum 40 osobach (swojskie wędliny, pieczone mięsa, ogórki kiszone, smalec, chleb)."
+        },
+        {
+          heading: "Możliwość zamówienia ciasta & deserów:",
+          text: "Sernik, szarlotka, orzechowiec, zielony mech, Rafaelo i inne, również podania na ciepło z lodami, deserki."
+        },
+        {
+          heading: "Warunki organizacyjne & Alkohol:",
+          items: [
+            "Alkohol *powyżej 18% można przynieść swój bez opłat „korkowego”. W zamian musimy kupić 10 szt. Coca coli 1l w lokalu.",
+            "Wino i piwo również do zakupu w lokalu.",
+            "Do każdego zamówienia napoje kawa, herbata, woda i soki bez ograniczeń trwania przyjęcia."
+          ]
+        }
+      ]
+    }
+  }
+];
+
 export interface Venue {
   id: string;
   name: string;
   tagline: string;
   capacity: string;
+  address: string;
+  mapEmbedUrl: string;
+  mapLink: string;
   description: string;
   features: string[];
   events: string[];
@@ -403,13 +580,17 @@ export const VENUES: Venue[] = [
     name: 'Hit Fit',
     tagline: 'Nowoczesna sala bankietowa do 90 osób',
     capacity: 'Do 90 osób',
+    address: HIT_FIT_ADDRESS,
+    mapEmbedUrl: HIT_FIT_MAPS_EMBED,
+    mapLink: HIT_FIT_MAPS_LINK,
     description: 'Zapraszamy do naszej sali bankietowej dla 90 osób! Oferujemy wyśmienitą kuchnię, eleganckie wnętrza oraz przestronny taras, duży grill i bezpłatny parking. Zadbamy o pyszne menu i wyjątkową atmosferę.',
     features: [
       'Pojemność do 90 osób',
       'Wyśmienita autorska kuchnia',
       'Eleganckie, nowoczesne wnętrza',
       'Przestronny taras & duży grill',
-      'Bezpłatny parking dla gości'
+      'Bezpłatny parking dla gości',
+      'Lokalizacja: ul. Konstytucji 3 Maja 3'
     ],
     events: [
       'Urodziny i jubileusze',
@@ -427,12 +608,15 @@ export const VENUES: Venue[] = [
     name: 'Piwnica pod Żabą',
     tagline: 'Klimatyczna i elegancka sala bankietowa w Lubinie',
     capacity: 'Idealna na kameralne i huczne przyjęcia',
+    address: PIWNICA_ADDRESS,
+    mapEmbedUrl: PIWNICA_MAPS_EMBED,
+    mapLink: PIWNICA_MAPS_LINK,
     description: 'Piwnica pod Żabą to wyjątkowe miejsce o niepowtarzalnym klimacie. Łączymy tradycję z elegancją, zapewniając domową oprawę kulinarną, estetyczne aranżacje stołów oraz kompleksową obsługę każdego przyjęcia.',
     features: [
       'Unikalny, ciepły klimat wnętrz',
       'Indywidualne podejście do menu',
       'Kompleksowa obsługa kelnerska',
-      'Dogodna lokalizacja w Lubinie',
+      'Lokalizacja: ul. Orla 39a w Lubinie',
       'Klimatyzowana sala'
     ],
     events: [

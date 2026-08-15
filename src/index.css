@@ -7,6 +7,7 @@
   
   --color-gold: #d4af37;
   --color-gold-light: #f4e8c1;
+  --color-gold-dark: #b89025;
   --color-off-white: #faf9f6;
 }
 
@@ -30,8 +31,31 @@
   }
 }
 
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.08); }
+}
+
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
 .map-container iframe {
   width: 100% !important;
   height: 100% !important;
   border-radius: 0.75rem;
 }
+

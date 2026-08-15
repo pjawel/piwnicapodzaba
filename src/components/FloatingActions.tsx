@@ -1,0 +1,71 @@
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Phone, ArrowUp, MessageCircle } from 'lucide-react';
+
+export function FloatingActions() {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setShowScrollTop(window.scrollY > 400);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return (
+    <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3 pointer-events-none">
+      {/* Quick Phone Call Button */}
+      <motion.a
+        href="tel:661637770"
+        initial={{ opacity: 0, scale: 0.8, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ delay: 1, duration: 0.4 }}
+        whileHover={{ scale: 1.08, y: -2 }}
+        whileTap={{ scale: 0.95 }}
+        className="pointer-events-auto relative group flex items-center gap-3 bg-gradient-to-r from-amber-600 via-gold to-yellow-600 text-white pl-4 pr-5 py-3.5 rounded-full shadow-2xl border-2 border-white/40 backdrop-blur-md"
+        title="Zadzwoń teraz: 661 637 770"
+      >
+        {/* Pulsing Aura */}
+        <span className="absolute -inset-1 rounded-full bg-gold/40 animate-ping opacity-60 pointer-events-none" />
+        
+        <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white">
+          <Phone size={18} className="animate-bounce" />
+        </div>
+        <div className="flex flex-col text-left">
+          <span className="text-[10px] uppercase font-bold tracking-widest text-amber-100 leading-none">Zadzwoń teraz</span>
+          <span className="font-serif font-bold text-sm leading-tight text-white">661 637 770</span>
+        </div>
+      </motion.a>
+
+      {/* Scroll to Top Button */}
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            onClick={scrollToTop}
+            initial={{ opacity: 0, scale: 0.5, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.5, y: 20 }}
+            whileHover={{ scale: 1.15, y: -2 }}
+            whileTap={{ scale: 0.9 }}
+            className="pointer-events-auto p-3.5 rounded-full bg-gray-900/90 hover:bg-gold text-white shadow-xl backdrop-blur-md border border-white/20 transition-colors"
+            aria-label="Przewiń do góry"
+          >
+            <ArrowUp size={20} />
+          </motion.button>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
