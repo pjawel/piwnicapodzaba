@@ -392,6 +392,206 @@ export const FACEBOOK_REVIEWS: FacebookReview[] = [
   }
 ];
 
+export interface EventMenuPackage {
+  id: string;
+  venue: string;
+  title: string;
+  subtitle: string;
+  badge: string;
+  highlightColor: 'amber' | 'emerald' | 'rose' | 'blue';
+  courses: {
+    category: string;
+    items: string[];
+  }[];
+  beverages: string[];
+  alcohol?: string;
+  note: string;
+}
+
+export const EVENT_MENU_PACKAGES: EventMenuPackage[] = [
+  {
+    id: 'hit-fit-prop-1',
+    venue: 'Hit Fit',
+    title: 'Oferta Menu na Przyjęcie',
+    subtitle: 'Propozycja nr 1',
+    badge: 'Hit Fit • Propozycja 1',
+    highlightColor: 'amber',
+    courses: [
+      {
+        category: 'Dania główne',
+        items: [
+          'Schabowy z camembertem i żurawiną',
+          'Drobiowy w serowej panierce',
+          'Karczek w sosie'
+        ]
+      },
+      {
+        category: 'Dodatki',
+        items: [
+          'Ziemniaki',
+          'Kluski śląskie'
+        ]
+      },
+      {
+        category: 'Surówki',
+        items: [
+          'Mix sałat z winegretem',
+          'Surówka colesław',
+          'Buraczki'
+        ]
+      },
+      {
+        category: 'Zimne przekąski',
+        items: [
+          'Mięso pieczone (schab ze śliwką, karczek)',
+          'Półmisek rozmaitości typu finger food',
+          'Galaretki drobiowe',
+          'Sałatka Cezar',
+          'Pieczarki faszerowane panierowane'
+        ]
+      }
+    ],
+    beverages: [
+      'Napoje zimne: woda i soki',
+      'Napoje gorące: kawa i herbata'
+    ],
+    note: 'Menu może zostać dostosowane do indywidualnych potrzeb oraz liczby zaproszonych gości. Istnieje możliwość uzupełnienia oferty o ciasta oraz dodatkowe danie gorące.'
+  },
+  {
+    id: 'hit-fit-prop-2',
+    venue: 'Hit Fit',
+    title: 'Oferta Menu na Przyjęcie',
+    subtitle: 'Propozycja nr 2',
+    badge: 'Hit Fit • Propozycja 2',
+    highlightColor: 'emerald',
+    courses: [
+      {
+        category: 'Dania główne',
+        items: [
+          'Rolada drobiowa faszerowana szparagami podana z puree z zielonego groszku i sałatką caprese'
+        ]
+      },
+      {
+        category: 'Zimne przekąski',
+        items: [
+          'Wędliny, sery i tortille',
+          'Grzanki z tatarem z łososia',
+          'Sałatka gyros',
+          'Jajka w sosie tatarskim'
+        ]
+      }
+    ],
+    beverages: [
+      'Napoje zimne: woda i soki',
+      'Napoje gorące: kawa i herbata'
+    ],
+    note: 'Menu może zostać dostosowane do indywidualnych potrzeb oraz liczby zaproszonych gości. Istnieje możliwość uzupełnienia oferty o ciasta oraz dodatkowe danie gorące.'
+  },
+  {
+    id: 'hit-fit-prop-3',
+    venue: 'Hit Fit',
+    title: 'Oferta Menu na Przyjęcie',
+    subtitle: 'Propozycja nr 3',
+    badge: 'Hit Fit • Propozycja 3',
+    highlightColor: 'blue',
+    courses: [
+      {
+        category: 'Dania główne',
+        items: [
+          'Szwajcar',
+          'Schabowy',
+          'De volaille'
+        ]
+      },
+      {
+        category: 'Dodatki',
+        items: [
+          'Krokiety ziemniaczane',
+          'Ziemniaki'
+        ]
+      },
+      {
+        category: 'Surówki',
+        items: [
+          'Warzywa w sosie holenderskim',
+          'Czerwona kapusta z jabłkiem'
+        ]
+      },
+      {
+        category: 'Zimne przekąski',
+        items: [
+          'Mięso pieczone podane z ćwikłą',
+          'Tortille podpiekane podane z kurczakiem, warzywami i sosem tzatziki',
+          'Sałatka na zielono z serami, kiełkami i sosem brzoskwiniowym',
+          'Placuszki ogrodowe z warzywami',
+          'Sałatka brokułowa z sosem czosnkowym'
+        ]
+      }
+    ],
+    beverages: [
+      'Napoje zimne: woda i soki',
+      'Napoje gorące: kawa i herbata'
+    ],
+    alcohol: 'Wino i piwo dostępne do zamówienia w lokalu.',
+    note: 'Menu może zostać dostosowane do indywidualnych potrzeb oraz liczby zaproszonych gości. Istnieje możliwość uzupełnienia oferty o ciasta oraz dodatkowe danie gorące.'
+  },
+  {
+    id: 'chrzciny-menu',
+    venue: 'Hit Fit & Piwnica pod Żabą',
+    title: 'Oferta Menu na Chrzciny',
+    subtitle: 'Kompletny zestaw na przyjęcie rodzinne',
+    badge: 'Uroczystość • Chrzciny',
+    highlightColor: 'rose',
+    courses: [
+      {
+        category: 'Zupa',
+        items: [
+          'Rosół z makaronem'
+        ]
+      },
+      {
+        category: 'Dania główne',
+        items: [
+          'Kotlet schabowy',
+          'Rolada drobiowa ze szpinakiem',
+          'Rolada z pieczarkami w sosie',
+          'Nuggetsy dla dzieci i dorosłych'
+        ]
+      },
+      {
+        category: 'Dodatki',
+        items: [
+          'Ziemniaki',
+          'Kluski śląskie',
+          'Chrupiące frytki'
+        ]
+      },
+      {
+        category: 'Surówki',
+        items: [
+          'Młoda kapusta',
+          'Seler z orzechami',
+          'Mizeria'
+        ]
+      },
+      {
+        category: 'Zimne przekąski',
+        items: [
+          'Polędwiczki faszerowane „po warszawsku”',
+          'Sałatka Fit z granatem',
+          '„Przekładaniec” koronkowo-serowy z kurczakiem',
+          'Sałatka i kebaczety'
+        ]
+      }
+    ],
+    beverages: [
+      'Napoje zimne: woda i soki',
+      'Napoje gorące: kawa i herbata'
+    ],
+    note: 'Menu może zostać dostosowane do indywidualnych potrzeb oraz liczby zaproszonych gości. Istnieje możliwość uzupełnienia oferty o ciasta oraz dodatkowe danie gorące.'
+  }
+];
+
 export const MENU_DOCUMENT_PAGES = [
   {
     pageNumber: 1,
@@ -552,6 +752,59 @@ export const MENU_DOCUMENT_PAGES = [
             "Wino i piwo również do zakupu w lokalu.",
             "Do każdego zamówienia napoje kawa, herbata, woda i soki bez ograniczeń trwania przyjęcia."
           ]
+        }
+      ]
+    }
+  },
+  {
+    pageNumber: 5,
+    title: "Gotowe Pakiety Menu na Przyjęcia i Chrzciny",
+    content: {
+      greeting: "Gotowe Zestawy Menu",
+      intro: "Przykładowe, skomponowane przez nas pakiety dań na przyjęcia okolicznościowe w Hit Fit oraz Chrzciny.",
+      sections: [
+        {
+          heading: "HIT FIT – Oferta Menu na Przyjęcie (Propozycja nr 1)",
+          items: [
+            "Dania główne: Schabowy z camembertem i żurawiną, drobiowy w serowej panierce, karczek w sosie",
+            "Dodatki: Ziemniaki, kluski śląskie",
+            "Surówki: mix sałat z winegretem, surówka colesław, buraczki",
+            "Zimne przekąski: mięso pieczone (schab ze śliwką, karczek), półmisek rozmaitości typu finger food, galaretki drobiowe, sałatka cezar, pieczarki faszerowane panierowane",
+            "Napoje: Napoje zimne (woda i soki) oraz gorące (kawa i herbata)"
+          ],
+          note: "Hit Fit • Propozycja 1"
+        },
+        {
+          heading: "HIT FIT – Oferta Menu na Przyjęcie (Propozycja nr 2)",
+          items: [
+            "Dania główne: Rolada drobiowa faszerowana szparagami podana z puree z zielonego groszku i sałatka caprese",
+            "Zimne przekąski: wędliny, sery i tortille, grzanki z tatarem z łososia, sałatka gyros, jajka w sosie tatarskim",
+            "Napoje: Napoje zimne (woda i soki) oraz gorące (kawa i herbata)"
+          ],
+          note: "Hit Fit • Propozycja 2"
+        },
+        {
+          heading: "HIT FIT – Oferta Menu na Przyjęcie (Propozycja nr 3)",
+          items: [
+            "Dania główne: Szwajcar, schabowy, de volay",
+            "Dodatki: Krokiety ziemniaczane, ziemniaki",
+            "Surówki: Warzywa w sosie holenderskim, czerwona kapusta z jabłkiem",
+            "Zimne przekąski: Mięso pieczone podane z ćwikłą, tortille podpiekane z kurczakiem, warzywami i sosem tzatziki, sałatka na zielono z serami, kiełkami i sosem brzoskwiniowym, placuszki ogrodowe z warzywami, sałatka brokułowa z sosem czosnkowym",
+            "Napoje: Woda, soki, kawa i herbata. Alkohol (wino i piwo) dostępne do zamówienia w lokalu."
+          ],
+          note: "Hit Fit • Propozycja 3"
+        },
+        {
+          heading: "OFERTA MENU NA CHRZCINY",
+          items: [
+            "Zupa: Rosół z makaronem",
+            "Dania główne: Kotlet schabowy, rolada drobiowa ze szpinakiem, rolada z pieczarkami w sosie, nugetsy",
+            "Dodatki: Ziemniaki, kluski śląskie, frytki",
+            "Surówki: Młoda kapusta, seler z orzechami, mizeria",
+            "Zimne przekąski: Polędwiczki faszerowane „po warszawsku”, sałatka Fit z granatem, „Przekładaniec” koronkowo-serowy z kurczakiem, sałatka i kebaczety",
+            "Napoje: Napoje zimne (woda i soki) oraz gorące (kawa i herbata)"
+          ],
+          note: "Chrzciny • Zestaw Kompletny"
         }
       ]
     }

@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Users, Sparkles, TreePine, Flame, Car, Utensils, ArrowRight, Maximize2, Video, MapPin, Image as ImageIcon } from 'lucide-react';
-import { VENUES, HIT_FIT_IMAGES, PIWNICA_IMAGES, PIWNICA_VIDEO_URL, HIT_FIT_ADDRESS, PIWNICA_ADDRESS } from '../data';
-import { LazyVideo } from './LazyVideo';
+import { Users, Sparkles, TreePine, Flame, Car, Utensils, ArrowRight, Maximize2, MapPin, Image as ImageIcon } from 'lucide-react';
+import { VENUES, HIT_FIT_IMAGES, PIWNICA_IMAGES, HIT_FIT_ADDRESS, PIWNICA_ADDRESS } from '../data';
 
 interface VenuesSectionProps {
   onOpenGalleryTab: (tab: 'all' | 'hit-fit' | 'piwnica') => void;
@@ -182,19 +181,6 @@ export function VenuesSection({ onOpenGalleryTab, onOpenImage }: VenuesSectionPr
                   <span>Zobacz Galerię Piwnica pod Żabą ({PIWNICA_IMAGES.length} Zdjęć)</span>
                   <ArrowRight size={16} />
                 </motion.button>
-              </div>
-
-              {/* Piwnica Pod Żabą Video Player */}
-              <div className="pt-6 border-t border-gray-100 space-y-3">
-                <div className="flex items-center gap-2 text-gold-dark font-bold text-xs uppercase tracking-widest">
-                  <Video size={16} /> Wideo z lokalu Piwnica pod Żabą
-                </div>
-                <LazyVideo 
-                  src={PIWNICA_VIDEO_URL}
-                  poster={PIWNICA_IMAGES[0]}
-                  title="Prezentacja wideo lokalu Piwnica pod Żabą"
-                  className="w-full h-auto max-h-[350px] object-cover"
-                />
               </div>
             </div>
 

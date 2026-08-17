@@ -2,20 +2,21 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   ChefHat, Coffee, Wine, Sparkles, CheckCircle2, Search, HeartHandshake, Info, X,
-  FileText, Printer, ChevronRight, Eye, LayoutGrid
+  FileText, Printer, ChevronRight, Eye, LayoutGrid, UtensilsCrossed, Phone, Baby, PartyPopper
 } from 'lucide-react';
 import { 
   MENU_WELCOME_TITLE, MENU_WELCOME_TEXT, MENU_WELCOME_SUBTEXT, MENU_CATEGORIES,
-  MENU_DOCUMENT_PAGES 
+  MENU_DOCUMENT_PAGES, EVENT_MENU_PACKAGES, EventMenuPackage
 } from '../data';
 import { MenuDocumentModal } from './MenuDocumentModal';
 
 export function MenuSection() {
   const [activeMenuCategory, setActiveMenuCategory] = useState<string>('obiad');
   const [menuSearchQuery, setMenuSearchQuery] = useState<string>('');
-  const [viewMode, setViewMode] = useState<'interactive' | 'document'>('interactive');
+  const [viewMode, setViewMode] = useState<'packages' | 'interactive' | 'document'>('packages');
   const [docCurrentPage, setDocCurrentPage] = useState<number>(1);
   const [isDocModalOpen, setIsDocModalOpen] = useState<boolean>(false);
+  const [selectedPackageFilter, setSelectedPackageFilter] = useState<'all' | 'hit-fit' | 'chrzciny'>('all');
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -33,6 +34,12 @@ export function MenuSection() {
   };
 
   const activeDocPage = MENU_DOCUMENT_PAGES.find(p => p.pageNumber === docCurrentPage) || MENU_DOCUMENT_PAGES[0];
+
+  const filteredPackages = EVENT_MENU_PACKAGES.filter(pkg => {
+    if (selectedPackageFilter === 'hit-fit') return pkg.id.startsWith('hit-fit');
+    if (selectedPackageFilter === 'chrzciny') return pkg.id === 'chrzciny-menu';
+    return true;
+  });
 
   return (
     <section id="oferta" className="py-20 md:py-28 bg-gradient-to-b from-amber-50/40 via-white to-amber-50/30 scroll-mt-20 relative overflow-hidden">
@@ -53,7 +60,7 @@ export function MenuSection() {
             Oferta i Menu okolicznościowe
           </h2>
           <p className="text-gray-600 text-base md:text-lg font-light leading-relaxed">
-            Poznaj nasze propozycje dań obiadowych, przekąsek, wykwintnych słodkości oraz gorących kolacji dostępnych w sali <strong className="font-semibold text-gray-900">Hit Fit</strong> i <strong className="font-semibold text-gray-900">Piwnica pod Żabą</strong>.
+            Poznaj gotowe pakiety na przyjęcia i chrzciny oraz pełną kartę dań obiadowych, przekąsek, deserów i gorących kolacji w salach <strong className="font-semibold text-gray-900">Hit Fit</strong> i <strong className="font-semibold text-gray-900">Piwnica pod Żabą</strong>.
           </p>
         </motion.div>
 
@@ -114,13 +121,13 @@ export function MenuSection() {
                 <span className="text-xs bg-gold/20 text-gold-light border border-gold/30 px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">
                   Oryginalny Dokument
                 </span>
-                <span className="text-xs text-stone-400 font-medium">4 Strony • PDF</span>
+                <span className="text-xs text-stone-400 font-medium">{MENU_DOCUMENT_PAGES.length} Stron • PDF</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
-                Oficjalna Karta Menu Lokali Hit Fit & Piwnica pod Żabą
+                Oficjalna Karta Menu & Gotowe Zestawy na Przyjęcia
               </h3>
               <p className="text-xs sm:text-sm text-stone-300 font-light max-w-2xl">
-                Obejrzyj pełny dokument karty dań w oryginalnym układzie stron z możliwością wygodnego wydrukowania lub zapisu do pliku PDF.
+                Obejrzyj pełny dokument karty dań z gotowymi zestawami bankietowymi i chrzcinami z możliwością wygodnego wydrukowania lub zapisu do PDF.
               </p>
             </div>
           </div>
@@ -225,13 +232,26 @@ export function MenuSection() {
           </motion.div>
         </div>
 
-        {/* View Mode Switcher: Interactive Categories vs Full Document View */}
+        {/* View Mode Switcher: 3 Modes (Ready Packages, Interactive Categories, Full Document View) */}
         <div id="menu-view-container" className="pt-2">
-          <div className="flex flex-wrap items-center justify-center gap-2 p-1.5 bg-stone-200/80 rounded-2xl max-w-md mx-auto mb-8 border border-stone-300">
+          <div className="flex flex-wrap items-center justify-center gap-2 p-1.5 bg-stone-200/80 rounded-2xl max-w-xl mx-auto mb-8 border border-stone-300">
+            <button
+              type="button"
+              onClick={() => setViewMode('packages')}
+              className={`flex-1 py-2.5 px-3 sm:px-4 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 ${
+                viewMode === 'packages'
+                  ? 'bg-amber-700 text-white shadow-md'
+                  : 'text-stone-700 hover:text-stone-900'
+              }`}
+            >
+              <UtensilsCrossed size={16} />
+              <span>Gotowe Zestawy ({EVENT_MENU_PACKAGES.length})</span>
+            </button>
+
             <button
               type="button"
               onClick={() => setViewMode('interactive')}
-              className={`flex-1 py-2.5 px-4 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2 ${
+              className={`flex-1 py-2.5 px-3 sm:px-4 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 ${
                 viewMode === 'interactive'
                   ? 'bg-amber-700 text-white shadow-md'
                   : 'text-stone-700 hover:text-stone-900'
@@ -244,20 +264,193 @@ export function MenuSection() {
             <button
               type="button"
               onClick={() => setViewMode('document')}
-              className={`flex-1 py-2.5 px-4 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2 ${
+              className={`flex-1 py-2.5 px-3 sm:px-4 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 ${
                 viewMode === 'document'
                   ? 'bg-amber-700 text-white shadow-md'
                   : 'text-stone-700 hover:text-stone-900'
               }`}
             >
               <FileText size={16} />
-              <span>Karta Menu (Dokument PDF)</span>
+              <span>Karta PDF ({MENU_DOCUMENT_PAGES.length} Stron)</span>
             </button>
           </div>
         </div>
 
-        {/* View Mode 1: Interactive Category Cards */}
-        {viewMode === 'interactive' ? (
+        {/* View Mode 1: Ready Event Menu Packages (Hit Fit 1-3 & Chrzciny) */}
+        {viewMode === 'packages' && (
+          <div className="space-y-8">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-gray-200 pb-4">
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-bold text-gray-700">Filtruj propozycje:</span>
+                <div className="flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedPackageFilter('all')}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                      selectedPackageFilter === 'all'
+                        ? 'bg-amber-700 text-white shadow-sm'
+                        : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                    }`}
+                  >
+                    Wszystkie ({EVENT_MENU_PACKAGES.length})
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedPackageFilter('hit-fit')}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                      selectedPackageFilter === 'hit-fit'
+                        ? 'bg-amber-700 text-white shadow-sm'
+                        : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                    }`}
+                  >
+                    Hit Fit (3 propozycje)
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedPackageFilter('chrzciny')}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                      selectedPackageFilter === 'chrzciny'
+                        ? 'bg-amber-700 text-white shadow-sm'
+                        : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                    }`}
+                  >
+                    Chrzciny (1 propozycja)
+                  </button>
+                </div>
+              </div>
+
+              <a
+                href="tel:661637770"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-stone-900 hover:bg-stone-800 text-white text-xs font-bold transition-all shadow-sm"
+              >
+                <Phone size={14} className="text-gold" />
+                <span>Zapytaj o termin: 661 637 770</span>
+              </a>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {filteredPackages.map((pkg, idx) => (
+                <motion.div
+                  key={pkg.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: idx * 0.1 }}
+                  whileHover={{ y: -4 }}
+                  className={`bg-white rounded-3xl p-6 sm:p-8 shadow-xl border transition-all flex flex-col justify-between ${
+                    pkg.id === 'chrzciny-menu'
+                      ? 'border-rose-300 ring-2 ring-rose-200/50 bg-gradient-to-b from-rose-50/20 via-white to-white'
+                      : 'border-amber-200/80 hover:border-amber-300'
+                  }`}
+                >
+                  <div className="space-y-6">
+                    {/* Card Header */}
+                    <div className="border-b border-gray-100 pb-4 flex flex-wrap items-start justify-between gap-3">
+                      <div>
+                        <div className="flex items-center gap-2 mb-1.5">
+                          <span className={`text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full ${
+                            pkg.highlightColor === 'rose'
+                              ? 'bg-rose-100 text-rose-800'
+                              : pkg.highlightColor === 'emerald'
+                              ? 'bg-emerald-100 text-emerald-800'
+                              : pkg.highlightColor === 'blue'
+                              ? 'bg-blue-100 text-blue-800'
+                              : 'bg-amber-100 text-amber-900'
+                          }`}>
+                            {pkg.badge}
+                          </span>
+                          <span className="text-xs text-gray-500 font-medium">Lokal: {pkg.venue}</span>
+                        </div>
+                        <h3 className="font-serif font-bold text-2xl text-gray-900">
+                          {pkg.title}
+                        </h3>
+                        <p className="text-sm font-semibold text-amber-800">
+                          {pkg.subtitle}
+                        </p>
+                      </div>
+
+                      <div className="w-10 h-10 rounded-2xl bg-amber-50 text-amber-800 flex items-center justify-center shrink-0 border border-amber-200/50">
+                        {pkg.id === 'chrzciny-menu' ? <Baby size={20} /> : <PartyPopper size={20} />}
+                      </div>
+                    </div>
+
+                    {/* Courses Breakdown */}
+                    <div className="space-y-4">
+                      {pkg.courses.map((course, cIdx) => (
+                        <div key={cIdx} className="space-y-1.5">
+                          <h4 className="text-xs font-bold uppercase tracking-wider text-gray-500 flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-amber-600 inline-block" />
+                            {course.category}:
+                          </h4>
+                          <ul className="space-y-1 pl-2 border-l-2 border-amber-100">
+                            {course.items.map((item, iIdx) => (
+                              <li key={iIdx} className="text-sm text-gray-800 font-medium flex items-start gap-2">
+                                <CheckCircle2 size={15} className="text-gold-dark shrink-0 mt-0.5" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+
+                      {/* Beverages */}
+                      <div className="space-y-1.5 pt-2 border-t border-gray-100">
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-gray-500 flex items-center gap-1.5">
+                          <Coffee size={13} className="text-amber-700" />
+                          Napoje w cenie:
+                        </h4>
+                        <div className="bg-amber-50/60 rounded-xl p-3 text-xs sm:text-sm text-gray-800 space-y-1 font-medium">
+                          {pkg.beverages.map((bev, bIdx) => (
+                            <p key={bIdx}>• {bev}</p>
+                          ))}
+                          {pkg.alcohol && (
+                            <p className="text-amber-900 font-semibold pt-1 border-t border-amber-200/60 mt-1">
+                              🍸 {pkg.alcohol}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Card Footer */}
+                  <div className="mt-6 pt-4 border-t border-gray-100 space-y-3">
+                    <p className="text-xs text-gray-500 italic leading-relaxed">
+                      💡 {pkg.note}
+                    </p>
+
+                    <div className="flex items-center gap-2 pt-2">
+                      <a
+                        href="tel:661637770"
+                        className="flex-1 py-2.5 px-3 rounded-xl bg-gradient-to-r from-amber-600 via-gold to-yellow-600 hover:from-amber-500 hover:to-gold text-stone-950 font-bold text-xs transition-all shadow-md flex items-center justify-center gap-1.5"
+                      >
+                        <Phone size={14} />
+                        <span>Zarezerwuj: 661 637 770</span>
+                      </a>
+
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setDocCurrentPage(5);
+                          setViewMode('document');
+                          const el = document.getElementById('menu-view-container');
+                          el?.scrollIntoView({ behavior: 'smooth' });
+                        }}
+                        className="py-2.5 px-3 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold text-xs transition-all border border-stone-300 flex items-center gap-1"
+                        title="Zobacz w Karcie Menu PDF"
+                      >
+                        <FileText size={14} />
+                        <span>Karta PDF</span>
+                      </button>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* View Mode 2: Interactive Category Cards */}
+        {viewMode === 'interactive' && (
           <div className="space-y-6">
             <div className="flex flex-col md:flex-row gap-4 items-center justify-between border-b border-gray-200 pb-4">
               
@@ -479,8 +672,10 @@ export function MenuSection() {
               </AnimatePresence>
             )}
           </div>
-        ) : (
-          /* View Mode 2: In-Page Full Document (PDF Paper View) */
+        )}
+
+        {/* View Mode 3: In-Page Full Document (PDF Paper View) */}
+        {viewMode === 'document' && (
           <div className="space-y-6">
             {/* Document Page Tabs Toolbar */}
             <div className="flex flex-wrap items-center justify-between gap-4 p-4 bg-stone-100 rounded-3xl border border-stone-200">
@@ -631,7 +826,7 @@ export function MenuSection() {
                   className="inline-flex items-center gap-2 text-xs font-bold text-amber-800 hover:text-amber-950 underline"
                 >
                   <Printer size={14} />
-                  <span>Drukuj / Pobierz całe 4 strony</span>
+                  <span>Drukuj / Pobierz całe {MENU_DOCUMENT_PAGES.length} stron</span>
                 </button>
               </div>
             </div>

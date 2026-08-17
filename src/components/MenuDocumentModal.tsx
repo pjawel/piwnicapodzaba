@@ -48,7 +48,7 @@ export function MenuDocumentModal({ isOpen, onClose }: MenuDocumentModalProps) {
                   </span>
                 </h3>
                 <p className="text-xs text-stone-400">
-                  Dokument oferty bankietowej (4 strony) • Możliwość druku / zapisu PDF
+                  Dokument oferty bankietowej ({MENU_DOCUMENT_PAGES.length} stron) • Możliwość druku / zapisu PDF
                 </p>
               </div>
             </div>
@@ -109,7 +109,7 @@ export function MenuDocumentModal({ isOpen, onClose }: MenuDocumentModalProps) {
                     : 'bg-white text-stone-700 hover:bg-stone-100 border border-stone-300'
                 }`}
               >
-                Wszystkie 4 Strony
+                Wszystkie {MENU_DOCUMENT_PAGES.length} Stron
               </button>
             </div>
 
