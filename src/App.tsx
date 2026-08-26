@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { AboutSection } from './components/AboutSection';
 import { VenuesSection } from './components/VenuesSection';
 import { MenuSection } from './components/MenuSection';
-import { CalculatorSection } from './components/CalculatorSection';
 import { VideoSection } from './components/VideoSection';
 import { GallerySection } from './components/GallerySection';
 import { ReviewsSection } from './components/ReviewsSection';
@@ -53,28 +51,22 @@ export default function App() {
 
       {/* Main Content */}
       <main className="flex-1">
-        {/* 1. Hero Section */}
+        {/* 1. Hero Section with Drone Video */}
         <Hero />
 
-        {/* 2. Intro / About Section */}
-        <AboutSection />
-
-        {/* 3. Venues Detailed Showcase */}
+        {/* 2. Venues Detailed Showcase */}
         <VenuesSection 
           onOpenGalleryTab={handleOpenGalleryTab}
           onOpenImage={handleOpenImage}
         />
 
-        {/* 4. Menu & Bankiet Offer */}
+        {/* 3. Menu & Bankiet Offer */}
         <MenuSection />
 
-        {/* 5. Interactive Party Planner & Calculator */}
-        <CalculatorSection />
-
-        {/* 6. Video Showcase & Drone Tours */}
+        {/* 4. Video Showcase & Drone Tours */}
         <VideoSection />
 
-        {/* 7. Full Photo Gallery & Lightbox */}
+        {/* 5. Full Photo Gallery & Lightbox */}
         <GallerySection 
           activeTab={activeGalleryTab}
           setActiveTab={setActiveGalleryTab}
@@ -82,10 +74,10 @@ export default function App() {
           setSelectedImageIndex={setSelectedImageIndex}
         />
 
-        {/* 8. Verified Facebook Customer Reviews */}
+        {/* 6. Verified Facebook Customer Reviews */}
         <ReviewsSection />
 
-        {/* 9. Contact, Reservation & Map */}
+        {/* 7. Contact, Reservation & Map */}
         <ContactSection />
       </main>
 

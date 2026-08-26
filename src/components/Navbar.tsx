@@ -12,12 +12,10 @@ export function Navbar({ isScrolled }: NavbarProps) {
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
   const navLinks = [
-    { name: 'O nas', href: '#o-nas' },
-    { name: 'Nasze Lokale', href: '#lokale' },
-    { name: 'Oferta i Menu', href: '#oferta' },
-    { name: 'Kalkulator & Wycena', href: '#kalkulator' },
-    { name: 'Prezentacje Wideo', href: '#wideo' },
-    { name: 'Galeria', href: '#galeria' },
+    { name: 'Nasze Sale', href: '#lokale' },
+    { name: 'Menu & Pakiety', href: '#oferta' },
+    { name: 'Wideo & Dron', href: '#wideo' },
+    { name: 'Galeria Wnętrz', href: '#galeria' },
     { name: 'Kontakt', href: '#kontakt' },
   ];
 

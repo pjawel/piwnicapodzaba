@@ -89,6 +89,8 @@ export const PIWNICA_MAPS_LINK = "https://maps.google.com/?q=Orla+39a,+59-300+Lu
 
 export const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=100028486736867";
 export const FACEBOOK_REVIEWS_URL = "https://www.facebook.com/profile.php?id=100028486736867&sk=reviews";
+export const CONTACT_PHONE = "661637770";
+export const CONTACT_PHONE_FORMATTED = "661 637 770";
 
 export const DRONE_VIDEO_URL = "https://github.com/przemekszcz7/filmy/releases/download/j/dron.mp4";
 export const PREPARATION_VIDEO_URL = "https://github.com/przemekszcz7/filmy/releases/download/j/AQPKV8LoCGcdtSHzfWNjIVKlMrGAUOQ42G06ZfFKYpAZD5n_9GeWznPBM9sp1awx80p0MOD-UnqwfhfW_Ki9FE4XYX_3olOVlQs.mp4";
@@ -398,6 +400,9 @@ export interface EventMenuPackage {
   title: string;
   subtitle: string;
   badge: string;
+  eventTypes: string[]; // 'wesela' | 'chrzciny' | 'urodziny' | 'firmowe' | 'komunie' | 'all'
+  recommendedFor: string;
+  capacityText: string;
   highlightColor: 'amber' | 'emerald' | 'rose' | 'blue';
   courses: {
     category: string;
@@ -408,187 +413,210 @@ export interface EventMenuPackage {
   note: string;
 }
 
+export const OCCASION_FILTERS = [
+  { id: 'all', label: 'Wszystkie Uroczystości', icon: 'Sparkles', desc: 'Przeglądaj wszystkie gotowe zestawy' },
+  { id: 'wesela', label: 'Wesela & Duże Przyjęcia', icon: 'HeartHandshake', desc: 'Pełny obiad bankietowy, bogaty zimny stół i gorące dania' },
+  { id: 'chrzciny', label: 'Chrzciny & Komunie', icon: 'Baby', desc: 'Tradycyjny rosół, 4 rodzaje mięs, menu dla dzieci i desery' },
+  { id: 'urodziny', label: '18-stki & Urodziny', icon: 'PartyPopper', desc: 'Dania główne, finger food, tortille i własny alkohol bez korkowego' },
+  { id: 'firmowe', label: 'Spotkania Firmowe & Jubileusze', icon: 'ChefHat', desc: 'Lekkie menu bankietowe, przekąski, bufet kawowy' },
+];
+
 export const EVENT_MENU_PACKAGES: EventMenuPackage[] = [
   {
     id: 'hit-fit-prop-1',
-    venue: 'Hit Fit',
-    title: 'Oferta Menu na Przyjęcie',
-    subtitle: 'Propozycja nr 1',
-    badge: 'Hit Fit • Propozycja 1',
+    venue: 'Hit Fit (do 90 os.) & Piwnica',
+    title: 'Bankietowy Zestaw Tradycyjny',
+    subtitle: 'Bogaty obiad, rolady, pieczenie & stół przekąsek',
+    badge: 'Wesela • 18-stki • Jubileusze',
+    eventTypes: ['wesela', 'urodziny', 'firmowe'],
+    recommendedFor: 'Przyjęcia weselne, 18-stki, jubileusze małżeńskie i duże bankiety rodzinne',
+    capacityText: 'Idealne dla 25 – 90 osób w lokalu Hit Fit lub do 40 osób w Piwnicy pod Żabą',
     highlightColor: 'amber',
     courses: [
       {
-        category: 'Dania główne',
+        category: 'Dania główne (3 rodzaje mięs)',
         items: [
           'Schabowy z camembertem i żurawiną',
-          'Drobiowy w serowej panierce',
-          'Karczek w sosie'
+          'Soczysty filet drobiowy w serowej panierce',
+          'Tradycyjny karczek pieczony w aksamitnym sosie'
+        ]
+      },
+      {
+        category: 'Dodatki skrobiowe',
+        items: [
+          'Młode ziemniaki z koperkiem',
+          'Aksamitne kluski śląskie'
+        ]
+      },
+      {
+        category: 'Zestaw surówek',
+        items: [
+          'Mix świeżych sałat z sosem winegret',
+          'Chrupiący colesław',
+          'Tradycyjne buraczki zasmażane'
+        ]
+      },
+      {
+        category: 'Zimne przekąski & Zimny stół',
+        items: [
+          'Patery mięs pieczonych (schab ze śliwką, aromatyczny karczek)',
+          'Półmisek finger food i zakąsek bankietowych',
+          'Domowe galaretki drobiowe z cytryną',
+          'Klasyczna sałatka Cezar z prażonymi grzankami',
+          'Pieczarki faszerowane w złocistej panierce'
+        ]
+      }
+    ],
+    beverages: [
+      'Napoje zimne: soki owocowe oraz woda mineralna z cytryną bez limitu',
+      'Napoje gorące: świeżo parzona kawa i herbata bez ograniczeń czasowych'
+    ],
+    alcohol: 'Możliwość wniesienia własnego alkoholu bez opłaty korkowej (przy zakupie 10x Coca-Cola 1L).',
+    note: 'Menu może zostać w pełni spersonalizowane. Istnieje możliwość dodania gorących kolacji (np. barszcz z krokietem, flaczki, żeberka) oraz domowych ciast i tortu.'
+  },
+  {
+    id: 'chrzciny-menu',
+    venue: 'Hit Fit & Piwnica pod Żabą',
+    title: 'Dedykowane Menu na Chrzciny i Komunie',
+    subtitle: 'Kompletny zestaw rodzinny z rosołem, 4 mięsami i menu dla dzieci',
+    badge: 'Chrzciny • Komunie • Rodzina',
+    eventTypes: ['chrzciny', 'komunie'],
+    recommendedFor: 'Chrzciny, pierwsze komunie święte, roczki oraz uroczyste obiady rodzinne',
+    capacityText: 'Dopasowane zarówno do kameralnych obiadów (15-30 os.), jak i dużych przyjęć (do 90 os.)',
+    highlightColor: 'rose',
+    courses: [
+      {
+        category: 'Zupa powitalna',
+        items: [
+          'Aromatyczny rosół domowy z makaronem i świeżą natką pietruszki'
+        ]
+      },
+      {
+        category: 'Dania główne (4 rodzaje mięs)',
+        items: [
+          'Tradycyjny kotlet schabowy po staropolsku',
+          'Wykwintna rolada drobiowa ze szpinakiem',
+          'Rolada wieprzowa z grzybami i pieczarkami w sosie',
+          'Chrupiące nuggetsy drobiowe uwielbiane przez dzieci i dorosłych'
         ]
       },
       {
         category: 'Dodatki',
         items: [
-          'Ziemniaki',
-          'Kluski śląskie'
+          'Ziemniaki z wody z koperkiem',
+          'Kluski śląskie',
+          'Złociste, chrupiące frytki'
         ]
       },
       {
-        category: 'Surówki',
+        category: 'Surówki i witaminy',
         items: [
-          'Mix sałat z winegretem',
-          'Surówka colesław',
-          'Buraczki'
+          'Młoda kapusta z koperkiem',
+          'Seler z chrupiącymi orzechami',
+          'Tradycyjna mizeria ze śmietaną'
         ]
       },
       {
-        category: 'Zimne przekąski',
+        category: 'Zimny stół i przystawki',
         items: [
-          'Mięso pieczone (schab ze śliwką, karczek)',
-          'Półmisek rozmaitości typu finger food',
-          'Galaretki drobiowe',
-          'Sałatka Cezar',
-          'Pieczarki faszerowane panierowane'
+          'Polędwiczki faszerowane „po warszawsku”',
+          'Lekka sałatka Fit z pestkami granatu',
+          'Efektowny „przekładaniec” koronkowo-serowy z kurczakiem',
+          'Świeże sałatki oraz mini kebaczety'
         ]
       }
     ],
     beverages: [
-      'Napoje zimne: woda i soki',
-      'Napoje gorące: kawa i herbata'
+      'Kawa i herbata bez ograniczeń czasowych',
+      'Woda mineralna z miętą i cytryną oraz soki owocowe bez limitu'
     ],
-    note: 'Menu może zostać dostosowane do indywidualnych potrzeb oraz liczby zaproszonych gości. Istnieje możliwość uzupełnienia oferty o ciasta oraz dodatkowe danie gorące.'
-  },
-  {
-    id: 'hit-fit-prop-2',
-    venue: 'Hit Fit',
-    title: 'Oferta Menu na Przyjęcie',
-    subtitle: 'Propozycja nr 2',
-    badge: 'Hit Fit • Propozycja 2',
-    highlightColor: 'emerald',
-    courses: [
-      {
-        category: 'Dania główne',
-        items: [
-          'Rolada drobiowa faszerowana szparagami podana z puree z zielonego groszku i sałatką caprese'
-        ]
-      },
-      {
-        category: 'Zimne przekąski',
-        items: [
-          'Wędliny, sery i tortille',
-          'Grzanki z tatarem z łososia',
-          'Sałatka gyros',
-          'Jajka w sosie tatarskim'
-        ]
-      }
-    ],
-    beverages: [
-      'Napoje zimne: woda i soki',
-      'Napoje gorące: kawa i herbata'
-    ],
-    note: 'Menu może zostać dostosowane do indywidualnych potrzeb oraz liczby zaproszonych gości. Istnieje możliwość uzupełnienia oferty o ciasta oraz dodatkowe danie gorące.'
+    note: 'Dla dzieci dostępne dodatkowe porcje frytek i nuggetsów. Istnieje możliwość serwowania ciast i tortu dostarczonego przez klienta lub przygotowanego przez naszą cukiernię.'
   },
   {
     id: 'hit-fit-prop-3',
-    venue: 'Hit Fit',
-    title: 'Oferta Menu na Przyjęcie',
-    subtitle: 'Propozycja nr 3',
-    badge: 'Hit Fit • Propozycja 3',
+    venue: 'Piwnica pod Żabą & Hit Fit',
+    title: 'Zestaw Imprezowy ze Szwajcarem i Przekąskami',
+    subtitle: 'Idealne menu na energiczne przyjęcia z parkietem tanecznym',
+    badge: '18-stki • Urodziny • Imprezy',
+    eventTypes: ['urodziny', 'firmowe', 'wesela'],
+    recommendedFor: 'Osiemnastki, 30/40/50-te urodziny, wieczory biesiadne i imprezy ze znajomymi',
+    capacityText: 'Klimatyczna Piwnica pod Żabą (do 40 os.) lub Sala Hit Fit (do 90 os.)',
     highlightColor: 'blue',
     courses: [
       {
         category: 'Dania główne',
         items: [
-          'Szwajcar',
-          'Schabowy',
-          'De volaille'
+          'Kotlet Szwajcar zapiekany z serem',
+          'Klasyczny schabowy po mistrzowsku',
+          'Kotlet De Volaille z rozpływającym się masłem ziołowym'
         ]
       },
       {
         category: 'Dodatki',
         items: [
-          'Krokiety ziemniaczane',
-          'Ziemniaki'
+          'Chrupiące krokiety ziemniaczane',
+          'Ziemniaki opiekane z ziołami'
         ]
       },
       {
-        category: 'Surówki',
+        category: 'Surówki i warzywa',
         items: [
-          'Warzywa w sosie holenderskim',
-          'Czerwona kapusta z jabłkiem'
+          'Sezonowe warzywa podawane w aksamitnym sosie holenderskim',
+          'Czerwona kapusta z nutą soczystego jabłka'
         ]
       },
       {
-        category: 'Zimne przekąski',
+        category: 'Zimne przekąski i finger-food',
         items: [
-          'Mięso pieczone podane z ćwikłą',
-          'Tortille podpiekane podane z kurczakiem, warzywami i sosem tzatziki',
-          'Sałatka na zielono z serami, kiełkami i sosem brzoskwiniowym',
-          'Placuszki ogrodowe z warzywami',
-          'Sałatka brokułowa z sosem czosnkowym'
+          'Mięso pieczone serwowane z tradycyjną ćwikłą',
+          'Tortille podpiekane na chrupko z kurczakiem, warzywami i sosem tzatziki',
+          'Wykwintna sałatka na zielono z serami, kiełkami i sosem brzoskwiniowym',
+          'Placuszki ogrodowe ze świeżymi warzywami i dipem',
+          'Sałatka brokułowa z prażonymi migdałami i sosem czosnkowym'
         ]
       }
     ],
     beverages: [
-      'Napoje zimne: woda i soki',
-      'Napoje gorące: kawa i herbata'
+      'Napoje zimne: woda i soki owocowe bez limitu',
+      'Napoje gorące: bufet kawowy i herbaciany bez limitu'
     ],
-    alcohol: 'Wino i piwo dostępne do zamówienia w lokalu.',
-    note: 'Menu może zostać dostosowane do indywidualnych potrzeb oraz liczby zaproszonych gości. Istnieje możliwość uzupełnienia oferty o ciasta oraz dodatkowe danie gorące.'
+    alcohol: 'Własny alkohol mile widziany (brak opłaty korkowej!). Wino i piwo dostępne również w lokalu.',
+    note: 'W nocy polecamy uzupełnić zestaw o gorącą kolację: barszcz czerwony z krokietem lub aromatyczną zupę gulaszową.'
   },
   {
-    id: 'chrzciny-menu',
+    id: 'hit-fit-prop-2',
     venue: 'Hit Fit & Piwnica pod Żabą',
-    title: 'Oferta Menu na Chrzciny',
-    subtitle: 'Kompletny zestaw na przyjęcie rodzinne',
-    badge: 'Uroczystość • Chrzciny',
-    highlightColor: 'rose',
+    title: 'Zestaw Nowoczesny & Lekki z Łososiem i Szparagami',
+    subtitle: 'Elegancka kompozycja dań dla wymagających smakoszy i spotkań biznesowych',
+    badge: 'Spotkania Firmowe • Bankiety • Nowoczesne',
+    eventTypes: ['firmowe', 'wesela'],
+    recommendedFor: 'Jubileusze firmowe, bankiety biznesowe, eleganckie obiady zarządu oraz przyjęcia fit',
+    capacityText: 'Komfortowa przestrzeń z klimatyzacją, nagłośnieniem i parkingiem',
+    highlightColor: 'emerald',
     courses: [
-      {
-        category: 'Zupa',
-        items: [
-          'Rosół z makaronem'
-        ]
-      },
       {
         category: 'Dania główne',
         items: [
-          'Kotlet schabowy',
-          'Rolada drobiowa ze szpinakiem',
-          'Rolada z pieczarkami w sosie',
-          'Nuggetsy dla dzieci i dorosłych'
+          'Wykwintna rolada drobiowa faszerowana zielonymi szparagami',
+          'Aksamitne puree z zielonego groszku',
+          'Świeża sałatka Caprese z mozzarellą, pomidorami i bazylią'
         ]
       },
       {
-        category: 'Dodatki',
+        category: 'Zimne przekąski i przystawki',
         items: [
-          'Ziemniaki',
-          'Kluski śląskie',
-          'Chrupiące frytki'
-        ]
-      },
-      {
-        category: 'Surówki',
-        items: [
-          'Młoda kapusta',
-          'Seler z orzechami',
-          'Mizeria'
-        ]
-      },
-      {
-        category: 'Zimne przekąski',
-        items: [
-          'Polędwiczki faszerowane „po warszawsku”',
-          'Sałatka Fit z granatem',
-          '„Przekładaniec” koronkowo-serowy z kurczakiem',
-          'Sałatka i kebaczety'
+          'Deska wykwintnych wędlin długodojrzewających, serów i mini tortilli',
+          'Chrupiące grzanki bagietkowe z tatarem ze świeżego łososia',
+          'Warstwowa sałatka Gyros z sosem ziołowym',
+          'Jajka faszerowane w autorskim sosie tatarskim'
         ]
       }
     ],
     beverages: [
-      'Napoje zimne: woda i soki',
-      'Napoje gorące: kawa i herbata'
+      'Świeżo parzona kawa z ekspresu i selekcja herbat bez ograniczeń',
+      'Woda z cytrusami i naturalne soki owocowe bez limitu'
     ],
-    note: 'Menu może zostać dostosowane do indywidualnych potrzeb oraz liczby zaproszonych gości. Istnieje możliwość uzupełnienia oferty o ciasta oraz dodatkowe danie gorące.'
+    note: 'Możliwość rozszerzenia o dania premium: pieczony łosoś z migdałami, polędwiczki w sosie kurkowym czy carpaccio wołowe na rukoli.'
   }
 ];
 
@@ -814,43 +842,115 @@ export const MENU_DOCUMENT_PAGES = [
 export interface Venue {
   id: string;
   name: string;
+  isMain?: boolean;
   tagline: string;
   capacity: string;
+  maxGuests: number;
   address: string;
   mapEmbedUrl: string;
   mapLink: string;
   description: string;
+  weddingAllowed: boolean;
+  weddingNote?: string;
   features: string[];
   events: string[];
+  bestFor: string[];
   images: string[];
   coverImage: string;
   color: string;
 }
 
+export interface EventTypeGuide {
+  id: string;
+  name: string;
+  description: string;
+  recommendedVenueId: 'hit-fit' | 'piwnica-pod-zaba' | 'both';
+  recommendedVenueName: string;
+  capacityNote: string;
+  keyHighlight: string;
+}
+
+export const EVENT_TYPES_GUIDE: EventTypeGuide[] = [
+  {
+    id: 'wesela',
+    name: 'Wesela i Przyjęcia Weselne',
+    description: 'Elegancka przestrzeń, przestronny parkiet, wykwintne dania gorące, taras i bezpłatny parking dla gości.',
+    recommendedVenueId: 'hit-fit',
+    recommendedVenueName: 'Tylko Hit Fit (do 90 osób)',
+    capacityNote: 'Do 90 osób • Piwnica nie organizuje wesel',
+    keyHighlight: 'Duża sala, taras z grillem, pełna oprawa kulinarna'
+  },
+  {
+    id: 'osiemnastki',
+    name: '18-stki i Urodziny Młodzieżowe',
+    description: 'Imprezy z klimatem, doskonałe nagłośnienie, świetna atmosfera do tańca i pyszne przekąski.',
+    recommendedVenueId: 'both',
+    recommendedVenueName: 'Piwnica pod Żabą (do 40 os.) lub Hit Fit (do 90 os.)',
+    capacityNote: 'Piwnica: do 40 os. (bestseller) | Hit Fit: do 90 os.',
+    keyHighlight: 'Piwnica to absolutny faworyt na 18-stki w Lubinie'
+  },
+  {
+    id: 'chrzciny-komunie',
+    name: 'Chrzciny i Komunie Święte',
+    description: 'Dedykowane pakiety menu, elegancka dekoracja stołów, bezpieczna przestrzeń i miła atmosfera rodzinna.',
+    recommendedVenueId: 'both',
+    recommendedVenueName: 'Hit Fit lub Piwnica pod Żabą',
+    capacityNote: 'Wybierz zależnie od liczby gości (do 40 lub do 90 osób)',
+    keyHighlight: 'Gotowe menu na chrzciny, pyszne ciasta, domowy smak'
+  },
+  {
+    id: 'jubileusze',
+    name: 'Jubileusze, Rocznice & Urodziny Dorosłych',
+    description: 'Kameralne lub huczne świętowanie ważnych rocznic w gronie najbliższych z autorskim menu.',
+    recommendedVenueId: 'both',
+    recommendedVenueName: 'Hit Fit lub Piwnica pod Żabą',
+    capacityNote: 'Piwnica: 15–40 osób | Hit Fit: 30–90 osób',
+    keyHighlight: 'Dopasowanie menu, ciepły klimat i profesjonalna obsługa'
+  },
+  {
+    id: 'firmowe',
+    name: 'Imprezy Firmowe & Bankiety',
+    description: 'Integracje, wigilie firmowe, bankiety i spotkania biznesowe z pełnym zapleczem gastronomicznym.',
+    recommendedVenueId: 'both',
+    recommendedVenueName: 'Hit Fit lub Piwnica pod Żabą',
+    capacityNote: 'Hit Fit (do 90 os. z tarasem i grillem) | Piwnica (do 40 os.)',
+    keyHighlight: 'Dyskrecja, profesjonalny serwis i elastyczne rozliczenia'
+  }
+];
+
 export const VENUES: Venue[] = [
   {
     id: 'hit-fit',
     name: 'Hit Fit',
-    tagline: 'Nowoczesna sala bankietowa do 90 osób',
+    isMain: true,
+    tagline: 'Główny lokal bankietowy do 90 osób • Taras, grill i duży parking',
     capacity: 'Do 90 osób',
+    maxGuests: 90,
     address: HIT_FIT_ADDRESS,
     mapEmbedUrl: HIT_FIT_MAPS_EMBED,
     mapLink: HIT_FIT_MAPS_LINK,
-    description: 'Zapraszamy do naszej sali bankietowej dla 90 osób! Oferujemy wyśmienitą kuchnię, eleganckie wnętrza oraz przestronny taras, duży grill i bezpłatny parking. Zadbamy o pyszne menu i wyjątkową atmosferę.',
+    weddingAllowed: true,
+    description: 'Główny lokal bankietowy mieszczący do 90 osób przy ul. Konstytucji 3 Maja 3. Nowoczesna, przestronna sala idealna na wesela, komunie, chrzciny, 18-stki oraz bankiety. Do dyspozycji gości oddajemy zadaszony taras wypoczynkowy, strefę grillową oraz duży bezpłatny parking bezpośrednio przed lokalem.',
     features: [
-      'Pojemność do 90 osób',
-      'Wyśmienita autorska kuchnia',
-      'Eleganckie, nowoczesne wnętrza',
-      'Przestronny taras & duży grill',
-      'Bezpłatny parking dla gości',
-      'Lokalizacja: ul. Konstytucji 3 Maja 3'
+      'Główna sala bankietowa do 90 osób',
+      'Organizacja wesel i dużych bankietów',
+      'Przestronny taras wypoczynkowy',
+      'Duży strefowy grill plenerowy',
+      'Duży, bezpłatny parking dla wszystkich gości',
+      'Autorska kuchnia i bogate pakiety menu',
+      'Lokalizacja: ul. Konstytucji 3 Maja 3, Lubin'
     ],
     events: [
-      'Urodziny i jubileusze',
-      'Wesela i rocznice',
-      'Chrzciny i komunie',
-      'Imprezy firmowe',
-      'Przyjęcia okolicznościowe'
+      'Wesela i poprawiny',
+      'Komunie i chrzciny',
+      '18-stki i jubileusze',
+      'Bankiety i imprezy firmowe',
+      'Duże przyjęcia okolicznościowe'
+    ],
+    bestFor: [
+      'Wesela do 90 osób',
+      'Przyjęcia z dostępem do tarasu i grilla',
+      'Większe uroczystości rodzinne i firmowe'
     ],
     images: HIT_FIT_IMAGES,
     coverImage: HIT_FIT_IMAGES[0],
@@ -859,25 +959,36 @@ export const VENUES: Venue[] = [
   {
     id: 'piwnica-pod-zaba',
     name: 'Piwnica pod Żabą',
-    tagline: 'Klimatyczna i elegancka sala bankietowa w Lubinie',
-    capacity: 'Idealna na kameralne i huczne przyjęcia',
+    isMain: false,
+    tagline: 'Kameralna i klimatyczna sala do 40 osób • Bez wesel • Idealna na 18-stki',
+    capacity: 'Do 40 osób (kameralna)',
+    maxGuests: 40,
     address: PIWNICA_ADDRESS,
     mapEmbedUrl: PIWNICA_MAPS_EMBED,
     mapLink: PIWNICA_MAPS_LINK,
-    description: 'Piwnica pod Żabą to wyjątkowe miejsce o niepowtarzalnym klimacie. Łączymy tradycję z elegancją, zapewniając domową oprawę kulinarną, estetyczne aranżacje stołów oraz kompleksową obsługę każdego przyjęcia.',
+    weddingAllowed: false,
+    weddingNote: 'W lokalu Piwnica pod Żabą nie organizujemy wesel. Lokal dedykowany jest przyjęciom do 40 osób.',
+    description: 'Klimatyczny, kameralny lokal dla grup do 40 osób przy ul. Orlej 39a. Wyróżnia się niepowtarzalną, ciepłą atmosferą. Uwaga: w Piwnicy pod Żabą NIE organizujemy wesel – lokal doskonale sprawdza się natomiast na 18-stki, urodziny, jubileusze, chrzciny, komunie oraz mniejsze uroczystości rodzinne i firmowe.',
     features: [
-      'Unikalny, ciepły klimat wnętrz',
-      'Indywidualne podejście do menu',
+      'Kameralna pojemność do 40 gości',
+      'Niepowtarzalny, ciepły klimat wnętrz',
+      'Idealne miejsce na 18-stki i urodziny',
+      'Wyśmienita kuchnia domowa i przekąski',
+      'Klimatyzowana sala z parkietem',
       'Kompleksowa obsługa kelnerska',
-      'Lokalizacja: ul. Orla 39a w Lubinie',
-      'Klimatyzowana sala'
+      'Lokalizacja: ul. Orla 39a, Lubin'
     ],
     events: [
-      'Wesela i przyjęcia weselne',
-      'Komunie i chrzciny',
-      'Jubileusze i urodziny',
-      'Spotkania integracyjne & firmowe',
-      'Inne wydarzenia rodzinne'
+      '18-stki i urodziny (hit lokalu)',
+      'Chrzciny i małe komunie',
+      'Jubileusze i rocznice',
+      'Spotkania integracyjne i wigilie',
+      'Kameralne przyjęcia okolicznościowe'
+    ],
+    bestFor: [
+      '18-stki i urodziny młodzieżowe',
+      'Kameralne chrzciny i komunie do 40 osób',
+      'Jubileusze i spotkania w przytulnym gronie'
     ],
     images: PIWNICA_IMAGES,
     coverImage: PIWNICA_IMAGES[0],
