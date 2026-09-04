@@ -213,13 +213,81 @@ export function EighteenthBirthdayPage() {
               </span>
             </div>
 
+            {/* Propozycje menu na 18-stkę */}
+            <div className="pt-4 text-left border-t border-stone-200/80 space-y-4">
+              <span className="text-xs font-bold text-amber-900 uppercase tracking-wider block text-center">
+                Wybierz propozycję z menu:
+              </span>
+              <div className="grid sm:grid-cols-3 gap-4">
+                <Link
+                  to="/menu?uroczystosc=urodziny&pakiet=hit-fit-prop-3"
+                  className="bg-stone-50 hover:bg-amber-50/70 p-4 rounded-2xl border border-stone-200 hover:border-amber-400 transition-all group flex flex-col justify-between"
+                >
+                  <div className="space-y-1.5">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-100 text-blue-900 inline-block">
+                      Propozycja nr 3
+                    </span>
+                    <h4 className="font-serif font-bold text-stone-900 text-sm group-hover:text-amber-900">
+                      Szwajcar, De Volay & Tortille Tzatziki
+                    </h4>
+                    <p className="text-stone-500 text-xs line-clamp-2">
+                      Krokiety ziemniaczane, sałatka brokułowa, placuszki ogrodowe, pieczone mięsa z ćwikłą.
+                    </p>
+                  </div>
+                  <span className="pt-3 text-amber-800 font-bold text-xs inline-flex items-center gap-1">
+                    Zobacz to menu <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </Link>
+
+                <Link
+                  to="/menu?uroczystosc=urodziny&pakiet=hit-fit-prop-1"
+                  className="bg-stone-50 hover:bg-amber-50/70 p-4 rounded-2xl border border-stone-200 hover:border-amber-400 transition-all group flex flex-col justify-between"
+                >
+                  <div className="space-y-1.5">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-100 text-amber-900 inline-block">
+                      Propozycja nr 1
+                    </span>
+                    <h4 className="font-serif font-bold text-stone-900 text-sm group-hover:text-amber-900">
+                      Schab z camembertem & Finger Food
+                    </h4>
+                    <p className="text-stone-500 text-xs line-clamp-2">
+                      Panierka serowa, karczek w sosie, kluski śląskie, półmisek rozmaitości przekąsek, sałatka Cezar.
+                    </p>
+                  </div>
+                  <span className="pt-3 text-amber-800 font-bold text-xs inline-flex items-center gap-1">
+                    Zobacz to menu <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </Link>
+
+                <Link
+                  to="/menu?kategoria=gorace-kolacje"
+                  className="bg-stone-50 hover:bg-amber-50/70 p-4 rounded-2xl border border-stone-200 hover:border-amber-400 transition-all group flex flex-col justify-between"
+                >
+                  <div className="space-y-1.5">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-200 text-amber-950 inline-block">
+                      Gorące kolacje
+                    </span>
+                    <h4 className="font-serif font-bold text-stone-900 text-sm group-hover:text-amber-900">
+                      Pizza, Mini Hamburgery & Barszcz
+                    </h4>
+                    <p className="text-stone-500 text-xs line-clamp-2">
+                      Gorące posiłki serwowane po północy, nuggetsy z dipami i ciepłe kolacje dla młodzieży.
+                    </p>
+                  </div>
+                  <span className="pt-3 text-amber-800 font-bold text-xs inline-flex items-center gap-1">
+                    Zobacz gorące kolacje <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </Link>
+              </div>
+            </div>
+
             {/* Action Buttons to View Menu and Download PDF */}
             <div className="pt-4 flex flex-wrap justify-center items-center gap-4">
               <Link
-                to="/menu"
+                to="/menu?uroczystosc=urodziny"
                 className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-500 hover:from-amber-500 hover:to-yellow-400 text-white font-bold text-sm tracking-wide shadow-xl shadow-amber-900/20 transition-all hover:scale-105"
               >
-                <span>Zobacz Pełną Kartę Menu & Pakiety</span>
+                <span>Otwórz Menu Osiemnastkowe w Karcie Dań</span>
                 <ArrowRight size={17} />
               </Link>
 
@@ -229,7 +297,7 @@ export function EighteenthBirthdayPage() {
                 className="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-stone-900 hover:bg-stone-800 text-white font-semibold text-sm transition-all shadow-md cursor-pointer"
               >
                 <Download size={16} className="text-amber-400" />
-                <span>Pobierz Menu w PDF</span>
+                <span>Pobierz menu w PDF</span>
               </button>
             </div>
           </div>
