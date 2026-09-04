@@ -2,12 +2,12 @@ import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   ChefHat, Coffee, Wine, Sparkles, CheckCircle2, Search, HeartHandshake,
-  FileText, Download, LayoutGrid, UtensilsCrossed, Phone, Baby, PartyPopper,
-  Users, Calendar, ChevronRight, X, Info, Utensils, ShieldCheck
+  Download, LayoutGrid, UtensilsCrossed, Phone, Baby, PartyPopper,
+  FileText, ShieldCheck, X, Info
 } from 'lucide-react';
 import { 
   MENU_WELCOME_TITLE, MENU_WELCOME_TEXT, MENU_WELCOME_SUBTEXT, MENU_CATEGORIES,
-  MENU_DOCUMENT_PAGES, EVENT_MENU_PACKAGES, OCCASION_FILTERS, EventMenuPackage
+  EVENT_MENU_PACKAGES, OCCASION_FILTERS
 } from '../data';
 import { downloadMenuPdf } from '../utils/generateMenuPdf';
 
@@ -15,8 +15,7 @@ export function MenuSection() {
   const [selectedOccasion, setSelectedOccasion] = useState<string>('all');
   const [activeMenuCategory, setActiveMenuCategory] = useState<string>('obiad');
   const [menuSearchQuery, setMenuSearchQuery] = useState<string>('');
-  const [viewMode, setViewMode] = useState<'packages' | 'interactive' | 'document'>('packages');
-  const [docCurrentPage, setDocCurrentPage] = useState<number>(1);
+  const [viewMode, setViewMode] = useState<'packages' | 'interactive'>('packages');
 
   // Filter packages based on selected occasion
   const filteredPackages = useMemo(() => {
@@ -25,8 +24,6 @@ export function MenuSection() {
       pkg.eventTypes.includes(selectedOccasion)
     );
   }, [selectedOccasion]);
-
-  const activeDocPage = MENU_DOCUMENT_PAGES.find(p => p.pageNumber === docCurrentPage) || MENU_DOCUMENT_PAGES[0];
 
   return (
     <section id="oferta" className="py-20 md:py-28 bg-stone-50/80 scroll-mt-20 relative overflow-hidden border-b border-stone-200">
@@ -100,46 +97,45 @@ export function MenuSection() {
           </div>
         </div>
 
-        {/* 4. Three View Modes (Gotowe Zestawy, Pełna Karta Dań, Dokument PDF) */}
+        {/* 4. View Modes (Pakiety Przyjęć, Katalog Dań) & Szybkie Pobieranie PDF */}
         <div id="menu-view-container" className="pt-2">
-          <div className="flex flex-wrap items-center justify-center gap-2 p-1.5 bg-stone-200/90 rounded-2xl max-w-md mx-auto mb-8 border border-stone-300">
-            <button
-              type="button"
-              onClick={() => setViewMode('packages')}
-              className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
-                viewMode === 'packages'
-                  ? 'bg-stone-900 text-white shadow-md'
-                  : 'text-stone-700 hover:text-stone-900'
-              }`}
-            >
-              <UtensilsCrossed size={15} />
-              <span>Zestawy ({filteredPackages.length})</span>
-            </button>
+          <div className="flex flex-wrap items-center justify-center gap-3 max-w-xl mx-auto mb-8">
+            <div className="flex p-1.5 bg-stone-200/90 rounded-2xl border border-stone-300">
+              <button
+                type="button"
+                onClick={() => setViewMode('packages')}
+                className={`py-2.5 px-4 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                  viewMode === 'packages'
+                    ? 'bg-stone-900 text-white shadow-md'
+                    : 'text-stone-700 hover:text-stone-900'
+                }`}
+              >
+                <UtensilsCrossed size={15} />
+                <span>Pakiety ({filteredPackages.length})</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setViewMode('interactive')}
+                className={`py-2.5 px-4 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                  viewMode === 'interactive'
+                    ? 'bg-stone-900 text-white shadow-md'
+                    : 'text-stone-700 hover:text-stone-900'
+                }`}
+              >
+                <LayoutGrid size={15} />
+                <span>Katalog Dań</span>
+              </button>
+            </div>
 
             <button
               type="button"
-              onClick={() => setViewMode('interactive')}
-              className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
-                viewMode === 'interactive'
-                  ? 'bg-stone-900 text-white shadow-md'
-                  : 'text-stone-700 hover:text-stone-900'
-              }`}
+              onClick={downloadMenuPdf}
+              className="py-3 px-5 rounded-2xl bg-amber-800 hover:bg-amber-900 text-white text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm hover:shadow active:scale-95"
+              title="Pobierz oficjalne menu w pliku PDF"
             >
-              <LayoutGrid size={15} />
-              <span>Katalog Dań</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setViewMode('document')}
-              className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
-                viewMode === 'document'
-                  ? 'bg-stone-900 text-white shadow-md'
-                  : 'text-stone-700 hover:text-stone-900'
-              }`}
-            >
-              <FileText size={15} />
-              <span>Karta PDF</span>
+              <Download size={15} />
+              <span>Pobierz Menu (PDF)</span>
             </button>
           </div>
         </div>
@@ -290,17 +286,12 @@ export function MenuSection() {
 
                       <button
                         type="button"
-                        onClick={() => {
-                          setDocCurrentPage(5);
-                          setViewMode('document');
-                          const el = document.getElementById('menu-view-container');
-                          el?.scrollIntoView({ behavior: 'smooth' });
-                        }}
-                        className="py-3 px-3.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold text-xs transition-all border border-stone-300 flex items-center gap-1"
-                        title="Zobacz w Karcie Menu PDF"
+                        onClick={downloadMenuPdf}
+                        className="py-3 px-3.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-900 font-bold text-xs transition-all border border-amber-200/80 flex items-center gap-1.5 cursor-pointer active:scale-95 shrink-0"
+                        title="Pobierz Menu w formacie PDF"
                       >
-                        <FileText size={14} />
-                        <span>Karta PDF</span>
+                        <Download size={14} className="text-amber-800" />
+                        <span>Pobierz PDF</span>
                       </button>
                     </div>
                   </div>
@@ -426,111 +417,30 @@ export function MenuSection() {
           </div>
         )}
 
-        {/* VIEW MODE 3: Full PDF Document Viewer with Page Switching */}
-        {viewMode === 'document' && (
-          <div className="space-y-6 max-w-4xl mx-auto">
-            <div className="flex flex-wrap items-center justify-between gap-3 bg-white p-4 rounded-2xl border border-stone-200 shadow-xs">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-bold text-stone-700 uppercase tracking-wider">
-                  Strona {docCurrentPage} z {MENU_DOCUMENT_PAGES.length}:
-                </span>
-                <span className="text-xs sm:text-sm font-serif font-bold text-amber-900">
-                  {activeDocPage.title}
-                </span>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-2">
-                <div className="flex items-center gap-1">
-                  {MENU_DOCUMENT_PAGES.map((p) => (
-                    <button
-                      key={p.pageNumber}
-                      type="button"
-                      onClick={() => setDocCurrentPage(p.pageNumber)}
-                      className={`w-8 h-8 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                        docCurrentPage === p.pageNumber
-                          ? 'bg-amber-800 text-white shadow-xs'
-                          : 'bg-stone-100 hover:bg-stone-200 text-stone-700'
-                      }`}
-                      title={`Strona ${p.pageNumber}`}
-                    >
-                      {p.pageNumber}
-                    </button>
-                  ))}
-                </div>
-
-                <button
-                  type="button"
-                  onClick={downloadMenuPdf}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-bold text-xs transition-all shadow-xs cursor-pointer active:scale-95 ml-1"
-                  title="Pobierz pełną Kartę Menu w formacie PDF"
-                >
-                  <Download size={13} />
-                  <span>Pobierz PDF</span>
-                </button>
-              </div>
+        {/* 5. Direct PDF Download Callout Banner */}
+        <div className="bg-gradient-to-br from-amber-950 via-stone-900 to-stone-950 rounded-3xl p-8 sm:p-10 text-white shadow-xl border border-amber-500/30 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="space-y-2 text-center md:text-left max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/30 text-xs font-bold uppercase tracking-wider">
+              <FileText size={14} /> Oficjalny Plik PDF (8 stron)
             </div>
-
-            {/* Rendered Document Page */}
-            <div className="bg-white rounded-3xl p-6 sm:p-10 border border-stone-200 shadow-sm space-y-6">
-              <div className="border-b border-stone-200 pb-4 text-center space-y-1">
-                <span className="text-[11px] font-bold text-amber-800 uppercase tracking-widest">
-                  Karta Menu • Sala Hit Fit & Piwnica pod Żabą
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-serif font-bold text-stone-900">
-                  {activeDocPage.title}
-                </h3>
-              </div>
-
-              {activeDocPage.content.greeting && (
-                <div className="p-4 bg-amber-50/60 rounded-2xl border border-amber-200/80 space-y-2 text-stone-800 text-xs sm:text-sm">
-                  <h4 className="font-serif font-bold text-base text-stone-900">{activeDocPage.content.greeting}</h4>
-                  <p className="italic">{activeDocPage.content.intro}</p>
-                </div>
-              )}
-
-              {activeDocPage.content.sections && (
-                <div className="grid sm:grid-cols-2 gap-6">
-                  {activeDocPage.content.sections.map((sec, sIdx) => (
-                    <div key={sIdx} className="space-y-2 bg-stone-50/50 p-4 rounded-2xl border border-stone-100">
-                      <h4 className="font-serif font-bold text-base text-stone-900 border-b border-amber-200 pb-1">
-                        {sec.heading}
-                      </h4>
-                      {sec.note && (
-                        <p className="text-xs text-amber-800 font-semibold">{sec.note}</p>
-                      )}
-                      {'text' in sec && sec.text && (
-                        <p className="text-xs sm:text-sm text-stone-700 leading-relaxed">{sec.text}</p>
-                      )}
-                      {'items' in sec && sec.items && (
-                        <ul className="space-y-1 pl-2">
-                          {sec.items.map((item, iIdx) => (
-                            <li key={iIdx} className="text-xs sm:text-sm text-stone-700 flex items-start gap-2">
-                              <span className="text-amber-700">•</span>
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              )}
-
-              <div className="pt-4 border-t border-stone-200 flex flex-wrap items-center justify-between gap-3 text-xs text-stone-500">
-                <span>Zadzwoń, aby ustalić szczegóły: <strong className="text-stone-900 font-bold">661 637 770</strong></span>
-                <button
-                  type="button"
-                  onClick={downloadMenuPdf}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-bold text-xs sm:text-sm transition-all shadow-sm hover:shadow cursor-pointer active:scale-95"
-                  title="Pobierz pełną Kartę Menu w formacie PDF"
-                >
-                  <Download size={15} />
-                  <span>Pobierz PDF</span>
-                </button>
-              </div>
-            </div>
+            <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white">
+              Pobierz Oryginalną Kartę Menu
+            </h3>
+            <p className="text-stone-300 text-xs sm:text-sm font-light leading-relaxed">
+              Pobierz kompletny 8-stronicowy plik z pełną ofertą dań obiadowych, gorących kolacji, przekąsek, wiejskiego stołu oraz propozycji bankietowych sal Piwnica pod Żabą i Hit Fit.
+            </p>
           </div>
-        )}
+
+          <button
+            type="button"
+            onClick={downloadMenuPdf}
+            className="px-7 py-4 rounded-2xl bg-gradient-to-r from-amber-600 to-yellow-500 hover:from-amber-500 hover:to-yellow-400 text-white font-bold text-sm uppercase tracking-wider shadow-lg transition-all hover:scale-105 active:scale-95 flex items-center gap-2.5 cursor-pointer shrink-0"
+            title="Pobierz plik PDF"
+          >
+            <Download size={18} />
+            <span>Pobierz Plik PDF</span>
+          </button>
+        </div>
 
       </div>
     </section>
