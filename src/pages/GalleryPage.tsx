@@ -57,6 +57,57 @@ export function GalleryPage() {
         setSelectedImageIndex={setSelectedImageIndex}
       />
 
+      {/* Menu Links Related to Photo Themes */}
+      <section className="bg-stone-100 py-12 border-t border-stone-200">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 text-center space-y-6">
+          <div className="space-y-1 max-w-xl mx-auto">
+            <span className="text-amber-800 uppercase tracking-widest text-xs font-bold block">
+              Kulinarna Oprawa Przyjęć
+            </span>
+            <h3 className="text-2xl font-serif font-bold text-stone-900">
+              Zobacz Menu Prezentowane na Zdjęciach
+            </h3>
+            <p className="text-stone-600 text-xs sm:text-sm">
+              Potrawy ze zdjęć przygotowujemy świeżo na miejscu przed każdym przyjęciem.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <Link
+              to="/menu?uroczystosc=wesela"
+              className="p-3.5 rounded-xl bg-white border border-stone-200 hover:border-amber-400 text-stone-800 hover:text-amber-900 font-bold text-xs shadow-xs transition-all flex flex-col items-center justify-center gap-1"
+            >
+              <span>💍 Menu Weselne</span>
+              <span className="text-[10px] text-stone-500 font-normal">Zobacz propozycje →</span>
+            </Link>
+
+            <Link
+              to="/menu?uroczystosc=urodziny&pakiet=hit-fit-prop-3"
+              className="p-3.5 rounded-xl bg-white border border-stone-200 hover:border-amber-400 text-stone-800 hover:text-amber-900 font-bold text-xs shadow-xs transition-all flex flex-col items-center justify-center gap-1"
+            >
+              <span>🎂 Menu na 18-stkę</span>
+              <span className="text-[10px] text-stone-500 font-normal">Zobacz propozycje →</span>
+            </Link>
+
+            <Link
+              to="/menu?uroczystosc=chrzciny&pakiet=chrzciny-menu"
+              className="p-3.5 rounded-xl bg-white border border-stone-200 hover:border-amber-400 text-stone-800 hover:text-amber-900 font-bold text-xs shadow-xs transition-all flex flex-col items-center justify-center gap-1"
+            >
+              <span>👶 Menu na Chrzciny</span>
+              <span className="text-[10px] text-stone-500 font-normal">Zobacz propozycje →</span>
+            </Link>
+
+            <Link
+              to="/menu?kategoria=gorace-kolacje"
+              className="p-3.5 rounded-xl bg-white border border-stone-200 hover:border-amber-400 text-stone-800 hover:text-amber-900 font-bold text-xs shadow-xs transition-all flex flex-col items-center justify-center gap-1"
+            >
+              <span>🔥 Kolacje</span>
+              <span className="text-[10px] text-stone-500 font-normal">Zobacz propozycje →</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Footer Navigation */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-12 text-center space-y-6">
         <h3 className="text-2xl font-serif font-bold text-stone-900">
