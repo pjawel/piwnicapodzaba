@@ -487,31 +487,64 @@ export function HomePage() {
 
       {/* 5. MENU SHORTCUT BANNER */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 pb-16">
-        <div className="bg-gradient-to-r from-stone-900 via-stone-800 to-amber-950 text-white rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
-          <div className="space-y-2 text-center md:text-left">
-            <span className="text-amber-400 font-bold text-xs uppercase tracking-widest block">
-              Kulinaria Piotra Jaworskiego
-            </span>
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-white">
-              Zobacz Pełną Kartę Menu & Dania Gorące
-            </h3>
-            <p className="text-stone-300 text-sm max-w-xl font-light">
-              Gotowe pakiety okolicznościowe, katalog mięs, dodatków, surówek i 14 gorących kolacji. Własny alkohol bez opłaty korkowej!
-            </p>
+        <div className="bg-gradient-to-r from-stone-900 via-stone-800 to-amber-950 text-white rounded-3xl p-8 md:p-10 space-y-6 shadow-xl">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="space-y-2 text-center md:text-left">
+              <span className="text-amber-400 font-bold text-xs uppercase tracking-widest block">
+                Kulinaria Piotra Jaworskiego
+              </span>
+              <h3 className="text-2xl md:text-3xl font-serif font-bold text-white">
+                Zobacz Pełną Kartę Menu & Dania Gorące
+              </h3>
+              <p className="text-stone-300 text-sm max-w-xl font-light">
+                Gotowe pakiety okolicznościowe, katalog mięs, dodatków, surówek i 14 gorących kolacji. Własny alkohol bez opłaty korkowej!
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+              <Link
+                to="/menu"
+                className="px-6 py-3 rounded-full bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-xs uppercase tracking-wider transition-colors shadow-md text-center"
+              >
+                Zobacz Menu Online →
+              </Link>
+              <button
+                onClick={downloadMenuPdf}
+                className="inline-flex items-center justify-center gap-1.5 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-xs uppercase tracking-wider border border-white/20 transition-all cursor-pointer"
+              >
+                <Download size={15} /> Pobierz menu w PDF
+              </button>
+            </div>
           </div>
-          <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-            <Link
-              to="/menu"
-              className="px-6 py-3 rounded-full bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-xs uppercase tracking-wider transition-colors shadow-md text-center"
-            >
-              Zobacz Menu Online →
-            </Link>
-            <button
-              onClick={downloadMenuPdf}
-              className="inline-flex items-center justify-center gap-1.5 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-xs uppercase tracking-wider border border-white/20 transition-all"
-            >
-              <Download size={15} /> Pobierz PDF
-            </button>
+
+          {/* Szybkie przejścia do konkretnych menu */}
+          <div className="pt-4 border-t border-stone-700/60 flex flex-wrap items-center justify-between gap-3 text-xs">
+            <span className="text-stone-400 font-medium">Bezpośrednie menu:</span>
+            <div className="flex flex-wrap gap-2">
+              <Link
+                to="/menu?uroczystosc=wesela"
+                className="px-3 py-1 rounded-full bg-stone-800/80 hover:bg-amber-500/20 text-amber-300 border border-stone-700 hover:border-amber-400/50 transition-colors"
+              >
+                💍 Menu Weselne
+              </Link>
+              <Link
+                to="/menu?uroczystosc=urodziny&pakiet=hit-fit-prop-3"
+                className="px-3 py-1 rounded-full bg-stone-800/80 hover:bg-amber-500/20 text-amber-300 border border-stone-700 hover:border-amber-400/50 transition-colors"
+              >
+                🎂 Menu 18-stkowe
+              </Link>
+              <Link
+                to="/menu?uroczystosc=chrzciny&pakiet=chrzciny-menu"
+                className="px-3 py-1 rounded-full bg-stone-800/80 hover:bg-amber-500/20 text-amber-300 border border-stone-700 hover:border-amber-400/50 transition-colors"
+              >
+                👶 Menu Chrzciny & Komunie
+              </Link>
+              <Link
+                to="/menu?kategoria=gorace-kolacje"
+                className="px-3 py-1 rounded-full bg-stone-800/80 hover:bg-amber-500/20 text-amber-300 border border-stone-700 hover:border-amber-400/50 transition-colors"
+              >
+                🔥 Kolacje
+              </Link>
+            </div>
           </div>
         </div>
       </section>
