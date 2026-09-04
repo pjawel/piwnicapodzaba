@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 export interface SeoHeadProps {
   title: string;
@@ -23,7 +24,8 @@ export function SeoHead({
   canonicalPath,
   structuredData,
 }: SeoHeadProps) {
-  const currentPath = canonicalPath || (typeof window !== 'undefined' ? window.location.pathname : '/');
+  const location = useLocation();
+  const currentPath = canonicalPath || location.pathname;
   const canonicalUrl = `${BASE_URL}${currentPath === '/' ? '' : currentPath}`;
 
   useEffect(() => {

@@ -1,29 +1,9 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Phone, Mail, MapPin, Facebook, ChevronRight } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, ChevronRight, Heart } from 'lucide-react';
 import { FACEBOOK_URL, CONTACT_PHONE_FORMATTED, HIT_FIT_ADDRESS, PIWNICA_ADDRESS } from '../data';
 
 export function Footer() {
-  const scrollTo = (href: string) => {
-    if (href === '#' || !href) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
-    const id = href.replace('#', '');
-    const el = document.getElementById(id);
-    if (el) {
-      const navOffset = window.innerWidth < 1024 ? 65 : 75;
-      const elementPosition = el.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = Math.max(0, elementPosition - navOffset);
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
-      if (window.location.hash !== href) {
-        window.history.pushState(null, '', href);
-      }
-    }
-  };
-
   return (
     <footer className="bg-stone-950 text-white py-16 border-t border-stone-800 relative">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
@@ -36,18 +16,14 @@ export function Footer() {
         >
           {/* Brand Col */}
           <div className="space-y-4">
-            <a 
-              href="#" 
-              onClick={(e) => { e.preventDefault(); scrollTo('#'); }} 
-              className="inline-block cursor-pointer group"
-            >
-              <span className="font-serif text-2xl font-bold tracking-tight text-white block group-hover:text-amber-400 transition-colors">
+            <Link to="/" className="inline-block">
+              <span className="font-serif text-2xl font-bold tracking-tight text-white block">
                 Piwnica pod Żabą <span className="text-amber-400">&</span> Hit Fit
               </span>
               <span className="text-xs text-stone-400 uppercase tracking-widest mt-1 block">
                 Sale Bankietowe w Lubinie
               </span>
-            </a>
+            </Link>
             <p className="text-stone-400 text-xs leading-relaxed max-w-sm font-light">
               Klasyczna oferta przyjęć okolicznościowych. Dwie wyjątkowe przestrzenie – Sala Hit Fit (do 90 osób) oraz klimatyczna Piwnica pod Żabą (do 40 osób).
             </p>
@@ -63,63 +39,39 @@ export function Footer() {
             </div>
           </div>
           
-          {/* Uroczystości (Subpages / Sections) */}
+          {/* Uroczystości (Subpages) */}
           <div>
             <h4 className="font-serif text-base mb-4 text-amber-300 font-bold">Oferta Przyjęć</h4>
             <ul className="space-y-2 text-xs text-stone-400 font-medium">
               <li>
-                <a 
-                  href="#hit-fit" 
-                  onClick={(e) => { e.preventDefault(); scrollTo('#hit-fit'); }} 
-                  className="hover:text-amber-300 transition-colors flex items-center gap-1.5 cursor-pointer"
-                >
+                <Link to="/wesela" className="hover:text-amber-300 transition-colors flex items-center gap-1.5">
                   <ChevronRight size={12} className="text-amber-400" /> Wesela (Hit Fit do 90 os.)
-                </a>
+                </Link>
               </li>
               <li>
-                <a 
-                  href="#oferta" 
-                  onClick={(e) => { e.preventDefault(); scrollTo('#oferta'); }} 
-                  className="hover:text-amber-300 transition-colors flex items-center gap-1.5 cursor-pointer"
-                >
+                <Link to="/18-urodziny" className="hover:text-amber-300 transition-colors flex items-center gap-1.5">
                   <ChevronRight size={12} className="text-amber-400" /> 18. Urodziny (Piwnica / Hit Fit)
-                </a>
+                </Link>
               </li>
               <li>
-                <a 
-                  href="#oferta" 
-                  onClick={(e) => { e.preventDefault(); scrollTo('#oferta'); }} 
-                  className="hover:text-amber-300 transition-colors flex items-center gap-1.5 cursor-pointer"
-                >
+                <Link to="/chrzciny-komunie" className="hover:text-amber-300 transition-colors flex items-center gap-1.5">
                   <ChevronRight size={12} className="text-amber-400" /> Chrzciny i Komunie
-                </a>
+                </Link>
               </li>
               <li>
-                <a 
-                  href="#oferta" 
-                  onClick={(e) => { e.preventDefault(); scrollTo('#oferta'); }} 
-                  className="hover:text-amber-300 transition-colors flex items-center gap-1.5 cursor-pointer"
-                >
+                <Link to="/stypy" className="hover:text-amber-300 transition-colors flex items-center gap-1.5">
                   <ChevronRight size={12} className="text-amber-400" /> Stypy i Konsolacje
-                </a>
+                </Link>
               </li>
               <li>
-                <a 
-                  href="#oferta" 
-                  onClick={(e) => { e.preventDefault(); scrollTo('#oferta'); }} 
-                  className="hover:text-amber-300 transition-colors flex items-center gap-1.5 cursor-pointer"
-                >
+                <Link to="/uroczystosci-rodzinne" className="hover:text-amber-300 transition-colors flex items-center gap-1.5">
                   <ChevronRight size={12} className="text-amber-400" /> Uroczystości Rodzinne & Jubileusze
-                </a>
+                </Link>
               </li>
               <li>
-                <a 
-                  href="#oferta" 
-                  onClick={(e) => { e.preventDefault(); scrollTo('#oferta'); }} 
-                  className="hover:text-amber-300 transition-colors flex items-center gap-1.5 cursor-pointer"
-                >
+                <Link to="/imprezy-firmowe" className="hover:text-amber-300 transition-colors flex items-center gap-1.5">
                   <ChevronRight size={12} className="text-amber-400" /> Imprezy Firmowe & Bankiety
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -129,58 +81,29 @@ export function Footer() {
             <h4 className="font-serif text-base mb-4 text-amber-300 font-bold">Przestrzenie & Menu</h4>
             <ul className="space-y-2 text-xs text-stone-400 font-medium">
               <li>
-                <a 
-                  href="#hit-fit" 
-                  onClick={(e) => { e.preventDefault(); scrollTo('#hit-fit'); }} 
-                  className="hover:text-amber-300 transition-colors flex items-center gap-1.5 cursor-pointer"
-                >
+                <Link to="/sale" className="hover:text-amber-300 transition-colors flex items-center gap-1.5">
                   <ChevronRight size={12} className="text-amber-400" /> Sala Hit Fit (do 90 osób)
-                </a>
+                </Link>
               </li>
               <li>
-                <a 
-                  href="#piwnica-pod-zaba" 
-                  onClick={(e) => { e.preventDefault(); scrollTo('#piwnica-pod-zaba'); }} 
-                  className="hover:text-amber-300 transition-colors flex items-center gap-1.5 cursor-pointer"
-                >
+                <Link to="/sale" className="hover:text-amber-300 transition-colors flex items-center gap-1.5">
                   <ChevronRight size={12} className="text-amber-400" /> Sala Piwnica pod Żabą (do 40 osób)
-                </a>
+                </Link>
               </li>
               <li>
-                <a 
-                  href="#oferta" 
-                  onClick={(e) => { e.preventDefault(); scrollTo('#oferta'); }} 
-                  className="hover:text-amber-300 transition-colors flex items-center gap-1.5 cursor-pointer"
-                >
+                <Link to="/menu" className="hover:text-amber-300 transition-colors flex items-center gap-1.5">
                   <ChevronRight size={12} className="text-amber-400" /> Karta Menu & Dania Gorące
-                </a>
+                </Link>
               </li>
               <li>
-                <a 
-                  href="#galeria" 
-                  onClick={(e) => { e.preventDefault(); scrollTo('#galeria'); }} 
-                  className="hover:text-amber-300 transition-colors flex items-center gap-1.5 cursor-pointer"
-                >
+                <Link to="/galeria" className="hover:text-amber-300 transition-colors flex items-center gap-1.5">
                   <ChevronRight size={12} className="text-amber-400" /> Galeria Zdjęć
-                </a>
+                </Link>
               </li>
               <li>
-                <a 
-                  href="#wideo" 
-                  onClick={(e) => { e.preventDefault(); scrollTo('#wideo'); }} 
-                  className="hover:text-amber-300 transition-colors flex items-center gap-1.5 cursor-pointer"
-                >
-                  <ChevronRight size={12} className="text-amber-400" /> Wideo & Prezentacja z Drona
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#opinie" 
-                  onClick={(e) => { e.preventDefault(); scrollTo('#opinie'); }} 
-                  className="hover:text-amber-300 transition-colors flex items-center gap-1.5 cursor-pointer"
-                >
-                  <ChevronRight size={12} className="text-amber-400" /> Opinie Klientów
-                </a>
+                <Link to="/o-nas" className="hover:text-amber-300 transition-colors flex items-center gap-1.5">
+                  <ChevronRight size={12} className="text-amber-400" /> O Nas & Nasza Kuchnia
+                </Link>
               </li>
             </ul>
           </div>
@@ -228,27 +151,9 @@ export function Footer() {
         <div className="border-t border-stone-900 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-stone-500">
           <p>© {new Date().getFullYear()} Piwnica pod Żabą & Sala Bankietowa Hit Fit. Wszelkie prawa zastrzeżone.</p>
           <div className="flex items-center gap-6">
-            <a 
-              href="#oferta" 
-              onClick={(e) => { e.preventDefault(); scrollTo('#oferta'); }}
-              className="hover:text-stone-400 transition-colors cursor-pointer"
-            >
-              Menu
-            </a>
-            <a 
-              href="#lokale" 
-              onClick={(e) => { e.preventDefault(); scrollTo('#lokale'); }}
-              className="hover:text-stone-400 transition-colors cursor-pointer"
-            >
-              Sale
-            </a>
-            <a 
-              href="#kontakt" 
-              onClick={(e) => { e.preventDefault(); scrollTo('#kontakt'); }}
-              className="hover:text-stone-400 transition-colors cursor-pointer"
-            >
-              Kontakt
-            </a>
+            <Link to="/menu" className="hover:text-stone-400 transition-colors">Menu</Link>
+            <Link to="/sale" className="hover:text-stone-400 transition-colors">Sale</Link>
+            <Link to="/kontakt" className="hover:text-stone-400 transition-colors">Kontakt</Link>
           </div>
         </div>
       </div>

@@ -1,20 +1,26 @@
 import { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { VenuesSection } from './components/VenuesSection';
-import { MenuSection } from './components/MenuSection';
-import { VideoSection } from './components/VideoSection';
-import { GallerySection } from './components/GallerySection';
-import { ReviewsSection } from './components/ReviewsSection';
-import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { FloatingActions } from './components/FloatingActions';
-import { HIT_FIT_IMAGES, PIWNICA_IMAGES } from './data';
+import { ScrollToTop } from './components/ScrollToTop';
+
+// Multi-Page Architecture Components
+import { HomePage } from './pages/HomePage';
+import { WeddingsPage } from './pages/WeddingsPage';
+import { EighteenthBirthdayPage } from './pages/EighteenthBirthdayPage';
+import { BaptismCommunionPage } from './pages/BaptismCommunionPage';
+import { FuneralPage } from './pages/FuneralPage';
+import { FamilyEventsPage } from './pages/FamilyEventsPage';
+import { CorporateEventsPage } from './pages/CorporateEventsPage';
+import { VenuesPage } from './pages/VenuesPage';
+import { MenuPage } from './pages/MenuPage';
+import { GalleryPage } from './pages/GalleryPage';
+import { AboutPage } from './pages/AboutPage';
+import { ContactPage } from './pages/ContactPage';
 
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeGalleryTab, setActiveGalleryTab] = useState<'all' | 'hit-fit' | 'piwnica'>('all');
-  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
 
   useEffect(() => {
     let ticking = false;
@@ -31,61 +37,48 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleOpenGalleryTab = (tab: 'all' | 'hit-fit' | 'piwnica') => {
-    setActiveGalleryTab(tab);
-    const element = document.getElementById('galeria');
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const handleOpenImage = (imageSrc: string, venue: 'hit-fit' | 'piwnica') => {
-    setActiveGalleryTab(venue);
-    const imagesList = venue === 'hit-fit' ? HIT_FIT_IMAGES : PIWNICA_IMAGES;
-    const idx = imagesList.indexOf(imageSrc);
-    setSelectedImageIndex(idx >= 0 ? idx : 0);
-  };
+  // Dynamically support GitHub Pages base /piwnicapodzaba or root /
+  const basename = window.location.pathname.startsWith('/piwnicapodzaba') 
+    ? '/piwnicapodzaba' 
+    : '';
 
   return (
-    <div className="flex flex-col min-h-screen bg-off-white text-gray-900 font-sans antialiased selection:bg-gold selection:text-white">
-      {/* Navigation */}
-      <Navbar isScrolled={isScrolled} />
+    <BrowserRouter basename={basename}>
+      <ScrollToTop />
+      <div className="flex flex-col min-h-screen bg-stone-50 text-gray-900 font-sans antialiased selection:bg-amber-500 selection:text-white">
+        {/* Navigation Bar */}
+        <Navbar isScrolled={isScrolled} />
 
-      {/* Main Content */}
-      <main className="flex-1">
-        {/* 1. Hero Section with Drone Video */}
-        <Hero />
+        {/* Multi-Page Route Views */}
+        <main className="flex-1">
+          <Routes>
+            {/* Strona Główna (Hub & Katalog Uroczystości) */}
+            <Route path="/" element={<HomePage />} />
 
-        {/* 2. Venues Detailed Showcase */}
-        <VenuesSection 
-          onOpenGalleryTab={handleOpenGalleryTab}
-          onOpenImage={handleOpenImage}
-        />
+            {/* Dedykowane Podstrony Uroczystości z URL */}
+            <Route path="/wesela" element={<WeddingsPage />} />
+            <Route path="/18-urodziny" element={<EighteenthBirthdayPage />} />
+            <Route path="/chrzciny-komunie" element={<BaptismCommunionPage />} />
+            <Route path="/stypy" element={<FuneralPage />} />
+            <Route path="/uroczystosci-rodzinne" element={<FamilyEventsPage />} />
+            <Route path="/imprezy-firmowe" element={<CorporateEventsPage />} />
 
-        {/* 3. Menu & Bankiet Offer */}
-        <MenuSection />
+            {/* Podstrony Tematyczne */}
+            <Route path="/sale" element={<VenuesPage />} />
+            <Route path="/menu" element={<MenuPage />} />
+            <Route path="/galeria" element={<GalleryPage />} />
+            <Route path="/o-nas" element={<AboutPage />} />
+            <Route path="/kontakt" element={<ContactPage />} />
 
-        {/* 4. Video Showcase & Drone Tours */}
-        <VideoSection />
+            {/* Fallback */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
 
-        {/* 5. Full Photo Gallery & Lightbox */}
-        <GallerySection 
-          activeTab={activeGalleryTab}
-          setActiveTab={setActiveGalleryTab}
-          selectedImageIndex={selectedImageIndex}
-          setSelectedImageIndex={setSelectedImageIndex}
-        />
-
-        {/* 6. Verified Facebook Customer Reviews */}
-        <ReviewsSection />
-
-        {/* 7. Contact, Reservation & Map */}
-        <ContactSection />
-      </main>
-
-      {/* Footer */}
-      <Footer />
-
-      {/* Floating Action Buttons: Quick Dial & Scroll-to-top */}
-      <FloatingActions />
-    </div>
+        {/* Global Footer & Quick Actions */}
+        <Footer />
+        <FloatingActions />
+      </div>
+    </BrowserRouter>
   );
 }

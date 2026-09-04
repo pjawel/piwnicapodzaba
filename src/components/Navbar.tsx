@@ -1,7 +1,12 @@
-import { useState, useEffect, MouseEvent } from 'react';
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Facebook, Menu, X, Phone, Sparkles } from 'lucide-react';
-import { FACEBOOK_URL } from '../data';
+import { 
+  Menu, X, Phone, ChevronDown, Heart, PartyPopper, 
+  Baby, HeartHandshake, Users, Building2, ChefHat, 
+  Camera, Info, Facebook, ArrowRight 
+} from 'lucide-react';
+import { FACEBOOK_URL, CONTACT_PHONE_FORMATTED } from '../data';
 
 interface NavbarProps {
   isScrolled: boolean;
@@ -9,209 +14,311 @@ interface NavbarProps {
 
 export function Navbar({ isScrolled }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
+  const [isEventsDropdownOpen, setIsEventsDropdownOpen] = useState(false);
+  const location = useLocation();
 
-  const navLinks = [
-    { name: 'Nasze Sale', href: '#lokale' },
-    { name: 'Menu & Pakiety', href: '#oferta' },
-    { name: 'Wideo & Dron', href: '#wideo' },
-    { name: 'Galeria Wnętrz', href: '#galeria' },
-    { name: 'Kontakt', href: '#kontakt' },
+  // Close mobile drawer on route change
+  useEffect(() => {
+    setIsMenuOpen(false);
+    setIsEventsDropdownOpen(false);
+  }, [location.pathname]);
+
+  const eventSubLinks = [
+    { name: 'Wesela (Hit Fit do 90 os.)', path: '/wesela', icon: Heart, desc: 'Tylko w lokalu Hit Fit' },
+    { name: '18. Urodziny', path: '/18-urodziny', icon: PartyPopper, desc: 'Klimatyczna Piwnica lub Hit Fit' },
+    { name: 'Chrzciny i Komunie', path: '/chrzciny-komunie', icon: Baby, desc: 'Rodzinne przyjęcia z tradycyjnym menu' },
+    { name: 'Stypy i Konsolacje', path: '/stypy', icon: HeartHandshake, desc: 'Spokojna, szybka organizacja' },
+    { name: 'Uroczystości Rodzinne', path: '/uroczystosci-rodzinne', icon: Users, desc: 'Jubileusze, 30/40/50/60-tki' },
+    { name: 'Imprezy Firmowe', path: '/imprezy-firmowe', icon: Building2, desc: 'Wigilie, bankiety, faktury VAT' },
   ];
 
-  const scrollToTarget = (href: string) => {
-    if (href === '#' || href === '') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
-
-    const targetId = href.replace('#', '');
-    const element = document.getElementById(targetId);
-
-    if (element) {
-      const navOffset = window.innerWidth < 1024 ? 65 : 75;
-      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = Math.max(0, elementPosition - navOffset);
-
-      // Scroll with smooth behavior
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
-
-      // Fallback for native scrollIntoView
-      try {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      } catch {
-        // Fallback already handled by window.scrollTo
-      }
-
-      if (window.location.hash !== href) {
-        window.history.pushState(null, '', href);
-      }
-    }
-  };
-
-  const handleNavClick = (e: MouseEvent<HTMLAnchorElement | HTMLButtonElement>, href: string) => {
-    e.preventDefault();
-    setIsMenuOpen(false);
-
-    // Initial immediate scroll trigger
-    scrollToTarget(href);
-
-    // Secondary delayed trigger to compensate for mobile drawer closing animation & layout shifts
-    setTimeout(() => {
-      scrollToTarget(href);
-    }, 120);
-
-    setTimeout(() => {
-      scrollToTarget(href);
-    }, 320);
-  };
+  const isEventActive = eventSubLinks.some(link => location.pathname === link.path);
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-white/95 backdrop-blur-md shadow-md py-3 border-b border-gray-100' 
-        : 'bg-gradient-to-b from-black/80 via-black/40 to-transparent py-5'
+      isScrolled || location.pathname !== '/'
+        ? 'bg-stone-900/95 backdrop-blur-md shadow-lg py-3 border-b border-stone-800' 
+        : 'bg-gradient-to-b from-stone-950/90 via-stone-950/60 to-transparent py-4'
     }`}>
       <div className="max-w-7xl mx-auto px-4 md:px-8 flex justify-between items-center">
         
         {/* Logo */}
-        <a 
-          href="#" 
-          onClick={(e) => handleNavClick(e, '#')}
+        <Link 
+          to="/"
           className="flex items-center gap-3 group"
         >
           <div className="flex flex-col">
-            <span className={`font-serif text-lg md:text-xl font-bold tracking-tight leading-none transition-colors ${
-              isScrolled ? 'text-gray-900 group-hover:text-gold-dark' : 'text-white'
-            }`}>
-              Piwnica pod Żabą <span className="text-gold">&</span> Hit Fit
+            <span className="font-serif text-lg sm:text-xl font-bold tracking-tight text-white group-hover:text-amber-400 transition-colors leading-none">
+              Piwnica pod Żabą <span className="text-amber-400">&</span> Hit Fit
             </span>
-            <span className={`text-[10px] tracking-widest uppercase mt-1 font-semibold ${
-              isScrolled ? 'text-gray-500' : 'text-white/80'
-            }`}>
-              Sale Bankietowe Lubin
+            <span className="text-[10px] tracking-widest uppercase mt-1 font-semibold text-stone-300">
+              Sale Bankietowe • Lubin
             </span>
           </div>
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-7">
-          {navLinks.map((link) => (
-            <a 
-              key={link.name} 
-              href={link.href}
-              onClick={(e) => handleNavClick(e, link.href)}
-              onMouseEnter={() => setHoveredLink(link.name)}
-              onMouseLeave={() => setHoveredLink(null)}
-              className={`relative font-semibold text-xs uppercase tracking-wider py-1.5 transition-colors ${
-                isScrolled ? 'text-gray-700 hover:text-gold-dark' : 'text-white/90 hover:text-white'
+        <div className="hidden lg:flex items-center gap-6">
+          <Link 
+            to="/"
+            className={`font-semibold text-xs uppercase tracking-wider py-1.5 transition-colors ${
+              location.pathname === '/' ? 'text-amber-400' : 'text-stone-200 hover:text-white'
+            }`}
+          >
+            Strona Główna
+          </Link>
+
+          <Link 
+            to="/o-nas"
+            className={`font-semibold text-xs uppercase tracking-wider py-1.5 transition-colors ${
+              location.pathname === '/o-nas' ? 'text-amber-400' : 'text-stone-200 hover:text-white'
+            }`}
+          >
+            O Nas
+          </Link>
+
+          <Link 
+            to="/sale"
+            className={`font-semibold text-xs uppercase tracking-wider py-1.5 transition-colors ${
+              location.pathname === '/sale' ? 'text-amber-400' : 'text-stone-200 hover:text-white'
+            }`}
+          >
+            Nasze Sale
+          </Link>
+
+          {/* Events Dropdown */}
+          <div 
+            className="relative"
+            onMouseEnter={() => setIsEventsDropdownOpen(true)}
+            onMouseLeave={() => setIsEventsDropdownOpen(false)}
+          >
+            <button
+              onClick={() => setIsEventsDropdownOpen(!isEventsDropdownOpen)}
+              className={`flex items-center gap-1 font-semibold text-xs uppercase tracking-wider py-1.5 transition-colors cursor-pointer ${
+                isEventActive ? 'text-amber-400' : 'text-stone-200 hover:text-white'
               }`}
             >
-              {link.name}
-              {hoveredLink === link.name && (
-                <motion.span
-                  layoutId="navHoverUnderline"
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-amber-500 to-gold rounded-full"
-                  transition={{ type: "spring", stiffness: 350, damping: 25 }}
-                />
+              <span>Przyjęcia</span>
+              <ChevronDown size={14} className={`transition-transform duration-200 ${isEventsDropdownOpen ? 'rotate-180' : ''}`} />
+            </button>
+
+            <AnimatePresence>
+              {isEventsDropdownOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute top-full left-0 mt-2 w-72 rounded-2xl bg-stone-900 border border-stone-800 shadow-2xl p-2.5 space-y-1 z-50 backdrop-blur-xl"
+                >
+                  {eventSubLinks.map((sub, idx) => {
+                    const Icon = sub.icon;
+                    const isActive = location.pathname === sub.path;
+                    return (
+                      <Link
+                        key={idx}
+                        to={sub.path}
+                        className={`flex items-start gap-3 p-2.5 rounded-xl transition-colors ${
+                          isActive ? 'bg-amber-500/20 text-amber-300' : 'hover:bg-stone-800/80 text-stone-200'
+                        }`}
+                      >
+                        <div className="w-7 h-7 rounded-lg bg-stone-800 flex items-center justify-center text-amber-400 shrink-0 mt-0.5">
+                          <Icon size={15} />
+                        </div>
+                        <div className="flex flex-col">
+                          <span className="text-xs font-bold font-serif leading-tight">{sub.name}</span>
+                          <span className="text-[10px] text-stone-400 font-light mt-0.5">{sub.desc}</span>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </motion.div>
               )}
-            </a>
-          ))}
+            </AnimatePresence>
+          </div>
+
+          <Link 
+            to="/menu"
+            className={`font-semibold text-xs uppercase tracking-wider py-1.5 transition-colors ${
+              location.pathname === '/menu' ? 'text-amber-400' : 'text-stone-200 hover:text-white'
+            }`}
+          >
+            Menu
+          </Link>
+
+          <Link 
+            to="/galeria"
+            className={`font-semibold text-xs uppercase tracking-wider py-1.5 transition-colors ${
+              location.pathname === '/galeria' ? 'text-amber-400' : 'text-stone-200 hover:text-white'
+            }`}
+          >
+            Galeria
+          </Link>
+
+          <Link 
+            to="/kontakt"
+            className={`font-semibold text-xs uppercase tracking-wider py-1.5 transition-colors ${
+              location.pathname === '/kontakt' ? 'text-amber-400' : 'text-stone-200 hover:text-white'
+            }`}
+          >
+            Kontakt
+          </Link>
 
           {/* Facebook Link */}
-          <motion.a 
+          <a 
             href={FACEBOOK_URL} 
             target="_blank" 
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.1, rotate: 6 }}
-            whileTap={{ scale: 0.95 }}
-            className={`p-2.5 rounded-full border transition-all ${
-              isScrolled 
-                ? 'border-gray-200 text-blue-600 hover:bg-blue-50' 
-                : 'border-white/30 text-white hover:bg-white/10'
-            }`}
-            title="Odwiedź nasz profil na Facebooku"
+            className="p-2 rounded-full border border-stone-700 text-stone-300 hover:text-blue-400 hover:border-blue-400 transition-colors"
+            title="Profil na Facebooku"
           >
-            <Facebook size={17} />
-          </motion.a>
+            <Facebook size={16} />
+          </a>
 
-          {/* Booking CTA Button */}
-          <motion.a 
-            href="#kontakt" 
-            onClick={(e) => handleNavClick(e, '#kontakt')}
-            whileHover={{ scale: 1.05, y: -1 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-gradient-to-r from-amber-600 via-gold to-yellow-600 hover:from-amber-500 hover:to-gold text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-gold/30 border border-white/20 cursor-pointer"
+          {/* Direct Booking CTA */}
+          <Link
+            to="/kontakt"
+            className="bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-500 hover:from-amber-500 hover:to-yellow-400 text-stone-950 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:scale-105"
           >
             Rezerwacja
-          </motion.a>
+          </Link>
         </div>
 
-        {/* Mobile Menu Toggle */}
+        {/* Mobile Nav Toggle */}
         <div className="flex items-center gap-2 lg:hidden">
-          <motion.a 
+          <a 
             href="tel:661637770"
-            whileTap={{ scale: 0.9 }}
-            className="p-2 rounded-full bg-gold text-white shadow-sm mr-1"
-            title="Zadzwoń"
+            className="p-2 rounded-full bg-amber-500 text-stone-950 shadow-sm"
+            title="Zadzwoń: 661 637 770"
           >
             <Phone size={18} />
-          </motion.a>
+          </a>
 
           <button 
-            className={`p-2 rounded-xl transition-colors ${
-              isScrolled ? 'text-gray-900 bg-gray-100' : 'text-white bg-white/10'
-            }`}
+            className="p-2 rounded-xl text-white bg-stone-800 hover:bg-stone-700 transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Menu"
+            aria-label="Otwórz menu"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Full Menu Drawer */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="bg-white shadow-2xl border-b border-gray-100 lg:hidden overflow-hidden"
+            transition={{ duration: 0.25 }}
+            className="bg-stone-900 border-b border-stone-800 lg:hidden overflow-hidden shadow-2xl"
           >
-            <div className="px-6 py-6 flex flex-col gap-3">
-              {navLinks.map((link) => (
-                <a 
-                  key={link.name} 
-                  href={link.href}
-                  className="text-base font-serif font-bold text-gray-800 hover:text-gold-dark transition-colors py-2.5 border-b border-gray-50 flex items-center justify-between cursor-pointer"
-                  onClick={(e) => handleNavClick(e, link.href)}
-                >
-                  <span>{link.name}</span>
-                  <span className="text-gold text-xs font-sans">→</span>
-                </a>
-              ))}
+            <div className="px-6 py-6 flex flex-col gap-4 max-h-[80vh] overflow-y-auto">
               
-              <div className="flex items-center justify-between pt-3 mt-1">
-                <a 
-                  href={FACEBOOK_URL} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-blue-600 font-bold text-xs uppercase tracking-wider"
+              {/* Primary Pages */}
+              <div className="flex flex-col gap-1 pb-3 border-b border-stone-800">
+                <Link
+                  to="/"
+                  className={`text-base font-serif font-bold py-2 flex items-center justify-between ${
+                    location.pathname === '/' ? 'text-amber-400' : 'text-white'
+                  }`}
                 >
-                  <Facebook size={16} /> Facebook
+                  <span>Strona Główna</span>
+                  <ArrowRight size={15} />
+                </Link>
+
+                <Link
+                  to="/o-nas"
+                  className={`text-base font-serif font-bold py-2 flex items-center justify-between ${
+                    location.pathname === '/o-nas' ? 'text-amber-400' : 'text-white'
+                  }`}
+                >
+                  <span>O Nas</span>
+                  <ArrowRight size={15} />
+                </Link>
+
+                <Link
+                  to="/sale"
+                  className={`text-base font-serif font-bold py-2 flex items-center justify-between ${
+                    location.pathname === '/sale' ? 'text-amber-400' : 'text-white'
+                  }`}
+                >
+                  <span>Nasze Sale (Hit Fit & Piwnica)</span>
+                  <ArrowRight size={15} />
+                </Link>
+              </div>
+
+              {/* Subpages / Events */}
+              <div className="space-y-2 pb-3 border-b border-stone-800">
+                <span className="text-[11px] uppercase tracking-widest text-amber-400 font-bold block">
+                  Podstrony Uroczystości:
+                </span>
+                <div className="grid grid-cols-1 gap-1 pl-2">
+                  {eventSubLinks.map((sub, idx) => (
+                    <Link
+                      key={idx}
+                      to={sub.path}
+                      className={`text-sm py-2 flex items-center justify-between ${
+                        location.pathname === sub.path ? 'text-amber-400 font-bold' : 'text-stone-300 hover:text-white'
+                      }`}
+                    >
+                      <span>{sub.name}</span>
+                      <ArrowRight size={14} className="opacity-50" />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Menu, Gallery, Contact */}
+              <div className="flex flex-col gap-1">
+                <Link
+                  to="/menu"
+                  className={`text-base font-serif font-bold py-2 flex items-center justify-between ${
+                    location.pathname === '/menu' ? 'text-amber-400' : 'text-white'
+                  }`}
+                >
+                  <span>Karta Menu & Pakiety</span>
+                  <ArrowRight size={15} />
+                </Link>
+
+                <Link
+                  to="/galeria"
+                  className={`text-base font-serif font-bold py-2 flex items-center justify-between ${
+                    location.pathname === '/galeria' ? 'text-amber-400' : 'text-white'
+                  }`}
+                >
+                  <span>Galeria Zdjęć</span>
+                  <ArrowRight size={15} />
+                </Link>
+
+                <Link
+                  to="/kontakt"
+                  className={`text-base font-serif font-bold py-2 flex items-center justify-between ${
+                    location.pathname === '/kontakt' ? 'text-amber-400' : 'text-white'
+                  }`}
+                >
+                  <span>Kontakt & Rezerwacje</span>
+                  <ArrowRight size={15} />
+                </Link>
+              </div>
+
+              {/* Mobile CTA */}
+              <div className="pt-2 flex items-center gap-3">
+                <a
+                  href="tel:661637770"
+                  className="flex-1 py-3 text-center rounded-full bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-xs uppercase tracking-wider shadow-md"
+                >
+                  Zadzwoń: {CONTACT_PHONE_FORMATTED}
                 </a>
-                
-                <a 
-                  href="#kontakt" 
-                  className="bg-gradient-to-r from-amber-600 to-gold text-white px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-md cursor-pointer"
-                  onClick={(e) => handleNavClick(e, '#kontakt')}
+                <a
+                  href={FACEBOOK_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full bg-stone-800 text-blue-400 border border-stone-700"
+                  title="Facebook"
                 >
-                  Skontaktuj się
+                  <Facebook size={18} />
                 </a>
               </div>
             </div>

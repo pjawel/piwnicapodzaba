@@ -137,35 +137,35 @@ export const MENU_CATEGORIES: MenuItemCategory[] = [
         subtitle: "Dania Mięsne",
         note: "3-4 rodzaje mięs do wyboru",
         items: [
-          "Kotlet schabowy tradycyjny",
+          "Kotlet schabowy",
           "Schab na zielono",
           "Schabowy królewski",
           "Schabowy z camembertem i żurawiną szwajcar",
           "Schab po cygańsku",
           "Karczek zapiekany z warzywami i serem",
           "Stek z cebulką",
-          "Rolada wieprzowa w aksamitnym sosie",
+          "Rolada wieprzowa w sosie",
           "Sztuka mięsa w sosie (karczek)",
           "Rolada schabowa z grzybami pieczona",
-          "Kotlet drobiowy De Volaille",
-          "Filet po hawajsku z ananasem",
+          "Kotlet drobiowy de volay",
+          "Filet po hawajsku",
           "Filet po parysku",
-          "Filet drobiowy w serowej panierce",
+          "Drobiowy w serowej panierce",
           "Roladka drobiowa ze szpinakiem",
-          "Udko pieczone na złocisto",
+          "Udko pieczone",
           "Udko faszerowane pieczarkami",
-          "Rolada drobiowa z serem i papryką"
+          "Rolada z serem i papryką"
         ]
       },
       {
         subtitle: "Dodatki Skrobiowe",
         note: "2 rodzaje do wyboru",
         items: [
-          "Ziemniaki puree z koperkiem",
-          "Ziemniaki pieczone z ziołami",
+          "Ziemniaki puree",
+          "Ziemniaki pieczone",
           "Kluski śląskie",
-          "Kopytka tradycyjne",
-          "Chrupiące frytki",
+          "Kopytka",
+          "Frytki",
           "Krokiety ziemniaczane"
         ]
       },
@@ -173,12 +173,12 @@ export const MENU_CATEGORIES: MenuItemCategory[] = [
         subtitle: "Zestaw Surówek",
         note: "3 surówki do wyboru",
         items: [
-          "Buraczki tradycyjne",
-          "Buraczki zasmażane na ciepło",
+          "Buraczki",
+          "Buraczki zasmażane",
           "Marchewka z jabłkiem",
-          "Marchewka z sezamem i pomarańczami",
+          "Marchewka z sezamem z pomarańczami",
           "Kapusta biała",
-          "Chrupiący Coleslaw",
+          "Coleslaw",
           "Kapusta kiszona",
           "Kapusta czerwona",
           "Kapusta czerwona na gorąco",
@@ -188,8 +188,8 @@ export const MENU_CATEGORIES: MenuItemCategory[] = [
           "Marchewka z groszkiem",
           "Por z jabłkiem",
           "Por z ananasem",
-          "Mizeria ze śmietaną",
-          "Mix sałat z autorskim sosem vinaigrette"
+          "Mizeria",
+          "Mix sałat z sosem winegret"
         ]
       }
     ]
@@ -202,65 +202,64 @@ export const MENU_CATEGORIES: MenuItemCategory[] = [
       {
         subtitle: "Mięsa Pieczone i Wędliny",
         items: [
-          "Schab ze śliwką pieczony",
-          "Karczek faszerowany ziołami",
-          "Sztufada z szynki nabijana słoniną",
+          "Schab ze śliwką",
+          "Karczek faszerowany",
+          "Sztufada z szynki / nabijana słoniną",
           "Boczek faszerowany",
           "Rolada drobiowa z krewetkami",
           "Rolada schabowa z grzybami",
-          "Pasztet domowy podany z żurawiną",
-          "Półmiski wyselekcjonowanych wędlin i serów"
+          "Pasztet podany z żurawiną",
+          "Półmiski wędlin i serów podane razem na dużych półmiskach"
         ]
       },
       {
         subtitle: "Bogaty Wybór Sałatek",
         items: [
-          "Sałatka jarzynowa tradycyjna",
+          "Sałatka jarzynowa",
           "Sałatka żydowska",
           "Sałatka brokułowa (2 rodzaje)",
           "Sałatka tuńczykowa warstwowa",
-          "Sałatka Gyros z kurczakiem",
-          "Sałatka grecka z fetą i oliwkami",
+          "Sałatka gyros",
+          "Sałatka grecka",
           "Sałatka nicejska",
-          "Sałatka z kurczakiem i prażonym słonecznikiem",
-          "Klasyczna sałatka Cezar",
+          "Sałatka z kurczakiem z prażonym słonecznikiem",
+          "Sałatka cezar",
           "Sałatka makaronowa z szynką smażoną",
           "Sałatka z wędzonym kurczakiem",
-          "Sałatka Tabule z powiewem świeżej mięty",
-          "Sałatka z pieczarkami marynowanymi i jajkiem",
+          "Sałatka tabule z miętą",
+          "Sałatka z pieczarkami marynowanymi i jajkami",
           "Sałatka z surimi",
-          "Szuba / Sałatka śledziowa warstwowa",
-          "Kompozycje sałat na zielono z kiełkami, pestkami, serami i świeżymi owocami"
+          "Szuba / sałatka śledziowa",
+          "Sałatki na zielono z kiełkami i pestkami, serami, owocami"
         ]
       },
       {
         subtitle: "Przystawki i Finger Food",
         items: [
           "Carpaccio z pieczonego buraka z serem feta i orzechami",
-          "Tymbaliki drobiowe w aromatycznej galarecie",
-          "Tradycyjna galaretka wieprzowa",
+          "Tymbaliki drobiowe, galaretka wieprzowa",
           "Szynki faszerowane pastą pieczarkowo-jajeczną",
-          "Pieczarki faszerowane mięsem na gorąco z ostrą salsą meksykańską",
+          "Pieczarki faszerowane mięsem podane na gorąco z ostrą salsą meksykańską",
           "Pieczarki faszerowane panierowane",
-          "Jajka faszerowane lub w domowym sosie tatarskim",
-          "Tortille faszerowane / rożki z tortilli",
-          "Placuszki ogrodowe z musem serowym, łososiem lub warzywami",
-          "Rolady wykwintne: serowa, marchewkowa, szpinakowa",
+          "Jajka faszerowane lub jajka w sosie tatarskim",
+          "Tortille faszerowane, rożki z tortilli",
+          "Placuszki ogrodowe z musem serowym z łososiem lub warzywami",
+          "Rolady: serowa, marchewkowa, szpinakowa",
           "Przekładaniec serowy z pikantnym musem i kurczakiem",
-          "Pikle, pomidory z sosem czosnkowym i serem",
-          "Sałatka wiosenna serwowana w świeżych ogórkach"
+          "Pikle, pomidory podane z sosem czosnkowym i serem",
+          "Sałatka wiosenna w świeżych ogórkach"
         ]
       },
       {
         subtitle: "Specjały z Ryb i Śledzie",
         items: [
-          "Śledź w aromatycznym sosie Curry",
+          "Śledź w sosie Curry",
           "Śledź po japońsku",
-          "Śledź na ostro z papryczką",
-          "Śledź tradycyjny w oleju",
-          "Śledź korzenny z nutą przypraw",
-          "Śledź po kaszubsku z cebulką",
-          "Tradycyjna ryba po grecku"
+          "Śledź na ostro",
+          "Śledź tradycyjny",
+          "Śledź korzenny",
+          "Śledź po kaszubsku",
+          "Ryba po grecku"
         ]
       }
     ]
@@ -271,63 +270,63 @@ export const MENU_CATEGORIES: MenuItemCategory[] = [
     badge: "14 Propozycji",
     note: "Wybierz ulubione gorące dania serwowane w trakcie przyjęcia",
     items: [
-      "1. Krokiet z barszczem czerwonym (farsz: ser-pieczarki lub kapusta-grzyby)",
-      "2. Paszteciki mięsne (drożdżowe) podawane z barszczem",
-      "3. Aromatyczna zupa gulaszowa lub cygańska",
-      "4. Tradycyjne flaczki",
-      "5. Szaszłyki drobiowo-wieprzowe pieczone",
-      "6. Bigos staropolski długo gotowany",
-      "7. Biała kiełbasa duszona w ciemnym piwie",
-      "8. Soczyste żeberka w whisky",
-      "9. Domowe gołąbki w sosie pomidorowym",
-      "10. Chrupiące nuggets z zestawem dipów",
-      "11. Udka drobiowe pieczone z warzywami (z ziemniakami lub batatami, brukselką lub fasolką szparagową, pomidorkami cherry i papryką)",
-      "12. Gorąca włoska pizza bankietowa",
-      "13. Mini hamburgery wołowe",
-      "14. Pieróg drożdżowy faszerowany serwowany z sosem tzatziki lub barszczem"
+      "1. Krokiet z barszczem (krokiet ser-pieczarki, kapusta-grzyby)",
+      "2. Paszteciki mięsne (drożdżowe) z barszczem",
+      "3. Zupa gulaszowa, cygańska",
+      "4. Flaczki",
+      "5. Szaszłyki pieczone",
+      "6. Bigos staropolski",
+      "7. Biała kiełbasa w ciemnym piwie",
+      "8. Żeberka w whisky",
+      "9. Gołąbki",
+      "10. Nuggets z dipami",
+      "11. Udka drobiowe pieczone z warzywami (z ziemniakami lub batatami, brukselka lub fasola szparagowa, pomidory cherry, papryka)",
+      "12. Pizza",
+      "13. Hamburgery",
+      "14. Pieróg drożdżowy faszerowany podany z sosem tzatziki lub barszczem"
     ]
   },
   {
     id: "premium",
     title: "Propozycje Premium",
-    badge: "Wykwintne Menu",
-    note: "Ekskluzywne opcje dla najbardziej wymagających smakoszy",
+    badge: "Menu Premium",
+    note: "Opcje do wyboru na zamówienie",
     subsections: [
       {
-        subtitle: "Wykwintny Obiad Premium",
+        subtitle: "Droższe Propozycje – Do Obiadu",
         items: [
-          "Roladki wołowe w bogatym sosie własnym",
+          "Roladki wołowe w sosie",
           "Łódeczki drobiowe faszerowane serami i suszonymi pomidorami",
-          "Schab zapiekany z puszystą mozzarellą",
-          "Polędwiczki wieprzowe w sosie z zielonego pieprzu",
-          "Polędwiczki wieprzowe w aksamitnym sosie kurkowym",
-          "Roladka drobiowa w szynce parmeńskiej faszerowana szparagiem",
-          "Łosoś z pieca oprószony złocistymi migdałami",
-          "Sezonowe warzywa na gorąco w sosie holenderskim (szparagi, fasolka, kalafior, brokuł)"
+          "Schab zapiekany z mozzarellą",
+          "Polędwiczki w sosie pieprzowym",
+          "Polędwiczki w sosie kurkowym",
+          "Roladka drobiowa w szynce parmeńskiej faszerowana szparagami",
+          "Łosoś z pieca oprószony migdałami",
+          "Sezonowo warzywa na gorąco w sosie holenderskim, szparagi, fasolka szparagowa, kalafior, brokuł"
         ]
       },
       {
-        subtitle: "Przekąski i Przystawki Premium",
+        subtitle: "Droższe Przekąski",
         items: [
-          "Chrupiące babeczki Vol-au-vent z delikatnym nadzieniem",
-          "Łosoś zapiekany w grillowanej cukinii",
-          "Carpaccio wołowe serwowane na świeżej rukoli z parmezanem",
-          "Carpaccio z łososia na pomidorach z chrupiącymi grzankami",
-          "Dorsz w sosie słodko-ostrym",
-          "Sałatka ze świeżym szpinakiem, gorgonzolą, gruszką i sosem malinowym",
+          "Vol a venty faszerowane",
+          "Łosoś w grillowanej cukinii",
+          "Carpaccio wołowe na rukoli",
+          "Carpaccio z łososia podane na pomidorach z grzankami",
+          "Dorsz z sosem słodko ostrym",
+          "Sałatka ze świeżym szpinakiem, gorgonzolą, gruszką z sosem malinowym",
           "Polędwica faszerowana orzechami podana z sosem z mango"
         ]
       },
       {
-        subtitle: "Gorące Kolacje & Stół Wiejski Premium",
+        subtitle: "Gorące Kolacje & Dania Specjalne",
         items: [
-          "Płonący udziec wieprzowy serwowany z kapustą zasmażaną i pieczonymi ziemniakami",
-          "Uczta z grilla: karczek, pierś z kurczaka, kiełbaski, szaszłyki oraz 2 rodzaje sałatek",
-          "Strogonow z polędwicy wieprzowej serwowany z chrupiącymi bagietkami",
+          "Udziec płonący podany z kapustą zasmażaną i pieczonymi ziemniakami",
+          "Grill: karczek, pierś, kiełbaski, szaszłyki, sałatki 2 rodzaje",
+          "Strogonow z polędwicy wieprzowej podany z bagietkami",
           "Tagliatelle z polędwiczkami i sosem z zielonego pieprzu",
-          "Klasyczny strogonow wołowy",
-          "Tagliatelle z kurczakiem i świeżymi warzywami",
-          "Biesiadny Stół Wiejski (od 40 osób): swojskie wędliny, mięsa pieczone, ogórki kiszone, domowy smalec, wiejski chleb"
+          "Strogonow wołowy",
+          "Tagliatelle z kurczakiem i warzywami",
+          "Wiejski stół (przy minimum 40 osobach): swojskie wędliny, pieczone mięsa, ogórki kiszone, smalec, chleb"
         ]
       }
     ]
@@ -425,198 +424,196 @@ export const EVENT_MENU_PACKAGES: EventMenuPackage[] = [
   {
     id: 'hit-fit-prop-1',
     venue: 'Hit Fit (do 90 os.) & Piwnica',
-    title: 'Bankietowy Zestaw Tradycyjny',
-    subtitle: 'Bogaty obiad, rolady, pieczenie & stół przekąsek',
-    badge: 'Wesela • 18-stki • Jubileusze',
+    title: 'Oferta Menu na Przyjęcie (Propozycja nr 1)',
+    subtitle: 'Schabowy z camembertem, drobiowy w serowej panierce, karczek w sosie',
+    badge: 'Propozycja 1',
     eventTypes: ['wesela', 'urodziny', 'firmowe'],
-    recommendedFor: 'Przyjęcia weselne, 18-stki, jubileusze małżeńskie i duże bankiety rodzinne',
-    capacityText: 'Idealne dla 25 – 90 osób w lokalu Hit Fit lub do 40 osób w Piwnicy pod Żabą',
+    recommendedFor: 'Przyjęcia weselne, 18-stki, jubileusze małżeńskie i bankiety rodzinne',
+    capacityText: 'Hit Fit (do 90 os.) lub Piwnica pod Żabą (do 40 os.)',
     highlightColor: 'amber',
     courses: [
       {
         category: 'Dania główne (3 rodzaje mięs)',
         items: [
           'Schabowy z camembertem i żurawiną',
-          'Soczysty filet drobiowy w serowej panierce',
-          'Tradycyjny karczek pieczony w aksamitnym sosie'
+          'Drobiowy w serowej panierce',
+          'Karczek w sosie'
         ]
       },
       {
-        category: 'Dodatki skrobiowe',
+        category: 'Dodatki',
         items: [
-          'Młode ziemniaki z koperkiem',
-          'Aksamitne kluski śląskie'
+          'Ziemniaki',
+          'Kluski śląskie'
         ]
       },
       {
-        category: 'Zestaw surówek',
+        category: 'Surówki',
         items: [
-          'Mix świeżych sałat z sosem winegret',
-          'Chrupiący colesław',
-          'Tradycyjne buraczki zasmażane'
+          'Mix sałat z winegretem',
+          'Surówka colesław',
+          'Buraczki'
         ]
       },
       {
-        category: 'Zimne przekąski & Zimny stół',
+        category: 'Zimne przekąski',
         items: [
-          'Patery mięs pieczonych (schab ze śliwką, aromatyczny karczek)',
-          'Półmisek finger food i zakąsek bankietowych',
-          'Domowe galaretki drobiowe z cytryną',
-          'Klasyczna sałatka Cezar z prażonymi grzankami',
-          'Pieczarki faszerowane w złocistej panierce'
+          'Mięso pieczone (schab ze śliwką, karczek)',
+          'Półmisek rozmaitości typu finger food',
+          'Galaretki drobiowe',
+          'Sałatka Cezar',
+          'Pieczarki faszerowane panierowane'
         ]
       }
     ],
     beverages: [
-      'Napoje zimne: soki owocowe oraz woda mineralna z cytryną bez limitu',
-      'Napoje gorące: świeżo parzona kawa i herbata bez ograniczeń czasowych'
+      'Napoje zimne: woda i soki',
+      'Napoje gorące: kawa i herbata bez ograniczeń'
     ],
-    alcohol: 'Możliwość wniesienia własnego alkoholu bez opłaty korkowej (przy zakupie 10x Coca-Cola 1L).',
-    note: 'Menu może zostać w pełni spersonalizowane. Istnieje możliwość dodania gorących kolacji (np. barszcz z krokietem, flaczki, żeberka) oraz domowych ciast i tortu.'
+    alcohol: 'Możliwość wniesienia własnego alkoholu bez opłaty korkowej (przy zakupie 10 szt. Coca-Cola 1L w lokalu).',
+    note: 'Menu można dowolnie modyfikować i dopasowywać do oczekiwań gości. Możliwość dodania gorących kolacji oraz ciast i tortu.'
   },
   {
     id: 'chrzciny-menu',
     venue: 'Hit Fit & Piwnica pod Żabą',
-    title: 'Dedykowane Menu na Chrzciny i Komunie',
-    subtitle: 'Kompletny zestaw rodzinny z rosołem, 4 mięsami i menu dla dzieci',
-    badge: 'Chrzciny • Komunie • Rodzina',
+    title: 'Oferta Menu na Chrzciny',
+    subtitle: 'Rosół z makaronem, 4 rodzaje mięs, dodatki, surówki i zimne przekąski',
+    badge: 'Chrzciny • Komunie',
     eventTypes: ['chrzciny', 'komunie'],
     recommendedFor: 'Chrzciny, pierwsze komunie święte, roczki oraz uroczyste obiady rodzinne',
-    capacityText: 'Dopasowane zarówno do kameralnych obiadów (15-30 os.), jak i dużych przyjęć (do 90 os.)',
+    capacityText: 'Hit Fit (do 90 os.) lub Piwnica pod Żabą (do 40 os.)',
     highlightColor: 'rose',
     courses: [
       {
-        category: 'Zupa powitalna',
+        category: 'Zupa',
         items: [
-          'Aromatyczny rosół domowy z makaronem i świeżą natką pietruszki'
+          'Rosół z makaronem'
         ]
       },
       {
         category: 'Dania główne (4 rodzaje mięs)',
         items: [
-          'Tradycyjny kotlet schabowy po staropolsku',
-          'Wykwintna rolada drobiowa ze szpinakiem',
-          'Rolada wieprzowa z grzybami i pieczarkami w sosie',
-          'Chrupiące nuggetsy drobiowe uwielbiane przez dzieci i dorosłych'
+          'Kotlet schabowy',
+          'Rolada drobiowa ze szpinakiem',
+          'Rolada z pieczarkami w sosie',
+          'Nuggetsy dla dzieci i dorosłych'
         ]
       },
       {
         category: 'Dodatki',
         items: [
-          'Ziemniaki z wody z koperkiem',
+          'Ziemniaki',
           'Kluski śląskie',
-          'Złociste, chrupiące frytki'
+          'Frytki'
         ]
       },
       {
-        category: 'Surówki i witaminy',
+        category: 'Surówki',
         items: [
-          'Młoda kapusta z koperkiem',
-          'Seler z chrupiącymi orzechami',
-          'Tradycyjna mizeria ze śmietaną'
+          'Młoda kapusta',
+          'Seler z orzechami',
+          'Mizeria'
         ]
       },
       {
-        category: 'Zimny stół i przystawki',
+        category: 'Zimne przekąski',
         items: [
           'Polędwiczki faszerowane „po warszawsku”',
-          'Lekka sałatka Fit z pestkami granatu',
-          'Efektowny „przekładaniec” koronkowo-serowy z kurczakiem',
-          'Świeże sałatki oraz mini kebaczety'
+          'Sałatka Fit z granatem',
+          '„Przekładaniec” koronkowo-serowy z kurczakiem',
+          'Sałatka i kebaczety'
         ]
       }
     ],
     beverages: [
-      'Kawa i herbata bez ograniczeń czasowych',
-      'Woda mineralna z miętą i cytryną oraz soki owocowe bez limitu'
+      'Kawa i herbata bez ograniczeń',
+      'Woda i soki'
     ],
-    note: 'Dla dzieci dostępne dodatkowe porcje frytek i nuggetsów. Istnieje możliwość serwowania ciast i tortu dostarczonego przez klienta lub przygotowanego przez naszą cukiernię.'
+    note: 'Dla dzieci dostępne porcje frytek i nuggetsów. Możliwość serwowania ciast i tortu.'
   },
   {
     id: 'hit-fit-prop-3',
     venue: 'Piwnica pod Żabą & Hit Fit',
-    title: 'Zestaw Imprezowy ze Szwajcarem i Przekąskami',
-    subtitle: 'Idealne menu na energiczne przyjęcia z parkietem tanecznym',
-    badge: '18-stki • Urodziny • Imprezy',
+    title: 'Oferta Menu na Przyjęcie (Propozycja nr 3)',
+    subtitle: 'Szwajcar, schabowy, de volay, krokiety ziemniaczane i zimne przekąski',
+    badge: 'Propozycja 3',
     eventTypes: ['urodziny', 'firmowe', 'wesela'],
-    recommendedFor: 'Osiemnastki, 30/40/50-te urodziny, wieczory biesiadne i imprezy ze znajomymi',
-    capacityText: 'Klimatyczna Piwnica pod Żabą (do 40 os.) lub Sala Hit Fit (do 90 os.)',
+    recommendedFor: 'Osiemnastki, urodziny, spotkania i imprezy okolicznościowe',
+    capacityText: 'Piwnica pod Żabą (do 40 os.) lub Hit Fit (do 90 os.)',
     highlightColor: 'blue',
     courses: [
       {
         category: 'Dania główne',
         items: [
-          'Kotlet Szwajcar zapiekany z serem',
-          'Klasyczny schabowy po mistrzowsku',
-          'Kotlet De Volaille z rozpływającym się masłem ziołowym'
+          'Szwajcar',
+          'Schabowy',
+          'De volay'
         ]
       },
       {
         category: 'Dodatki',
         items: [
-          'Chrupiące krokiety ziemniaczane',
-          'Ziemniaki opiekane z ziołami'
+          'Krokiety ziemniaczane',
+          'Ziemniaki'
         ]
       },
       {
-        category: 'Surówki i warzywa',
+        category: 'Surówki',
         items: [
-          'Sezonowe warzywa podawane w aksamitnym sosie holenderskim',
-          'Czerwona kapusta z nutą soczystego jabłka'
+          'Warzywa w sosie holenderskim',
+          'Czerwona kapusta z jabłkiem'
         ]
       },
       {
-        category: 'Zimne przekąski i finger-food',
+        category: 'Zimne przekąski',
         items: [
-          'Mięso pieczone serwowane z tradycyjną ćwikłą',
-          'Tortille podpiekane na chrupko z kurczakiem, warzywami i sosem tzatziki',
-          'Wykwintna sałatka na zielono z serami, kiełkami i sosem brzoskwiniowym',
-          'Placuszki ogrodowe ze świeżymi warzywami i dipem',
-          'Sałatka brokułowa z prażonymi migdałami i sosem czosnkowym'
+          'Mięso pieczone podane z ćwikłą',
+          'Tortille podpiekane z kurczakiem, warzywami i sosem tzatziki',
+          'Sałatka na zielono z serami, kiełkami i sosem brzoskwiniowym',
+          'Placuszki ogrodowe z warzywami',
+          'Sałatka brokułowa z sosem czosnkowym'
         ]
       }
     ],
     beverages: [
-      'Napoje zimne: woda i soki owocowe bez limitu',
-      'Napoje gorące: bufet kawowy i herbaciany bez limitu'
+      'Woda i soki',
+      'Kawa i herbata bez ograniczeń'
     ],
-    alcohol: 'Własny alkohol mile widziany (brak opłaty korkowej!). Wino i piwo dostępne również w lokalu.',
-    note: 'W nocy polecamy uzupełnić zestaw o gorącą kolację: barszcz czerwony z krokietem lub aromatyczną zupę gulaszową.'
+    alcohol: 'Własny alkohol bez opłaty korkowej (przy zakupie 10 szt. Coca-Cola 1L w lokalu). Wino i piwo dostępne również w lokalu.',
+    note: 'Możliwość domówienia gorących kolacji: barszcz z krokietem, flaczki lub zupa gulaszowa.'
   },
   {
     id: 'hit-fit-prop-2',
     venue: 'Hit Fit & Piwnica pod Żabą',
-    title: 'Zestaw Nowoczesny & Lekki z Łososiem i Szparagami',
-    subtitle: 'Elegancka kompozycja dań dla wymagających smakoszy i spotkań biznesowych',
-    badge: 'Spotkania Firmowe • Bankiety • Nowoczesne',
+    title: 'Oferta Menu na Przyjęcie (Propozycja nr 2)',
+    subtitle: 'Rolada ze szparagami, puree z zielonego groszku, sałatka caprese i przekąski',
+    badge: 'Propozycja 2',
     eventTypes: ['firmowe', 'wesela'],
-    recommendedFor: 'Jubileusze firmowe, bankiety biznesowe, eleganckie obiady zarządu oraz przyjęcia fit',
-    capacityText: 'Komfortowa przestrzeń z klimatyzacją, nagłośnieniem i parkingiem',
+    recommendedFor: 'Spotkania firmowe, bankiety i uroczyste przyjęcia',
+    capacityText: 'Hit Fit (do 90 os.) lub Piwnica pod Żabą (do 40 os.)',
     highlightColor: 'emerald',
     courses: [
       {
         category: 'Dania główne',
         items: [
-          'Wykwintna rolada drobiowa faszerowana zielonymi szparagami',
-          'Aksamitne puree z zielonego groszku',
-          'Świeża sałatka Caprese z mozzarellą, pomidorami i bazylią'
+          'Rolada drobiowa faszerowana szparagami podana z puree z zielonego groszku i sałatką caprese'
         ]
       },
       {
-        category: 'Zimne przekąski i przystawki',
+        category: 'Zimne przekąski',
         items: [
-          'Deska wykwintnych wędlin długodojrzewających, serów i mini tortilli',
-          'Chrupiące grzanki bagietkowe z tatarem ze świeżego łososia',
-          'Warstwowa sałatka Gyros z sosem ziołowym',
-          'Jajka faszerowane w autorskim sosie tatarskim'
+          'Wędliny, sery i tortille',
+          'Grzanki z tatarem z łososia',
+          'Sałatka gyros',
+          'Jajka w sosie tatarskim'
         ]
       }
     ],
     beverages: [
-      'Świeżo parzona kawa z ekspresu i selekcja herbat bez ograniczeń',
-      'Woda z cytrusami i naturalne soki owocowe bez limitu'
+      'Kawa i herbata bez ograniczeń',
+      'Woda i soki'
     ],
-    note: 'Możliwość rozszerzenia o dania premium: pieczony łosoś z migdałami, polędwiczki w sosie kurkowym czy carpaccio wołowe na rukoli.'
+    note: 'Możliwość rozszerzenia o dodatkowe dania główne, gorące kolacje i ciasta.'
   }
 ];
 
@@ -718,7 +715,7 @@ export const MENU_DOCUMENT_PAGES = [
           ]
         },
         {
-          heading: "Droższe propozycje (Menu Wykwintne) – Do obiadu:",
+          heading: "Droższe propozycje – Do obiadu:",
           items: [
             "Roladki wołowe w sosie",
             "Łódeczki drobiowe faszerowane serami i suszonymi pomidorami",
@@ -759,7 +756,7 @@ export const MENU_DOCUMENT_PAGES = [
           items: [
             "Udziec płonący podany z kapustą zasmażaną i pieczonymi ziemniakami",
             "Grill: karczek, pierś, kiełbaski, szaszłyki, sałatki 2 rodzaje",
-            "Delikatny strogonow z polędwicy wieprzowej podany z bagietkami",
+            "Strogonow z polędwicy wieprzowej podany z bagietkami",
             "Tagliatelle z polędwiczkami i sosem z zielonego pieprzu",
             "Strogonow wołowy",
             "Tagliatelle z kurczakiem i warzywami"
@@ -874,7 +871,7 @@ export const EVENT_TYPES_GUIDE: EventTypeGuide[] = [
   {
     id: 'wesela',
     name: 'Wesela i Przyjęcia Weselne',
-    description: 'Elegancka przestrzeń, przestronny parkiet, wykwintne dania gorące, taras i bezpłatny parking dla gości.',
+    description: 'Elegancka przestrzeń, przestronny parkiet, dania gorące, taras i bezpłatny parking dla gości.',
     recommendedVenueId: 'hit-fit',
     recommendedVenueName: 'Tylko Hit Fit (do 90 osób)',
     capacityNote: 'Do 90 osób • Piwnica nie organizuje wesel',
