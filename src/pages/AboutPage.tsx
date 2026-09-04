@@ -150,13 +150,60 @@ export function AboutPage() {
         </div>
       </section>
 
-      {/* Navigation to Other Sections */}
+      {/* Navigation to Other Sections & Specific Menus */}
       <section className="bg-stone-100 py-16 border-t border-stone-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 text-center space-y-8">
-          <h3 className="text-2xl sm:text-3xl font-serif font-bold text-stone-900">
-            Dowiedz się Więcej o Naszej Ofercie
-          </h3>
-          <div className="flex flex-wrap justify-center gap-4">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 text-center space-y-8">
+          <div className="space-y-2 max-w-xl mx-auto">
+            <span className="text-amber-800 uppercase tracking-widest text-xs font-bold block">
+              Poznaj Naszą Kuchnię
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-serif font-bold text-stone-900">
+              Karty Menu i Oferta Sal w Lubinie
+            </h3>
+            <p className="text-stone-600 text-xs sm:text-sm">
+              Wybierz rodzaj planowanego przyjęcia, aby przejść bezpośrednio do dopasowanego zestawu dań.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3 text-left">
+            <Link
+              to="/menu?uroczystosc=wesela"
+              className="p-4 rounded-xl bg-white border border-stone-200 hover:border-amber-400 shadow-xs hover:shadow-md transition-all group"
+            >
+              <span className="text-[10px] font-bold uppercase tracking-wider text-amber-800 block">Propozycja nr 1</span>
+              <h5 className="font-serif font-bold text-stone-900 text-sm group-hover:text-amber-900">Oferta menu na przyjęcie</h5>
+              <p className="text-stone-500 text-xs mt-1">3 propozycje obiadów i 14 ciepłych kolacji.</p>
+            </Link>
+
+            <Link
+              to="/menu?uroczystosc=urodziny&pakiet=hit-fit-prop-3"
+              className="p-4 rounded-xl bg-white border border-stone-200 hover:border-amber-400 shadow-xs hover:shadow-md transition-all group"
+            >
+              <span className="text-[10px] font-bold uppercase tracking-wider text-blue-800 block">Propozycja nr 3</span>
+              <h5 className="font-serif font-bold text-stone-900 text-sm group-hover:text-amber-900">Oferta menu na przyjęcie</h5>
+              <p className="text-stone-500 text-xs mt-1">Szwajcar, de volay, tortille i przekąski.</p>
+            </Link>
+
+            <Link
+              to="/menu?uroczystosc=chrzciny&pakiet=chrzciny-menu"
+              className="p-4 rounded-xl bg-white border border-stone-200 hover:border-amber-400 shadow-xs hover:shadow-md transition-all group"
+            >
+              <span className="text-[10px] font-bold uppercase tracking-wider text-rose-800 block">Oferta na chrzciny</span>
+              <h5 className="font-serif font-bold text-stone-900 text-sm group-hover:text-amber-900">Oferta menu na chrzciny</h5>
+              <p className="text-stone-500 text-xs mt-1">4 rodzaje mięs, zimny stół i domowe ciasta.</p>
+            </Link>
+
+            <Link
+              to="/menu?kategoria=gorace-kolacje"
+              className="p-4 rounded-xl bg-white border border-stone-200 hover:border-amber-400 shadow-xs hover:shadow-md transition-all group"
+            >
+              <span className="text-[10px] font-bold uppercase tracking-wider text-amber-900 block">Kolacje</span>
+              <h5 className="font-serif font-bold text-stone-900 text-sm group-hover:text-amber-900">Gorące kolacje</h5>
+              <p className="text-stone-500 text-xs mt-1">Barszczyk z krokietem, flaczki i ciepłe dania nocne.</p>
+            </Link>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-4 pt-2">
             <Link
               to="/sale"
               className="px-6 py-3 rounded-full bg-stone-900 hover:bg-stone-800 text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-sm"
@@ -167,7 +214,7 @@ export function AboutPage() {
               to="/menu"
               className="px-6 py-3 rounded-full bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-sm"
             >
-              Poznaj Kartę Menu →
+              Karta menu & Pobierz menu w PDF →
             </Link>
             <Link
               to="/kontakt"
