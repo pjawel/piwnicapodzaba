@@ -1,4 +1,5 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   ChefHat, Coffee, Wine, Sparkles, CheckCircle2, Search, HeartHandshake,
@@ -12,10 +13,71 @@ import {
 import { downloadMenuPdf } from '../utils/generateMenuPdf';
 
 export function MenuSection() {
+  const [searchParams] = useSearchParams();
+
+  // Normalize initial category from URL if present (maps 'kolacje' -> 'gorace-kolacje')
+  const initialKat = searchParams.get('kategoria');
+  const normalizedInitialKat = (initialKat === 'kolacje' || initialKat === 'gorace-kolacje' || initialKat === 'gorace_kolacje' || initialKat === 'gorace')
+    ? 'gorace-kolacje'
+    : initialKat;
+
   const [selectedOccasion, setSelectedOccasion] = useState<string>('all');
-  const [activeMenuCategory, setActiveMenuCategory] = useState<string>('obiad');
+  const [activeMenuCategory, setActiveMenuCategory] = useState<string>(() => {
+    if (normalizedInitialKat && MENU_CATEGORIES.some(c => c.id === normalizedInitialKat)) {
+      return normalizedInitialKat;
+    }
+    return 'obiad';
+  });
   const [menuSearchQuery, setMenuSearchQuery] = useState<string>('');
-  const [viewMode, setViewMode] = useState<'packages' | 'interactive'>('packages');
+  const [viewMode, setViewMode] = useState<'packages' | 'interactive'>(() => {
+    return normalizedInitialKat ? 'interactive' : 'packages';
+  });
+
+  // React to URL query parameters (e.g. ?uroczystosc=wesela or ?pakiet=chrzciny-menu or ?kategoria=gorace-kolacje)
+  useEffect(() => {
+    const occ = searchParams.get('uroczystosc');
+    if (occ && OCCASION_FILTERS.some(f => f.id === occ)) {
+      setSelectedOccasion(occ);
+    }
+
+    const kat = searchParams.get('kategoria');
+    let normalizedKat = kat;
+    if (kat === 'kolacje' || kat === 'gorace-kolacje' || kat === 'gorace_kolacje' || kat === 'gorace') {
+      normalizedKat = 'gorace-kolacje';
+    }
+
+    if (normalizedKat && MENU_CATEGORIES.some(c => c.id === normalizedKat)) {
+      setViewMode('interactive');
+      setActiveMenuCategory(normalizedKat);
+      setMenuSearchQuery('');
+
+      const scrollTarget = () => {
+        const el = document.getElementById(`kategoria-${normalizedKat}`) || document.getElementById('katalog-dan') || document.getElementById('menu-view-container');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      };
+
+      setTimeout(scrollTarget, 100);
+      setTimeout(scrollTarget, 300);
+    }
+
+    const pakietId = searchParams.get('pakiet');
+    if (pakietId) {
+      setViewMode('packages');
+      // If the package belongs to an occasion not currently selected, adjust to show it
+      const targetPkg = EVENT_MENU_PACKAGES.find(p => p.id === pakietId);
+      if (targetPkg && occ && !targetPkg.eventTypes.includes(occ)) {
+        setSelectedOccasion('all');
+      }
+      setTimeout(() => {
+        const el = document.getElementById(pakietId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 150);
+    }
+  }, [searchParams]);
 
   // Filter packages based on selected occasion
   const filteredPackages = useMemo(() => {
@@ -132,10 +194,10 @@ export function MenuSection() {
               type="button"
               onClick={downloadMenuPdf}
               className="py-3 px-5 rounded-2xl bg-amber-800 hover:bg-amber-900 text-white text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm hover:shadow active:scale-95"
-              title="Pobierz oficjalne menu w pliku PDF"
+              title="Pobierz menu w PDF"
             >
               <Download size={15} />
-              <span>Pobierz Menu (PDF)</span>
+              <span>Pobierz menu w PDF</span>
             </button>
           </div>
         </div>
@@ -180,6 +242,7 @@ export function MenuSection() {
               {filteredPackages.map((pkg, idx) => (
                 <motion.div
                   key={pkg.id}
+                  id={pkg.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: idx * 0.08 }}
@@ -288,10 +351,10 @@ export function MenuSection() {
                         type="button"
                         onClick={downloadMenuPdf}
                         className="py-3 px-3.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-900 font-bold text-xs transition-all border border-amber-200/80 flex items-center gap-1.5 cursor-pointer active:scale-95 shrink-0"
-                        title="Pobierz Menu w formacie PDF"
+                        title="Pobierz menu w PDF"
                       >
                         <Download size={14} className="text-amber-800" />
-                        <span>Pobierz PDF</span>
+                        <span>Pobierz menu w PDF</span>
                       </button>
                     </div>
                   </div>
@@ -303,7 +366,7 @@ export function MenuSection() {
 
         {/* VIEW MODE 2: Interactive Category Explorer (A la carte) */}
         {viewMode === 'interactive' && (
-          <div className="space-y-6">
+          <div id="katalog-dan" className="space-y-6 scroll-mt-28">
             <div className="flex flex-col md:flex-row gap-4 items-center justify-between border-b border-stone-200 pb-4">
               <div className="flex flex-wrap gap-2 w-full md:w-auto">
                 {MENU_CATEGORIES.map((cat) => {
@@ -311,6 +374,7 @@ export function MenuSection() {
                   return (
                     <button
                       key={cat.id}
+                      id={`tab-kategoria-${cat.id}`}
                       type="button"
                       onClick={() => {
                         setActiveMenuCategory(cat.id);
@@ -358,13 +422,23 @@ export function MenuSection() {
 
             {/* Render Category Items */}
             {MENU_CATEGORIES.filter(c => !menuSearchQuery ? c.id === activeMenuCategory : true).map((cat) => (
-              <div key={cat.id} className="space-y-6">
-                {cat.note && (
-                  <div className="p-3.5 bg-amber-50 rounded-2xl border border-amber-200/80 text-amber-900 text-xs sm:text-sm font-medium flex items-center gap-2">
-                    <Info size={16} className="shrink-0 text-amber-700" />
-                    <span>{cat.note}</span>
+              <div key={cat.id} id={`kategoria-${cat.id}`} className="space-y-6 scroll-mt-32">
+                {/* Category Header with title and badge */}
+                <div className="flex flex-wrap items-center justify-between gap-3 bg-stone-100/80 p-4 rounded-2xl border border-stone-200">
+                  <div className="space-y-0.5">
+                    <h3 className="font-serif font-bold text-xl sm:text-2xl text-stone-900">
+                      {cat.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-stone-600">
+                      {cat.note || "Katalog dań i propozycji do wyboru"}
+                    </p>
                   </div>
-                )}
+                  {cat.badge && (
+                    <span className="text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 bg-amber-800 text-white rounded-full shadow-xs">
+                      {cat.badge}
+                    </span>
+                  )}
+                </div>
 
                 {cat.subsections ? (
                   <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
@@ -399,13 +473,13 @@ export function MenuSection() {
                     })}
                   </div>
                 ) : cat.items ? (
-                  <div className="bg-white rounded-2xl p-6 shadow-xs border border-stone-200">
+                  <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-xs border border-stone-200 space-y-4">
                     <ul className="grid sm:grid-cols-2 gap-3">
                       {cat.items
                         .filter(item => !menuSearchQuery || item.toLowerCase().includes(menuSearchQuery.toLowerCase()))
                         .map((item, iIdx) => (
-                          <li key={iIdx} className="text-xs sm:text-sm text-stone-700 flex items-start gap-2 p-2 rounded-xl bg-stone-50 border border-stone-100">
-                            <CheckCircle2 size={14} className="text-amber-700 shrink-0 mt-0.5" />
+                          <li key={iIdx} className="text-xs sm:text-sm text-stone-800 font-medium flex items-start gap-2.5 p-3 rounded-xl bg-stone-50 hover:bg-amber-50/50 border border-stone-100 transition-colors">
+                            <CheckCircle2 size={15} className="text-amber-700 shrink-0 mt-0.5" />
                             <span>{item}</span>
                           </li>
                         ))}
@@ -435,10 +509,10 @@ export function MenuSection() {
             type="button"
             onClick={downloadMenuPdf}
             className="px-7 py-4 rounded-2xl bg-gradient-to-r from-amber-600 to-yellow-500 hover:from-amber-500 hover:to-yellow-400 text-white font-bold text-sm uppercase tracking-wider shadow-lg transition-all hover:scale-105 active:scale-95 flex items-center gap-2.5 cursor-pointer shrink-0"
-            title="Pobierz plik PDF"
+            title="Pobierz menu w PDF"
           >
             <Download size={18} />
-            <span>Pobierz Plik PDF</span>
+            <span>Pobierz menu w PDF</span>
           </button>
         </div>
 
