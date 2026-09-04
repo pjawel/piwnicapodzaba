@@ -178,6 +178,12 @@ export function VenuesPage() {
                     Zobacz Ofertę Weselną w Hit Fit →
                   </Link>
                   <Link
+                    to="/menu?uroczystosc=wesela"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs uppercase tracking-wider transition-colors"
+                  >
+                    Menu Bankietowe & Weselne Hit Fit →
+                  </Link>
+                  <Link
                     to="/galeria"
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-800 font-bold text-xs uppercase tracking-wider transition-colors"
                   >
@@ -304,6 +310,12 @@ export function VenuesPage() {
                     Zobacz Ofertę na 18-stki w Piwnicy →
                   </Link>
                   <Link
+                    to="/menu?uroczystosc=urodziny"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-stone-900 hover:bg-stone-800 text-white font-bold text-xs uppercase tracking-wider transition-colors"
+                  >
+                    Menu dla Piwnicy pod Żabą →
+                  </Link>
+                  <Link
                     to="/galeria"
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-800 font-bold text-xs uppercase tracking-wider transition-colors"
                   >
@@ -406,6 +418,105 @@ export function VenuesPage() {
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+      </section>
+
+      {/* Culinary Menus for Both Venues */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-10">
+        <div className="bg-white rounded-3xl p-8 md:p-12 border border-stone-200 shadow-xl space-y-8">
+          <div className="text-center space-y-2 max-w-2xl mx-auto">
+            <span className="text-amber-800 uppercase tracking-widest text-xs font-bold block">
+              Oferta Kulinarna
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-serif font-bold text-stone-900">
+              Karty Menu Dostępne w Naszych Salach
+            </h3>
+            <p className="text-stone-600 text-sm">
+              Niezależnie od wybranej sali, wszystkie dania przygotowujemy na bieżąco według sprawdzonych receptur Szefa Kuchni Piotra Jaworskiego.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+            <Link
+              to="/menu?uroczystosc=wesela"
+              className="bg-stone-50 hover:bg-amber-50/70 p-5 rounded-2xl border border-stone-200 hover:border-amber-400 transition-all group flex flex-col justify-between"
+            >
+              <div className="space-y-2">
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-100 text-amber-900 inline-block">
+                  Propozycja nr 1
+                </span>
+                <h4 className="font-serif font-bold text-stone-900 text-base group-hover:text-amber-900">
+                  Oferta menu na przyjęcie (Hit Fit)
+                </h4>
+                <p className="text-stone-500 text-xs leading-relaxed">
+                  3 bogate propozycje dań obiadowych, pieczone mięsa, półmiski finger food oraz 14 gorących kolacji.
+                </p>
+              </div>
+              <span className="pt-4 text-amber-800 font-bold text-xs inline-flex items-center gap-1">
+                Zobacz to menu →
+              </span>
+            </Link>
+
+            <Link
+              to="/menu?uroczystosc=urodziny&pakiet=hit-fit-prop-3"
+              className="bg-stone-50 hover:bg-amber-50/70 p-5 rounded-2xl border border-stone-200 hover:border-amber-400 transition-all group flex flex-col justify-between"
+            >
+              <div className="space-y-2">
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-blue-100 text-blue-900 inline-block">
+                  Propozycja nr 3
+                </span>
+                <h4 className="font-serif font-bold text-stone-900 text-base group-hover:text-amber-900">
+                  Oferta menu na przyjęcie (Propozycja nr 3)
+                </h4>
+                <p className="text-stone-500 text-xs leading-relaxed">
+                  Szwajcar, de volay, tortille z dipem tzatziki, sałatka brokułowa oraz ciepłe kolacje i nuggetsy.
+                </p>
+              </div>
+              <span className="pt-4 text-amber-800 font-bold text-xs inline-flex items-center gap-1">
+                Zobacz to menu →
+              </span>
+            </Link>
+
+            <Link
+              to="/menu?uroczystosc=chrzciny&pakiet=chrzciny-menu"
+              className="bg-stone-50 hover:bg-amber-50/70 p-5 rounded-2xl border border-stone-200 hover:border-amber-400 transition-all group flex flex-col justify-between"
+            >
+              <div className="space-y-2">
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-rose-100 text-rose-900 inline-block">
+                  Oferta menu na chrzciny
+                </span>
+                <h4 className="font-serif font-bold text-stone-900 text-base group-hover:text-amber-900">
+                  Oferta menu na chrzciny
+                </h4>
+                <p className="text-stone-500 text-xs leading-relaxed">
+                  Rosół, 4 rodzaje mięs, kluski śląskie, polędwiczki po warszawsku, nielimitowana kawa i herbata.
+                </p>
+              </div>
+              <span className="pt-4 text-amber-800 font-bold text-xs inline-flex items-center gap-1">
+                Zobacz to menu →
+              </span>
+            </Link>
+
+            <Link
+              to="/menu?kategoria=gorace-kolacje"
+              className="bg-stone-50 hover:bg-amber-50/70 p-5 rounded-2xl border border-stone-200 hover:border-amber-400 transition-all group flex flex-col justify-between"
+            >
+              <div className="space-y-2">
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-200 text-amber-950 inline-block">
+                  Gorące kolacje
+                </span>
+                <h4 className="font-serif font-bold text-stone-900 text-base group-hover:text-amber-900">
+                  Gorące kolacje
+                </h4>
+                <p className="text-stone-500 text-xs leading-relaxed">
+                  14 propozycji gorących dań nocnych: barszcz z krokietem, flaczki, strogonow, gulasz węgierski.
+                </p>
+              </div>
+              <span className="pt-4 text-amber-800 font-bold text-xs inline-flex items-center gap-1">
+                Zobacz to menu →
+              </span>
+            </Link>
           </div>
         </div>
       </section>
