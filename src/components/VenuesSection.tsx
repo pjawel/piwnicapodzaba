@@ -72,7 +72,7 @@ export function VenuesSection({ onOpenGalleryTab, onOpenImage }: VenuesSectionPr
               </div>
               
               <p className="text-stone-700 text-sm sm:text-base leading-relaxed font-light">
-                Główny obiekt bankietowy mieszczący do 90 gości. Nowoczesna, przestronna sala o jasnej kolorystyce, z doskonałą akustyką i parkietem tanecznym. Obiekt dysponuje zadaszonym tarasem z grillem plenerowym oraz dużym, bezpłatnym parkingiem.
+                Główny obiekt bankietowy mieszczący do 90 gości. Nowoczesna, przestronna sala o jasnej kolorystyce, z doskonałą akustyką i parkietem tanecznym. Obiekt dysponuje tarasem z grillem plenerowym oraz dużym, bezpłatnym parkingiem.
               </p>
 
               {/* Venue Key Specs */}

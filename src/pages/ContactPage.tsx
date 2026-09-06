@@ -1,5 +1,6 @@
 import { ContactSection } from '../components/ContactSection';
-import { Phone, Mail, MapPin, Clock, ShieldCheck } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, ShieldCheck, UtensilsCrossed, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { CONTACT_PHONE_FORMATTED, HIT_FIT_ADDRESS, PIWNICA_ADDRESS } from '../data';
 import { SeoHead } from '../components/SeoHead';
 
@@ -14,7 +15,7 @@ export function ContactPage() {
       />
       {/* Top Banner */}
       <section className="bg-stone-950 text-white py-16 px-4 sm:px-6 md:px-8">
-        <div className="max-w-5xl mx-auto text-center space-y-5">
+        <div className="max-w-5xl mx-auto text-center space-y-6">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/30 text-xs font-bold uppercase tracking-widest">
             Rezerwacje & Informacje
           </div>
@@ -32,6 +33,45 @@ export function ContactPage() {
             >
               <Phone size={22} /> Zadzwoń: {CONTACT_PHONE_FORMATTED}
             </a>
+          </div>
+
+          {/* Quick Menu Links */}
+          <div className="pt-6 border-t border-stone-800/80 max-w-3xl mx-auto space-y-3">
+            <span className="text-xs text-amber-400/80 font-bold uppercase tracking-wider block">
+              Chcesz najpierw sprawdzić menu przed kontaktem?
+            </span>
+            <div className="flex flex-wrap justify-center gap-2 text-xs">
+              <Link
+                to="/menu?uroczystosc=wesela"
+                className="px-3.5 py-1.5 rounded-full bg-stone-900 hover:bg-stone-800 text-stone-300 hover:text-white border border-stone-800 transition-colors"
+              >
+                Menu Weselne →
+              </Link>
+              <Link
+                to="/menu?uroczystosc=urodziny&pakiet=hit-fit-prop-3"
+                className="px-3.5 py-1.5 rounded-full bg-stone-900 hover:bg-stone-800 text-stone-300 hover:text-white border border-stone-800 transition-colors"
+              >
+                Menu na 18-stkę →
+              </Link>
+              <Link
+                to="/menu?uroczystosc=chrzciny&pakiet=chrzciny-menu"
+                className="px-3.5 py-1.5 rounded-full bg-stone-900 hover:bg-stone-800 text-stone-300 hover:text-white border border-stone-800 transition-colors"
+              >
+                Menu Chrzciny & Komunie →
+              </Link>
+              <Link
+                to="/menu?kategoria=obiad"
+                className="px-3.5 py-1.5 rounded-full bg-stone-900 hover:bg-stone-800 text-stone-300 hover:text-white border border-stone-800 transition-colors"
+              >
+                Menu Obiadowe (Stypy) →
+              </Link>
+              <Link
+                to="/menu?uroczystosc=firmowe"
+                className="px-3.5 py-1.5 rounded-full bg-stone-900 hover:bg-stone-800 text-stone-300 hover:text-white border border-stone-800 transition-colors"
+              >
+                Menu Bankiety Firmowe →
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -216,7 +216,7 @@ export function Hero() {
                   <span className="text-stone-400">ul. Konstytucji 3 Maja 3</span>
                 </div>
                 <p className="text-xs text-stone-300 leading-relaxed font-light">
-                  Zobacz przestrzeń wokół lokalu: bezpieczny dojazd, bezpłatny parking, zadaszony taras i zielone otoczenie.
+                  Zobacz przestrzeń wokół lokalu: bezpieczny dojazd, bezpłatny parking, taras i zielone otoczenie.
                 </p>
                 <div className="flex flex-wrap gap-2 pt-1">
                   <span className="text-[10px] bg-white/10 px-2 py-0.5 rounded text-stone-300 flex items-center gap-1">

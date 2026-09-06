@@ -68,7 +68,7 @@ export function GalleryPage() {
               Zobacz Menu Prezentowane na Zdjęciach
             </h3>
             <p className="text-stone-600 text-xs sm:text-sm">
-              Potrawy ze zdjęć przygotowujemy świeżo na miejscu przed każdym przyjęciem.
+              Sprawdź nasze propozycje dań i zestawów na różne uroczystości.
             </p>
           </div>
 

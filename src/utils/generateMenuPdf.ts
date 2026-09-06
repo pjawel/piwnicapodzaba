@@ -3,7 +3,8 @@
  * Downloads the exact 8-page banquet menu document for HiT FiT & Piwnica pod Żabą.
  */
 
-export const MENU_PDF_URL = `${import.meta.env.BASE_URL}menu-hitfit-piwnica.pdf`;
+const baseUrl = (import.meta as any).env?.BASE_URL || '/';
+export const MENU_PDF_URL = `${baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`}menu-hitfit-piwnica.pdf`;
 export const MENU_PDF_FILENAME = 'Karta-Menu-Hit-Fit-Piwnica-pod-Zaba.pdf';
 
 /**

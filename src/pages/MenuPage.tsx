@@ -32,7 +32,7 @@ export function MenuPage() {
               onClick={downloadMenuPdf}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-amber-600 to-yellow-500 hover:from-amber-500 hover:to-yellow-400 text-white font-bold text-xs uppercase tracking-wider shadow-lg transition-transform hover:scale-105"
             >
-              <Download size={16} /> Pobierz Menu w PDF
+              <Download size={16} /> Pobierz menu w PDF
             </button>
             <a
               href="tel:661637770"

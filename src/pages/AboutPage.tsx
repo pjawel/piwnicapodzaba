@@ -15,8 +15,8 @@ export function AboutPage() {
     <div className="bg-stone-50 text-gray-900 min-h-screen pt-24 pb-20">
       <SeoHead
         title="O Nas | Doświadczenie, Pasja i Domowa Kuchnia - Lubin"
-        description="Poznaj historię sal bankietowych Piwnica pod Żabą i Hit Fit w Lubinie oraz pasję kulinarną szefa kuchni Piotra Jaworskiego. Ponad 15 lat doświadczenia w organizacji przyjęć."
-        keywords={['o nas Piwnica pod Żabą', 'Piotr Jaworski Lubin', 'kuchnia bankietowa Lubin', 'historia lokalu Lubin']}
+        description="Poznaj historię sal bankietowych Piwnica pod Żabą i Hit Fit w Lubinie oraz naszą pasję kulinarną. Ponad 15 lat doświadczenia w organizacji przyjęć."
+        keywords={['o nas Piwnica pod Żabą', 'kuchnia bankietowa Lubin', 'historia lokalu Lubin']}
         canonicalPath="/o-nas"
       />
       {/* Hero Banner */}
@@ -32,7 +32,7 @@ export function AboutPage() {
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 md:px-8 text-center space-y-6">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/30 text-xs font-bold uppercase tracking-widest">
-            <ChefHat size={15} className="text-amber-400" /> Tradycja i Gościnność
+            <UtensilsCrossed size={15} className="text-amber-400" /> Tradycja i Gościnność
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-white tracking-tight leading-tight">
@@ -40,7 +40,7 @@ export function AboutPage() {
           </h1>
 
           <p className="text-lg sm:text-xl text-stone-300 max-w-2xl mx-auto font-light leading-relaxed">
-            Poznaj historię naszych lokali w Lubinie, zespół doświadczonych kucharzy pod okiem Piotra Jaworskiego oraz naszą filozofię tworzenia niezapomnianych przyjęć.
+            Poznaj historię naszych lokali w Lubinie, zespół doświadczonych kucharzy oraz naszą filozofię tworzenia niezapomnianych przyjęć.
           </p>
 
           <div className="pt-2">
@@ -68,7 +68,7 @@ export function AboutPage() {
               Od lat tworzymy w Lubinie przestrzeń dla najważniejszych chwil w życiu naszych Gości. Pod kierunkiem <strong>Piotra Jaworskiego</strong> łączymy miłość do tradycyjnej, uczciwej kuchni polskiej z dbałością o nowoczesny standard obsługi bankietowej.
             </p>
             <p className="text-stone-700 text-base leading-relaxed">
-              Nie wierzymy w półśrodki – wszystkie potrawy przygotowujemy ze świeżych składników od sprawdzonych, lokalnych dostawców bezpośrednio przed rozpoczęciem przyjęcia. Dbamy zarówno o wyrazisty smak, jak i estetyczną oprawę każdego stołu.
+              Stawiamy na sprawdzoną, tradycyjną kuchnię oraz staranność przygotowania każdego dania. Dbamy zarówno o wyrazisty smak, jak i estetyczną oprawę każdego stołu.
             </p>
           </div>
 
@@ -124,7 +124,7 @@ export function AboutPage() {
             </div>
             <h4 className="text-lg font-serif font-bold text-stone-900">Domowy Smak</h4>
             <p className="text-stone-600 text-xs leading-relaxed">
-              Tradycyjne receptury, własnoręcznie przygotowywane pieczenie, świeże sałatki oraz aromatyczne zupy.
+              Tradycyjne receptury, pieczone mięsa, sałatki oraz zupy.
             </p>
           </div>
 

@@ -95,7 +95,7 @@ export function CorporateEventsPage() {
             </div>
             <h4 className="text-lg font-serif font-bold text-stone-900">Integracje z Grillem (Hit Fit)</h4>
             <p className="text-stone-600 text-sm leading-relaxed">
-              Biesiady na zadaszonym tarasie z karkówką z grilla, kiełbaskami, szaszłykami, pieczonymi ziemniaczkami i zimnymi napojami.
+              Biesiady na tarasie z karkówką z grilla, kiełbaskami, szaszłykami, pieczonymi ziemniaczkami i zimnymi napojami.
             </p>
           </div>
 
@@ -138,6 +138,9 @@ export function CorporateEventsPage() {
               <p className="text-stone-600 text-xs leading-relaxed">
                 Żadnych innych gości w lokalu podczas Waszej imprezy. Dyskrecja i komfort rozmów w zespole.
               </p>
+              <Link to="/sale" className="text-amber-800 hover:text-amber-900 font-bold text-xs inline-flex items-center gap-1.5 pt-1">
+                Zobacz nasze sale <ArrowRight size={13} />
+              </Link>
             </div>
 
             <div className="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-2.5">
@@ -164,7 +167,7 @@ export function CorporateEventsPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="bg-stone-100 rounded-3xl p-8 sm:p-12 border border-stone-200 shadow-xl space-y-8 text-center relative overflow-hidden">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider mx-auto">
-              <ChefHat size={15} className="text-amber-700" /> Kulinarna Oprawa dla Biznesu
+              <UtensilsCrossed size={15} className="text-amber-700" /> Kulinarna Oprawa dla Biznesu
             </div>
 
             <div className="space-y-4 max-w-2xl mx-auto">
@@ -172,7 +175,7 @@ export function CorporateEventsPage() {
                 Elastyczne Menu Bankietowe i Catering Firmowy
               </h2>
               <p className="text-stone-600 text-sm sm:text-base leading-relaxed font-light">
-                Dopasowujemy formę podania do specyfiki Waszego wydarzenia: uroczysty obiad serwowany, bogaty bufet szwedzki typu finger-food, stół wiejski z tradycyjnymi wyrobami lub biesiada grillowa na zadaszonym tarasie sali Hit Fit.
+                Dopasowujemy formę podania do specyfiki Waszego wydarzenia: uroczysty obiad serwowany, bogaty bufet szwedzki typu finger-food, stół wiejski z tradycyjnymi wyrobami lub biesiada grillowa na tarasie sali Hit Fit.
               </p>
             </div>
 
@@ -192,13 +195,81 @@ export function CorporateEventsPage() {
               </span>
             </div>
 
+            {/* Konkretne propozycje menu dla firm */}
+            <div className="pt-4 text-left border-t border-stone-200/80 space-y-4">
+              <span className="text-xs font-bold text-amber-900 uppercase tracking-wider block text-center">
+                Wybierz propozycję z menu:
+              </span>
+              <div className="grid sm:grid-cols-3 gap-4">
+                <Link
+                  to="/menu?uroczystosc=firmowe&pakiet=hit-fit-prop-2"
+                  className="bg-white hover:bg-amber-50/70 p-4 rounded-2xl border border-stone-200 hover:border-amber-400 transition-all group flex flex-col justify-between shadow-xs"
+                >
+                  <div className="space-y-1.5">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-100 text-emerald-900 inline-block">
+                      Propozycja nr 2
+                    </span>
+                    <h4 className="font-serif font-bold text-stone-900 text-sm group-hover:text-amber-900">
+                      Rolada ze Szparagami & Tatar z Łososia
+                    </h4>
+                    <p className="text-stone-500 text-xs line-clamp-2">
+                      Puree z zielonego groszku, sałatka caprese, deski wędlin, serów, grzanki z łososiem i tortille.
+                    </p>
+                  </div>
+                  <span className="pt-3 text-amber-800 font-bold text-xs inline-flex items-center gap-1">
+                    Zobacz to menu <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </Link>
+
+                <Link
+                  to="/menu?uroczystosc=firmowe&pakiet=hit-fit-prop-1"
+                  className="bg-white hover:bg-amber-50/70 p-4 rounded-2xl border border-stone-200 hover:border-amber-400 transition-all group flex flex-col justify-between shadow-xs"
+                >
+                  <div className="space-y-1.5">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-100 text-amber-900 inline-block">
+                      Propozycja nr 1
+                    </span>
+                    <h4 className="font-serif font-bold text-stone-900 text-sm group-hover:text-amber-900">
+                      Karczek w Sosie & Półmiski Finger Food
+                    </h4>
+                    <p className="text-stone-500 text-xs line-clamp-2">
+                      Schab z camembertem i żurawiną, drób serowy, kluski śląskie, galaretki i sałatka Cezar.
+                    </p>
+                  </div>
+                  <span className="pt-3 text-amber-800 font-bold text-xs inline-flex items-center gap-1">
+                    Zobacz to menu <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </Link>
+
+                <Link
+                  to="/menu?kategoria=premium"
+                  className="bg-white hover:bg-amber-50/70 p-4 rounded-2xl border border-stone-200 hover:border-amber-400 transition-all group flex flex-col justify-between shadow-xs"
+                >
+                  <div className="space-y-1.5">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-200 text-amber-950 inline-block">
+                      Stół wiejski i grill
+                    </span>
+                    <h4 className="font-serif font-bold text-stone-900 text-sm group-hover:text-amber-900">
+                      Swojskie Wyroby & Opcje Grillowe
+                    </h4>
+                    <p className="text-stone-500 text-xs line-clamp-2">
+                      Swojskie wędliny, pasztety, smalec, ogórki kiszone, pieczywo oraz propozycje na grilla.
+                    </p>
+                  </div>
+                  <span className="pt-3 text-amber-800 font-bold text-xs inline-flex items-center gap-1">
+                    Zobacz stół wiejski <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </Link>
+              </div>
+            </div>
+
             {/* Action Buttons to View Menu and Download PDF */}
             <div className="pt-4 flex flex-wrap justify-center items-center gap-4">
               <Link
-                to="/menu"
+                to="/menu?uroczystosc=firmowe"
                 className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-500 hover:from-amber-500 hover:to-yellow-400 text-white font-bold text-sm tracking-wide shadow-xl shadow-amber-900/20 transition-all hover:scale-105"
               >
-                <span>Zobacz Pełną Kartę Menu & Pakiety</span>
+                <span>Otwórz Menu Firmowe w Karcie Dań</span>
                 <ArrowRight size={17} />
               </Link>
 
@@ -208,7 +279,7 @@ export function CorporateEventsPage() {
                 className="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-stone-900 hover:bg-stone-800 text-white font-semibold text-sm transition-all shadow-md cursor-pointer"
               >
                 <Download size={16} className="text-amber-400" />
-                <span>Pobierz Ofertę Menu w PDF</span>
+                <span>Pobierz menu w PDF</span>
               </button>
             </div>
           </div>

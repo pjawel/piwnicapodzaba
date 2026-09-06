@@ -9,6 +9,15 @@ import { downloadMenuPdf } from '../utils/generateMenuPdf';
 import { SeoHead } from '../components/SeoHead';
 
 export function FuneralPage() {
+  const funeralPhotos = [
+    PIWNICA_IMAGES[1],
+    PIWNICA_IMAGES[2],
+    PIWNICA_IMAGES[4],
+    HIT_FIT_IMAGES[1],
+    HIT_FIT_IMAGES[4],
+    HIT_FIT_IMAGES[7],
+  ];
+
   return (
     <div className="bg-stone-50 text-gray-900 min-h-screen pt-24 pb-20">
       <SeoHead
@@ -168,13 +177,40 @@ export function FuneralPage() {
               </span>
             </div>
 
+            {/* Konkretne propozycje menu obiadowego na konsolację */}
+            <div className="pt-4 text-left border-t border-stone-200/80 space-y-4">
+              <span className="text-xs font-bold text-stone-700 uppercase tracking-wider block text-center">
+                Propozycje z karty dań:
+              </span>
+              <div className="bg-stone-50 rounded-2xl p-6 border border-stone-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div className="space-y-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-stone-200 text-stone-800 text-[11px] font-bold uppercase tracking-wider">
+                    Dania obiadowe
+                  </div>
+                  <h4 className="text-xl font-serif font-bold text-stone-900">
+                    Dania obiadowe
+                  </h4>
+                  <p className="text-stone-600 text-xs sm:text-sm max-w-2xl leading-relaxed">
+                    Wybór zup (domowy rosół z makaronem, żurek z jajkiem lub krem pomidorowy), soczyste mięsa (kotlet schabowy, de volay, rolada wieprzowa w sosie), ziemniaki, kluski śląskie, 3 świeże surówki oraz patera ciast z kawą i herbatą bez ograniczeń.
+                  </p>
+                </div>
+                <Link
+                  to="/menu?kategoria=obiad"
+                  className="shrink-0 px-5 py-3 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-bold text-xs uppercase tracking-wider transition-all inline-flex items-center gap-2 shadow-sm"
+                >
+                  <span>Zobacz Dania Obiadowe</span>
+                  <ArrowRight size={14} />
+                </Link>
+              </div>
+            </div>
+
             {/* Action Buttons to View Menu and Download PDF */}
             <div className="pt-4 flex flex-wrap justify-center items-center gap-4">
               <Link
-                to="/menu"
+                to="/menu?kategoria=obiad"
                 className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-500 hover:from-amber-500 hover:to-yellow-400 text-white font-bold text-sm tracking-wide shadow-xl shadow-amber-900/20 transition-all hover:scale-105"
               >
-                <span>Zobacz Pełną Kartę Menu & Pakiety</span>
+                <span>Otwórz Menu Obiadowe w Karcie Dań</span>
                 <ArrowRight size={17} />
               </Link>
 
@@ -184,10 +220,43 @@ export function FuneralPage() {
                 className="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-stone-900 hover:bg-stone-800 text-white font-semibold text-sm transition-all shadow-md cursor-pointer"
               >
                 <Download size={16} className="text-amber-400" />
-                <span>Pobierz Menu w PDF</span>
+                <span>Pobierz menu w PDF</span>
               </button>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Photo Showcase */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-16 space-y-8">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
+          <div>
+            <span className="text-stone-500 uppercase tracking-widest text-xs font-bold block">
+              Nasze Wnętrza
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-stone-900">
+              Spokojne, Kameralne Przestrzenie
+            </h2>
+          </div>
+          <Link
+            to="/galeria"
+            className="text-amber-800 hover:text-amber-900 font-bold text-sm inline-flex items-center gap-1.5 transition-colors"
+          >
+            Zobacz wszystkie zdjęcia w galerii <ArrowRight size={16} />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {funeralPhotos.map((src, index) => (
+            <div key={index} className="aspect-4/3 rounded-xl overflow-hidden shadow-sm bg-stone-200 group">
+              <img
+                src={src}
+                alt={`Sala na konsolację zdjęcie ${index + 1}`}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+          ))}
         </div>
       </section>
 

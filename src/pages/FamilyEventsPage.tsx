@@ -153,12 +153,12 @@ export function FamilyEventsPage() {
                 <span className="text-xs px-3 py-1 bg-emerald-100 text-emerald-900 rounded-full font-bold">30–90 osób</span>
               </div>
               <p className="text-stone-600 text-sm leading-relaxed">
-                Duża, jasna przestrzeń bankietowa z zadaszonym tarasem i strefą grillową. Idealna, gdy planujesz biesiadę z tańcami dla szerszego grona.
+                Duża, jasna przestrzeń bankietowa z tarasem i grillem. Idealna, gdy planujesz biesiadę z tańcami dla szerszego grona.
               </p>
               <ul className="space-y-2 text-sm text-stone-700">
                 <li className="flex items-center gap-2">
                   <CheckCircle2 size={16} className="text-emerald-600" />
-                  <span>Szeroki parkiet taneczny i zadaszony taras z grillem</span>
+                  <span>Szeroki parkiet taneczny i taras z grillem</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 size={16} className="text-emerald-600" />
@@ -178,7 +178,7 @@ export function FamilyEventsPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="bg-white rounded-3xl p-8 sm:p-12 border border-stone-200 shadow-xl space-y-8 text-center relative overflow-hidden">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider mx-auto">
-              <ChefHat size={15} className="text-amber-700" /> Kulinarna Oprawa Jubileuszy
+              <UtensilsCrossed size={15} className="text-amber-700" /> Kulinarna Oprawa Jubileuszy
             </div>
 
             <div className="space-y-4 max-w-2xl mx-auto">
@@ -186,7 +186,7 @@ export function FamilyEventsPage() {
                 Domowa Kuchnia i Sprawdzone Smaki na Twoje Święto
               </h2>
               <p className="text-stone-600 text-sm sm:text-base leading-relaxed font-light">
-                Każdy jubileusz i spotkanie rodzinne zasługuje na wyjątkowy stół. Szef Kuchni Piotr Jaworski przygotowuje tradycyjne zestawy obiadowe, wykwintne przekąski zimnego stołu oraz gorące dania serwowane w trakcie biesiady. Menu dopasowujemy do Państwa preferencji i budżetu.
+                Każdy jubileusz i spotkanie rodzinne zasługuje na wyjątkowy stół. Przygotowujemy tradycyjne zestawy obiadowe, wykwintne przekąski zimnego stołu oraz gorące dania serwowane w trakcie biesiady. Menu dopasowujemy do Państwa preferencji i budżetu.
               </p>
             </div>
 
@@ -202,7 +202,7 @@ export function FamilyEventsPage() {
                 <CheckCircle2 size={14} className="text-emerald-600" /> Kawa z ekspresu & herbata bez ograniczeń
               </span>
               <span className="flex items-center gap-1.5 bg-stone-100 px-3.5 py-1.5 rounded-full border border-stone-200">
-                <CheckCircle2 size={14} className="text-emerald-600" /> Świeżo przygotowywane na miejscu
+                <CheckCircle2 size={14} className="text-emerald-600" /> Bogaty wybór dań obiadowych
               </span>
             </div>
 

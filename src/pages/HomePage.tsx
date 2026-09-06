@@ -96,7 +96,7 @@ export function HomePage() {
     },
     {
       title: "Karta Menu & Pakiety",
-      desc: "Autorska kuchnia Piotra Jaworskiego, dania gorące, zimny stół oraz PDF",
+      desc: "Autorska kuchnia, dania gorące, zimny stół oraz PDF",
       path: "/menu",
       icon: ChefHat,
       tag: "Kuchnia & Cennik",
@@ -206,7 +206,7 @@ export function HomePage() {
                   <Wine size={13} className="text-amber-400" /> Własny alkohol bez opłaty korkowej
                 </span>
                 <span className="flex items-center gap-1.5 bg-black/40 px-3 py-1 rounded-full border border-white/10">
-                  <CheckCircle2 size={13} className="text-amber-400" /> Autorska kuchnia na miejscu
+                  <CheckCircle2 size={13} className="text-amber-400" /> Bogata karta dań
                 </span>
               </div>
             </div>
@@ -269,7 +269,7 @@ export function HomePage() {
                     <span className="text-stone-400">ul. Konstytucji 3 Maja 3</span>
                   </div>
                   <p className="text-xs text-stone-300 leading-relaxed font-light">
-                    Zobacz przestrzeń wokół lokalu: bezpieczny dojazd, bezpłatny duży parking, zadaszony taras i zielone otoczenie.
+                    Zobacz przestrzeń wokół lokalu: bezpieczny dojazd, bezpłatny duży parking, taras i zielone otoczenie.
                   </p>
                   <div className="flex flex-wrap gap-2 pt-1">
                     <span className="text-[11px] bg-white/10 px-2.5 py-1 rounded-lg text-stone-300 flex items-center gap-1">
@@ -393,7 +393,7 @@ export function HomePage() {
                   Sala Bankietowa Hit Fit
                 </h3>
                 <p className="text-stone-600 text-sm leading-relaxed">
-                  Ul. Konstytucji 3 Maja 3, Lubin. Przestronny obiekt z dużym parkietem do tańca, stołem prezydialnym, zadaszonym tarasem z grillem plenerowym oraz dużym bezpłatnym parkingiem.
+                  Ul. Konstytucji 3 Maja 3, Lubin. Przestronny obiekt z dużym parkietem do tańca, stołem prezydialnym, tarasem z grillem plenerowym oraz dużym bezpłatnym parkingiem.
                 </p>
               </div>
               <Link
@@ -491,7 +491,7 @@ export function HomePage() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-2 text-center md:text-left">
               <span className="text-amber-400 font-bold text-xs uppercase tracking-widest block">
-                Kulinaria Piotra Jaworskiego
+                Kulinaria & Oferta Menu
               </span>
               <h3 className="text-2xl md:text-3xl font-serif font-bold text-white">
                 Zobacz Pełną Kartę Menu & Dania Gorące

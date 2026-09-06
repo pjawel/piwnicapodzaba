@@ -136,9 +136,9 @@ export function WeddingsPage() {
             <div className="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center text-amber-700">
               <Flame size={24} />
             </div>
-            <h4 className="text-lg font-serif font-bold text-stone-900">Taras i Strefa Grillowa</h4>
+            <h4 className="text-lg font-serif font-bold text-stone-900">Taras i Grill</h4>
             <p className="text-stone-600 text-sm leading-relaxed">
-              Zadaszony taras wypoczynkowy, na którym goście mogą zaczerpnąć świeżego powietrza. Dostęp do strefowego grilla.
+              Taras wypoczynkowy, na którym goście mogą zaczerpnąć świeżego powietrza. Dostęp do grilla.
             </p>
           </div>
 
@@ -156,9 +156,9 @@ export function WeddingsPage() {
             <div className="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center text-amber-700">
               <UtensilsCrossed size={24} />
             </div>
-            <h4 className="text-lg font-serif font-bold text-stone-900">Doświadczony Szef Kuchni</h4>
+            <h4 className="text-lg font-serif font-bold text-stone-900">Doświadczenie Kulinarne</h4>
             <p className="text-stone-600 text-sm leading-relaxed">
-              Wieloletnie doświadczenie Piotra Jaworskiego w sztuce kulinarnej. Świeże dania przygotowywane na miejscu w dniu wesela.
+              Wieloletnie doświadczenie w sztuce kulinarnej i obsłudze przyjęć weselnych.
             </p>
           </div>
         </div>
@@ -169,7 +169,7 @@ export function WeddingsPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="bg-white rounded-3xl p-8 sm:p-12 border border-stone-200 shadow-xl space-y-8 text-center relative overflow-hidden">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider mx-auto">
-              <ChefHat size={15} className="text-amber-700" /> Kulinarna Oprawa Wesela
+              <UtensilsCrossed size={15} className="text-amber-700" /> Kulinarna Oprawa Wesela
             </div>
 
             <div className="space-y-4 max-w-2xl mx-auto">
@@ -177,7 +177,7 @@ export function WeddingsPage() {
                 Wyśmienita Tradycyjna Kuchnia na Twoim Weselu
               </h2>
               <p className="text-stone-600 text-sm sm:text-base leading-relaxed font-light">
-                Autorskie menu weselne Piotra Jaworskiego przygotowywane jest na bieżąco w naszej kuchni. Oferujemy bogaty wybór domowych zup, 4 rodzaje soczystych mięs obiadowych, świeże surówki, obfity zimny stół oraz aż <strong>14 propozycji gorących dań i kolacji nocnych</strong> (m.in. płonący udziec wieprzowy, tradycyjny barszcz z krokietem, flaczki).
+                Oferujemy bogaty wybór zup, 4 rodzaje mięs obiadowych, surówki, zimny stół oraz aż <strong>14 propozycji gorących kolacji</strong> (m.in. płonący udziec wieprzowy, tradycyjny barszcz z krokietem, flaczki).
               </p>
             </div>
 

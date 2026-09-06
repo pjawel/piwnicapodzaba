@@ -144,10 +144,10 @@ export function VenuesPage() {
 
                   <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80 space-y-1.5">
                     <div className="flex items-center gap-2 text-emerald-800 font-bold text-sm">
-                      <Flame size={18} /> Zadaszony Taras i Grill
+                      <Flame size={18} /> Taras i Grill
                     </div>
                     <p className="text-stone-600 text-xs leading-relaxed">
-                      Strefa relaksu na świeżym powietrzu oraz plenerowy grill na biesiady i integracje.
+                      Relaks na świeżym powietrzu oraz grill na biesiady i integracje.
                     </p>
                   </div>
 
@@ -403,7 +403,7 @@ export function VenuesPage() {
                 </tr>
                 <tr>
                   <td className="py-3 px-4 font-bold text-stone-900">Taras Wypoczynkowy</td>
-                  <td className="py-3 px-4">TAK (zadaszony taras + grill)</td>
+                  <td className="py-3 px-4">TAK (taras + grill)</td>
                   <td className="py-3 px-4">Strefa zewnętrzna</td>
                 </tr>
                 <tr>
@@ -433,7 +433,7 @@ export function VenuesPage() {
               Karty Menu Dostępne w Naszych Salach
             </h3>
             <p className="text-stone-600 text-sm">
-              Niezależnie od wybranej sali, wszystkie dania przygotowujemy na bieżąco według sprawdzonych receptur Szefa Kuchni Piotra Jaworskiego.
+              Niezależnie od wybranej sali, oferujemy bogaty wybór tradycyjnych dań i zestawów bankietowych.
             </p>
           </div>
 

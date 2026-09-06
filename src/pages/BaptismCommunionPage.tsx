@@ -22,7 +22,7 @@ export function BaptismCommunionPage() {
     <div className="bg-stone-50 text-gray-900 min-h-screen pt-24 pb-20">
       <SeoHead
         title="Chrzciny i Komunie Lubin | Sala na Chrzest i Komunię Świętą"
-        description="Przyjęcia komunijne i chrzciny w Lubinie. Dedykowane pakiety menu, kącik dla dzieci, kameralna atmosfera w Piwnicy pod Żabą lub duża przestrzeń w Sali Hit Fit. Sprawdź wolne niedziele!"
+        description="Przyjęcia komunijne i chrzciny w Lubinie. Sprawdzona oferta menu, kącik dla dzieci, kameralna atmosfera w Piwnicy pod Żabą lub duża przestrzeń w Sali Hit Fit. Sprawdź wolne niedziele!"
         keywords={['chrzciny Lubin', 'komunia Lubin', 'sala na chrzciny Lubin', 'sala na komunię Lubin', 'przyjęcie komunijne Lubin', 'obiad komunijny Lubin']}
         canonicalPath="/chrzciny-komunie"
       />
@@ -47,7 +47,7 @@ export function BaptismCommunionPage() {
           </h1>
 
           <p className="text-lg sm:text-xl text-stone-300 max-w-3xl mx-auto font-light leading-relaxed">
-            Dedykowane pakiety menu, tradycyjny smak dań, bezpieczna przestrzeń dla dzieci i serdeczna atmosfera dla całej rodziny.
+            Sprawdzona oferta menu, tradycyjny smak dań, bezpieczna przestrzeń dla dzieci i serdeczna atmosfera dla całej rodziny.
           </p>
 
           <div className="pt-4 flex flex-wrap justify-center gap-4">
@@ -86,7 +86,7 @@ export function BaptismCommunionPage() {
             </div>
             <h3 className="text-2xl font-serif font-bold text-stone-900">Sala Bankietowa Hit Fit</h3>
             <p className="text-stone-600 text-sm leading-relaxed">
-              Świetna na Pierwsze Komunie Święte oraz większe przyjęcia chrzcielne łączące obie rodziny. Zadaszony taras umożliwia dzieciom bezpieczne wyjście na świeże powietrze, a przestronne wnętrze zapewnia swobodę wszystkim pokoleniom.
+              Świetna na Pierwsze Komunie Święte oraz większe przyjęcia chrzcielne łączące obie rodziny. Taras umożliwia dzieciom bezpieczne wyjście na świeże powietrze, a przestronne wnętrze zapewnia swobodę wszystkim pokoleniom.
             </p>
             <ul className="space-y-2 text-sm text-stone-700">
               <li className="flex items-center gap-2">
@@ -170,13 +170,40 @@ export function BaptismCommunionPage() {
               </span>
             </div>
 
+            {/* Karta Menu na Chrzciny i Komunie */}
+            <div className="pt-4 text-left border-t border-stone-200/80 space-y-4">
+              <span className="text-xs font-bold text-amber-900 uppercase tracking-wider block text-center">
+                Menu z oficjalnej karty dań:
+              </span>
+              <div className="bg-rose-50/60 rounded-2xl p-6 border border-rose-200/80 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div className="space-y-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-100 text-rose-900 text-[11px] font-bold uppercase tracking-wider">
+                    Oferta menu na chrzciny
+                  </div>
+                  <h4 className="text-xl font-serif font-bold text-stone-900">
+                    Oferta menu na chrzciny
+                  </h4>
+                  <p className="text-stone-600 text-xs sm:text-sm max-w-2xl leading-relaxed">
+                    W zestawie: aromatyczny rosół z makaronem, tradycyjny kotlet schabowy, rolada drobiowa ze szpinakiem, rolada z pieczarkami w sosie, nuggetsy dla dzieci, kluski śląskie, bukiet 3 surówek, polędwiczki po warszawsku, sałatka Fit z granatem, przekładaniec koronkowo-serowy oraz nielimitowana kawa i herbata.
+                  </p>
+                </div>
+                <Link
+                  to="/menu?uroczystosc=chrzciny&pakiet=chrzciny-menu"
+                  className="shrink-0 px-5 py-3 rounded-xl bg-rose-900 hover:bg-rose-950 text-white font-bold text-xs uppercase tracking-wider transition-all inline-flex items-center gap-2 shadow-sm"
+                >
+                  <span>Otwórz To Menu</span>
+                  <ArrowRight size={14} />
+                </Link>
+              </div>
+            </div>
+
             {/* Action Buttons to View Menu and Download PDF */}
             <div className="pt-4 flex flex-wrap justify-center items-center gap-4">
               <Link
-                to="/menu"
+                to="/menu?uroczystosc=chrzciny&pakiet=chrzciny-menu"
                 className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-500 hover:from-amber-500 hover:to-yellow-400 text-white font-bold text-sm tracking-wide shadow-xl shadow-amber-900/20 transition-all hover:scale-105"
               >
-                <span>Zobacz Pełną Kartę Menu & Pakiety</span>
+                <span>Oferta menu na chrzciny w Karcie Dań</span>
                 <ArrowRight size={17} />
               </Link>
 
@@ -186,7 +213,7 @@ export function BaptismCommunionPage() {
                 className="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-stone-900 hover:bg-stone-800 text-white font-semibold text-sm transition-all shadow-md cursor-pointer"
               >
                 <Download size={16} className="text-amber-400" />
-                <span>Pobierz Menu w PDF</span>
+                <span>Pobierz menu w PDF</span>
               </button>
             </div>
           </div>

@@ -128,7 +128,7 @@ export function EighteenthBirthdayPage() {
                 Do 90 osób • ul. Konstytucji 3 Maja 3, Lubin
               </p>
               <p className="text-stone-600 text-sm leading-relaxed">
-                Jeśli planujesz naprawdę dużą osiemnastkę z szerokim gronem znajomych i rodziny. Przestronny parkiet taneczny oraz dostęp do zadaszonego tarasu ze strefą grillową.
+                Jeśli planujesz naprawdę dużą osiemnastkę z szerokim gronem znajomych i rodziny. Przestronny parkiet taneczny oraz dostęp do tarasu z grillem.
               </p>
             </div>
 
@@ -139,7 +139,7 @@ export function EighteenthBirthdayPage() {
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle2 size={16} className="text-emerald-600 shrink-0" />
-                <span>Zadaszony taras wypoczynkowy ze strefą grilla</span>
+                <span>Taras wypoczynkowy z grillem</span>
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle2 size={16} className="text-emerald-600 shrink-0" />
